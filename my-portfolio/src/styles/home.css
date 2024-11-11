@@ -1,0 +1,53 @@
+/* src/styles/home.css */
+.home {
+  padding-top: 100px; /* Offset navbar */
+  padding-bottom: 50px;
+}
+
+.home-content {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.home-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.home-content p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.section {
+  padding: 100px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.project-item {
+  margin-bottom: 30px;
+}
+
+.project-item h3 {
+  font-size: 1.75rem;
+  color: #007bff;
+}
+
+.project-item p {
+  color: #555;
+}

@@ -1,0 +1,22 @@
+/* src/index.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #333;
+  padding: 1rem;
+  color: white;
+}
+
+.navbar .nav-link {
+  margin-right: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .nav-link.active {
+  font-weight: bold;
+}

@@ -1,0 +1,27 @@
+/* src/styles/About.css */
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 10%;
+  }
+  
+  .about-head h1 {
+    font-size: 50px;
+    color: aqua;
+  }
+  
+  .about-head h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ededed;
+  }
+  
+  .about-head p {
+    font-size: 18px;
+    color: aliceblue;
+    line-height: 1.5;
+    margin-bottom: 4rem;
+  }
+  
