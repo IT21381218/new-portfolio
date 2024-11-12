@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Element } from "react-scroll";
 import "../styles/home.css";
 import About from "./About";
@@ -6,36 +6,33 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import ThreeDModel from "./ThreeDModel";
-import { trefoil } from "ldrs";  // Import trefoil from ldrs
-
-trefoil.register();  // Register the trefoil loader
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate a loading time
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Hide the loading screen after 2 seconds
-    }, 2000); // 2 seconds for demonstration
+    const handleMouseMove = (event) => {
+      const x = event.clientX;
+      const y = event.clientY;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
 
-    return () => clearTimeout(timer); // Cleanup on component unmount
+      // Calculate rotation values based on mouse position
+      const rotateX = ((y / height) - 0.5) * 10;  // Limit to -10 to 10 degrees
+      const rotateY = ((x / width) - 0.5) * -10; // Limit to -10 to 10 degrees
+
+      // Apply rotation to the home-content element
+      const textElement = document.querySelector('.home-content');
+      if (textElement) {
+        textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
-
-  if (isLoading) {
-    return (
-      <div className="loading-screen">
-        <l-trefoil
-          size="200"
-          stroke="4"
-          stroke-length="0.15"
-          bg-opacity="0.1"
-          speed="1.4"
-          color="white"
-        ></l-trefoil>
-      </div>
-    ); // Show trefoil loader while loading
-  }
 
   return (
     <div className="home">
