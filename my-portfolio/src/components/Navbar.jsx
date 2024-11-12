@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { FiHome, FiUser, FiAward, FiBriefcase, FiMail, FiChevronLeft } from "react-icons/fi"; // Use FiChevronLeft for the toggle
@@ -5,21 +6,11 @@ import { motion } from "framer-motion"; // Import framer-motion for animations
 import "../styles/navbar.css";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true); // State to toggle navbar visibility
 
   // Handle the scroll event to apply styles when scrolling
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
-
-  // Toggle navbar visibility
   const toggleNavbar = () => {
-    setIsNavVisible(prev => !prev);
+    setIsNavVisible((prev) => !prev);
   };
 
   return (
@@ -68,19 +59,11 @@ const Navbar = () => {
 
       {/* Main Content Area */}
       <div className={`main-content ${isNavVisible ? "" : "full-screen"}`}>
-        {/* Render Home Component or other main content */}
-        <Home />
+        {/* The Home component (or other content) can be placed here */}
+        {/* You can add <Home /> or other content */}
       </div>
     </div>
   );
 };
-
-// Example of Home component
-const Home = () => (
-  <div className="home">
-    <h2>Welcome to the Home Page</h2>
-    <p>Content goes here...</p>
-  </div>
-);
 
 export default Navbar;

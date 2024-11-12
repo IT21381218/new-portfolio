@@ -8,13 +8,12 @@ import FollowMe from "./components/FollowMe";
 import Projects from "./components/Projects";
 import Services from "./components/Services";
 import Skills from "./components/Skills";
-import Navbar from "./components/Navbar";
+
 import "./index.css";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <Router>      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
