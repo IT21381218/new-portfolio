@@ -1,5 +1,3 @@
-/* src/styles/home.css */
-
 /* General styling */
 *,
 *::before,
@@ -11,7 +9,7 @@
 
 html, body {
   width: 100%;
-  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-x: hidden;
 }
 
 .home {
@@ -19,8 +17,8 @@ html, body {
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100vw; /* Set to viewport width */
+  align-items: flex-start;
+  width: 100vw;
   overflow-x: hidden;
   position: relative;
   background-color: black;
@@ -28,45 +26,54 @@ html, body {
 }
 
 .home-content {
-  text-align: center;
-  margin: 50px 0;
-  max-width: 100%;
-  z-index: 10; /* Bring the content sections in front */
-  position: relative; /* Ensure content has stacking context */
-  transition: transform 0.2s ease-out; /* Smooth transition for rotation */
+  position: absolute;
+  top: 40px; /* Space from the top */
+  left: 40px; /* Space from the left */
+  width: calc(100% - 80px); /* Limit width with margins on both sides */
+  display: flex;
+  justify-content: space-between; /* Positions h1 on the left and p on the right */
+  align-items: flex-start;
+  padding: 0 20px;
+  z-index: 10;
+  transform-origin: center; /* Ensures the rotation happens around the center of the element */
+  transition: transform 0.1s ease-out; /* Smooth transition for rotation */
 }
 
 .home-content h1 {
-  font-size: 3rem;
-  position: absolute;  /* Enable absolute positioning */
-  top: 30%;  /* Move the text lower */
-  right: 0%;  /* Move the text slightly to the right */
-  transform: translate(-50%, -50%); /* Adjust the exact position */
-  line-height: 1.2; /* Control the line height for the text */
-  color: white;
-  max-width: 90%; /* Allow text to wrap */
+  font-size: 4rem;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1.2;
+  text-align: left;
   margin: 0;
-  white-space: normal; /* Ensure text breaks to the next line */
-  
-  /* Apply animation */
-  animation: fadeInUp 1.5s ease-out forwards; /* Animation added */
-}
-
-/* Keyframes for animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 20%); /* Start lower than final position */
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%); /* End at final position */
-  }
+  animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .home-content p {
   font-size: 1.5rem;
-  color: #555;
+  font-family: 'Arial', sans-serif;
+  color: #ccc;
+  text-align: right;
+  position: absolute;
+  top: 400px; /* Adjust the top to your liking */
+  left: 60%; /* Center it horizontally */
+  transform: translateX(50%); /* Offset it to the right to make it more centered */
+  max-width: 300px;
+  word-wrap: break-word;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-20%) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
 }
 
 .section {
@@ -74,39 +81,10 @@ html, body {
   text-align: center;
   width: 100%;
   max-width: 100vw;
-  z-index: 10; /* Ensure sections stay in front */
-  position: relative; /* Create stacking context */
+  z-index: 10;
 }
 
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  font-size: 1.25rem;
-  margin: 10px 0;
-}
-
-.project-item {
-  margin-bottom: 30px;
-}
-
-.project-item h3 {
-  font-size: 1.75rem;
-  color: #007bff;
-}
-
-.project-item p {
-  color: #555;
-}
-
-/* Styling for the 3D Model container */
+/* 3D Model container */
 .threeDModel-container {
   position: absolute;
   top: 0;
@@ -114,30 +92,30 @@ ul li {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: 0; /* Put the 3D model behind all content */
+  z-index: 0;
   pointer-events: none;
 }
 
 /* Mobile styles for responsiveness */
 @media (max-width: 768px) {
-  .home-content h1 {
-    font-size: 2.5rem;
+  .home-content {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
   }
-
+  .home-content h1 {
+    font-size: 3rem;
+  }
   .home-content p {
     font-size: 1.2rem;
-  }
-
-  .section {
-    padding: 50px 10px;
+    text-align: left;
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 480px) {
   .home-content h1 {
-    font-size: 2rem; /* Smaller font on very small screens */
-    top: 40%; /* Keep text lower */
-    left: 85%; /* Adjust for smaller screens */
-    transform: translate(-85%, -50%); /* Slightly reduce the shift to the right */
+    font-size: 2rem;
+    top: 10px;
+    left: 10px;
   }
 }
