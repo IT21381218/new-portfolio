@@ -1,133 +1,128 @@
 /* Skills Section Styling */
 .skills {
-    background-color: #000; /* Black background */
-    color: white; /* White text */
-    padding: 50px 20px; /* Padding for spacing */
+    background-color: #000;
+    color: white;
+    padding: 30px 40px; /* Reduced padding for mobile */
     text-align: center;
   }
   
   .skills h1 {
-    font-size: 2.5rem; /* Large heading */
+    font-size: 2rem; /* Smaller font size for mobile */
     font-weight: 600;
-    margin-bottom: 20px;
-    letter-spacing: 2px; /* Space out letters */
+    margin-bottom: 15px;
+    letter-spacing: 1px; /* Reduced letter spacing for better readability on mobile */
     color: #fff;
   }
   
   .skills p {
-    font-size: 1.2rem;
+    font-size: 1rem; /* Smaller paragraph font size for mobile */
     color: #ccc;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   
   .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between skills */
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller card width for mobile */
+    gap: 15px; /* Reduced gap for better fit on small screens */
+    max-width: 100%; /* Full width on mobile */
     margin: 0 auto;
   }
   
   .skill-card {
-    background-color: #222; /* Dark card background */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
+    background-color: #222;
+    padding: 15px; /* Smaller padding for mobile */
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease-in-out;
     position: relative;
-    overflow: hidden; /* Hide any overflow for the border animation */
-    border: 2px solid transparent; /* Border to create glowing effect */
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
   }
   
   /* Futuristic Hover Effect */
   .skill-card:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* White glowing effect */
-    background-color: #333; /* Slightly lighter background on hover */
-    border-color: #fff; /* Light border on hover */
+    transform: scale(1.05); /* Reduced scale effect for mobile */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    background-color: #333;
+    border-color: #888;
   }
   
-  /* Adding a subtle glowing border during hover */
+  /* Pulsing Border Effect */
   .skill-card::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300%;
-    height: 300%;
-    background: linear-gradient(45deg, #fff, #aaa, #fff, #aaa); /* Subtle white gradient for the glow */
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
     border-radius: 50%;
-    animation: pulse-border 1.5s infinite ease-in-out;
-    transform: translate(-50%, -50%);
-    z-index: -1; /* Place behind the card content */
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
   }
   
-  /* Animation for the glowing border */
-  @keyframes pulse-border {
-    0% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0.5;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0.5;
-    }
+  .skill-card:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
   }
   
   .skill-icon {
-    font-size: 3rem; /* Larger icons */
+    font-size: 2.5rem; /* Reduced icon size for mobile */
     color: #fff;
-    margin-bottom: 10px; /* Space between icon and text */
+    margin-bottom: 8px;
     transition: transform 0.3s ease;
   }
   
-  /* When hovering over the icon, add a slight spin or animation */
   .skill-card:hover .skill-icon {
-    transform: rotate(360deg); /* Icon rotates 360 degrees */
+    transform: rotate(360deg);
   }
   
   .skill-card p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Smaller font for skill name */
     color: #ccc;
     font-weight: 600;
-    text-transform: uppercase; /* Uppercase text */
-    margin-top: 10px; /* Space between icon and skill name */
+    text-transform: uppercase;
+    margin-top: 8px;
     transition: color 0.3s ease;
   }
   
-  /* On hover, change the color of the text for a futuristic feel */
-  .skill-card:hover p {
-    color: #fff; /* Text color changes to white */
+  /* Selected Skill Card */
+  .skill-card.selected {
+    background-color: #fff;
   }
   
-  /* Mobile Responsiveness */
-  @media (max-width: 768px) {
-    .skills-container {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjust grid layout for smaller screens */
-      gap: 15px; /* Smaller gap on mobile */
-    }
+  .skill-card.selected .skill-icon,
+  .skill-card.selected p {
+    color: #000; /* Black color for selected icons and text */
+  }
   
+  /* Media Query for Extra Small Screens (smaller than 480px) */
+  @media (max-width: 480px) {
     .skills h1 {
-      font-size: 2rem; /* Smaller font size for mobile */
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
   
     .skills p {
-      font-size: 1rem; /* Smaller paragraph font size */
+      font-size: 0.9rem;
+      margin-bottom: 15px;
     }
   
     .skill-card {
-      padding: 15px; /* Less padding on mobile */
+      padding: 12px;
     }
   
     .skill-icon {
-      font-size: 2.5rem; /* Smaller icons on mobile */
+      font-size: 2rem;
+    }
+  
+    .skill-card p {
+      font-size: 0.8rem;
     }
   }
   

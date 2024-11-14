@@ -1,28 +1,31 @@
 // src/components/Skills.jsx
-import React from "react";
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma,FaPython  } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma, FaPython } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
-import { SiPowerbi, SiJupyter,SiPostman} from "react-icons/si";
+import { SiPowerbi, SiJupyter, SiPostman } from "react-icons/si";
 import { GrOracle } from "react-icons/gr";
 import "../styles/skills.css";
 
 function Skills() {
+  // State to track the selected skill
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
   // Array of skills with names and their respective icons
   const skills = [
-    { name: "React", icon: <FaReact size={50} /> },
-    { name: "HTML", icon: <FaHtml5 size={50} /> },
-    { name: "CSS", icon: <FaCss3Alt size={50} /> },
-    { name: "JavaScript", icon: <FaJs size={50} /> },
-    { name: "Node.js", icon: <FaNodeJs size={50} /> },
-    { name: "Git", icon: <FaGitAlt size={50} /> },
-    { name: "MongoDB", icon: <DiMongodb size={50} /> },
-    { name: "Power BI", icon: <SiPowerbi size={50} /> },
-    { name: "OracleSQL", icon: <GrOracle size={50} /> },
-    { name: "GitHub", icon: <FaGithub size={50} /> },
-    { name: "Figma", icon: <FaFigma size={50} /> },
-    { name: "Python ", icon: <FaPython size={50} /> },
-    { name: "Jupyter ", icon: <SiJupyter size={50} /> },
-    { name: "Postman  ", icon: <SiPostman  size={50} /> }
+    { id: 1, name: "React", icon: <FaReact size={50} /> },
+    { id: 2, name: "HTML", icon: <FaHtml5 size={50} /> },
+    { id: 3, name: "CSS", icon: <FaCss3Alt size={50} /> },
+    { id: 4, name: "JavaScript", icon: <FaJs size={50} /> },
+    { id: 5, name: "Node.js", icon: <FaNodeJs size={50} /> },
+    { id: 6, name: "Git", icon: <FaGitAlt size={50} /> },
+    { id: 7, name: "MongoDB", icon: <DiMongodb size={50} /> },
+    { id: 8, name: "Power BI", icon: <SiPowerbi size={50} /> },
+    { id: 9, name: "OracleSQL", icon: <GrOracle size={50} /> },
+    { id: 10, name: "GitHub", icon: <FaGithub size={50} /> },
+    { id: 11, name: "Figma", icon: <FaFigma size={50} /> },
+    { id: 12, name: "Python", icon: <FaPython size={50} /> },
+    { id: 13, name: "Jupyter", icon: <SiJupyter size={50} /> },
+    { id: 14, name: "Postman", icon: <SiPostman size={50} /> },
   ];
 
   return (
@@ -30,8 +33,12 @@ function Skills() {
       <h1>Skills</h1>
       <p>My professional skills.</p>
       <div className="skills-container">
-        {skills.map((skill, index) => (
-          <div key={index} className="skill-card">
+        {skills.map((skill) => (
+          <div
+            key={skill.id}
+            className={`skill-card ${selectedSkill === skill.id ? "selected" : ""}`}
+            onClick={() => setSelectedSkill(skill.id)}
+          >
             <div className="skill-icon">{skill.icon}</div>
             <p>{skill.name}</p>
           </div>
