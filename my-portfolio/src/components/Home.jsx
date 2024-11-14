@@ -4,6 +4,7 @@ import { Element } from "react-scroll";
 import "../styles/home.css";
 import About from "./About";
 import Skills from "./Skills";
+import Services from './Services';
 import Projects from "./Projects";
 import Contact from "./Contact";
 import ThreeDModel from "./ThreeDModel";
@@ -58,6 +59,9 @@ const Home = ({ isMuted, toggleMute }) => {
       </Element>
       <Element name="projects" className="section">
         <Projects />
+      </Element>
+      <Element name="services" className="section">
+        <Services />
       </Element>
       <Element name="contact" className="section">
         <Contact />
