@@ -15,6 +15,9 @@ import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 const Home = ({ isMuted, toggleMute }) => {
 
   useEffect(() => {
+    const textElement = document.querySelector('.home-content');
+
+    // Mouse-based rotation
     const handleMouseMove = (event) => {
       const x = event.clientX;
       const y = event.clientY;
@@ -25,16 +28,34 @@ const Home = ({ isMuted, toggleMute }) => {
       const rotateX = ((y / height) - 0.5) * 20;
       const rotateY = ((x / width) - 0.5) * -20;
 
-      const textElement = document.querySelector('.home-content');
+      if (textElement) {
+        textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+    };
+
+    // Touch-based rotation
+    const handleTouchMove = (event) => {
+      const touch = event.touches[0];
+      const x = touch.clientX;
+      const y = touch.clientY;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      const rotateX = ((y / height) - 0.5) * 20;
+      const rotateY = ((x / width) - 0.5) * -20;
+
       if (textElement) {
         textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
       }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove);
 
+    // Clean up the event listeners on component unmount
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 

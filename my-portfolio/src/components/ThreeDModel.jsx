@@ -6,7 +6,9 @@ import { TextureLoader } from "three";
 const ThreeDModel = () => {
   const sceneRef = useRef(null);
   const modelRef = useRef(null);
-  const mousePos = useRef({ x: 0, y: 0 }); // Use ref instead of state to avoid re-renders
+  const mousePos = useRef({ x: 0, y: 0 });
+  const touchStartPos = useRef({ x: 0, y: 0 });
+  const touchDelta = useRef({ x: 0, y: 0 }); // Store touch movement delta
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -56,23 +58,47 @@ const ThreeDModel = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      // Apply smooth rotation based on mouse position (for 3D model)
+      // Apply smooth rotation based on mouse or touch position for the 3D model
       if (modelRef.current) {
-        modelRef.current.rotation.x = mousePos.current.y * Math.PI * 0.3; // Horizontal rotation effect
-        modelRef.current.rotation.y = mousePos.current.x * Math.PI * 0.3; // Vertical rotation effect
+        modelRef.current.rotation.x = (mousePos.current.y + touchDelta.current.y) * Math.PI * 0.3;
+        modelRef.current.rotation.y = (mousePos.current.x + touchDelta.current.x) * Math.PI * 0.3;
       }
 
       renderer.render(scene, camera);
     };
     animate();
 
+    // Mouse movement handler
     const handleMouseMove = (event) => {
       const x = (event.clientX / window.innerWidth) - 0.5;
       const y = (event.clientY / window.innerHeight) - 0.5;
-      mousePos.current = { x, y }; // Update mouse position using ref
+      mousePos.current = { x, y };
     };
 
+    // Touch start handler to capture initial touch position
+    const handleTouchStart = (event) => {
+      const touch = event.touches[0];
+      touchStartPos.current = { x: touch.clientX, y: touch.clientY };
+    };
+
+    // Touch move handler to calculate the touch delta and update rotation
+    const handleTouchMove = (event) => {
+      const touch = event.touches[0];
+      const deltaX = (touch.clientX - touchStartPos.current.x) / window.innerWidth;
+      const deltaY = (touch.clientY - touchStartPos.current.y) / window.innerHeight;
+      touchDelta.current = { x: deltaX, y: deltaY };
+    };
+
+    // Reset touch delta on touch end
+    const handleTouchEnd = () => {
+      touchDelta.current = { x: 0, y: 0 };
+    };
+
+    // Add event listeners
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -81,9 +107,13 @@ const ThreeDModel = () => {
     };
     window.addEventListener("resize", handleResize);
 
+    // Cleanup function
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
       if (sceneRef.current) {
         sceneRef.current.removeChild(renderer.domElement);
       }
