@@ -24,6 +24,9 @@ html, body {
   background-color: black;
   color: white;
 }
+.home-size{
+  height: 100vh;
+}
 
 .home-content {
   position: absolute;

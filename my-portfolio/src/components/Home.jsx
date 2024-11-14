@@ -40,6 +40,7 @@ const Home = ({ isMuted, toggleMute }) => {
 
   return (
     <div className="home">
+      <div className="home-size">
       <section id="threeDModel" className="threeDModel-section">
         <ThreeDModel />
       </section>
@@ -48,7 +49,7 @@ const Home = ({ isMuted, toggleMute }) => {
         <h1>Welcome to <br /> My Portfolio</h1>
         <p>Discover more about <br /> my work and skills.</p>
       </section>
-
+      </div>
       <Element name="about" className="section">
         <About />
       </Element>
