@@ -4,14 +4,12 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background: rgba(255, 0, 221, 0); /* Dark, semi-transparent background */
   padding: 20px;
   border-radius: 12px;
-  backdrop-filter: blur(0px);
-  border: 1px solid rgba(255, 255, 255, 0); /* Subtle border */
-  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0), inset 0px 0px 5px rgba(255, 255, 255, 0); /* Subtle glow */
   z-index: 100;
+  background: rgba(0, 0, 0, 0); /* Transparent black background */
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  border: 0px solid rgba(255, 255, 255, 0); /* Subtle white border */
 }
 
 .visible {
@@ -24,6 +22,7 @@
   visibility: hidden;
 }
 
+/* Navbar List */
 .navbar ul {
   list-style: none;
   padding: 0;
@@ -33,4 +32,86 @@
   gap: 20px;
 }
 
-/* The rest of the navbar styles remain unchanged */
+.navbar li {
+  text-align: center;
+}
+
+.navbar li a {
+  color: rgba(255, 255, 255, 0.8); /* Soft white */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Roboto Mono', monospace; /* Minimalist font */
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s ease, transform 0.3s ease;
+}
+
+/* Hover Effect */
+.navbar li a:hover {
+  color: #ff0000; /* Brighter on hover */
+  transform: scale(1.08); /* Slight zoom */
+}
+
+/* Holographic Highlight Animation */
+.navbar li a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.212);
+  box-shadow: 0 0 50px rgb(255, 0, 0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.navbar li a:hover::before {
+  opacity: 1;
+  animation: glowPulse 1.5s infinite alternate ease-in-out;
+}
+
+/* Floating Border Animation */
+.navbar li a::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, white, transparent);
+  transition: left 0.5s ease;
+}
+
+.navbar li a:hover::after {
+  left: 0;
+}
+
+/* Keyframes for glow pulse */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Focus Effect */
+.navbar li a:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Strong white glow */
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+  }
+  .navbar li a {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
