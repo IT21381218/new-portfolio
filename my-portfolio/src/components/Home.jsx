@@ -8,6 +8,7 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import ThreeDModel from "./ThreeDModel";
+import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
@@ -40,6 +41,7 @@ const Home = ({ isMuted, toggleMute }) => {
 
   return (
     <div className="home">
+      <Navbar />
       <div className="home-size">
       <section id="threeDModel" className="threeDModel-section">
         <ThreeDModel />

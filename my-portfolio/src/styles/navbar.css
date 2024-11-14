@@ -1,103 +1,86 @@
 /* src/styles/navbar.css */
-.navbar-container {
-  display: flex;
-  height: 100vh; /* Make the entire viewport height available */
-}
-
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: #2d2d2d;
-  color: #fff;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-
-.navbar-logo {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: rgba(255, 0, 221, 0); /* Dark, semi-transparent background */
   padding: 20px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #fff;
+  border-radius: 12px;
+  backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0); /* Subtle border */
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0), inset 0px 0px 5px rgba(255, 255, 255, 0); /* Subtle glow */
+  z-index: 100;
 }
 
-.navbar-links {
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  gap: 20px;
 }
 
-.nav-link {
-  display: flex;
-  align-items: center;
-  padding: 15px 20px;
+.navbar li {
+  text-align: center;
+}
+
+.navbar li a {
+  color: rgba(129, 129, 129, 0.85); /* Soft white */
   text-decoration: none;
-  color: #fff;
   font-size: 18px;
-  transition: background-color 0.3s ease;
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  background-color: #3b3b3b;
-  cursor: pointer;
+.navbar li a::before {
+  content: '';
+  position: absolute;
+  top: 90%;
+  left: -150%;
+  width: 300%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  transform: skewX(-20deg);
+  transition: 0.3s;
 }
 
-.nav-icon {
-  margin-right: 10px;
-}
-
-.navbar-toggle {
-  position: fixed;
+.navbar li a:hover::before {
   top: 10px;
-  left: 10px;
-  background-color: #2d2d2d;
-  border: none;
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1001;
+  left: 100%;
+  transition: all 0.5s ease;
 }
 
-.toggle-icon {
-  font-size: 24px;
+.navbar li a:hover {
+  color: #ffffff; /* Dark text on hover */
+  background: rgba(32, 141, 17, 0); /* Light overlay on hover */
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0); /* Soft glow on hover */
 }
 
-.main-content {
-  transition: margin-left 0.3s ease-in-out;
-  flex-grow: 1;
-  padding: 20px;
-  overflow: auto;
+.navbar li a:hover::before {
+  background: linear-gradient(90deg, transparent, #ffffff, #ffa600, transparent);
+  width: 100%;
+  height: 60%;
 }
 
-.full-screen {
-  margin-left: 0;
-  padding-left: 0;
+.navbar li a:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgb(0, 255, 157); /* Stronger focus effect */
 }
 
-.navbar.hidden {
-  transform: translateX(-100%);
-}
-
-.navbar.visible {
-  transform: translateX(0);
-}
-
+/* Responsive styling */
 @media (max-width: 768px) {
   .navbar {
-    width: 100%;
+    padding: 15px;
   }
-
-  .main-content {
-    margin-left: 0;
-  }
-
-  .navbar-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+  .navbar li a {
+    font-size: 16px;
+    padding: 10px 15px;
   }
 }
