@@ -5,26 +5,26 @@ import "../styles/navbar.css";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
-  let lastScrollY = window.scrollY;
+  let lastScrollY = 0; // Initialize scroll position
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        // User is scrolling down
+        // Scrolling down, hide navbar
         setIsVisible(false);
       } else {
-        // User is scrolling up
+        // Scrolling up, show navbar
         setIsVisible(true);
       }
-      lastScrollY = window.scrollY;
+      lastScrollY = window.scrollY; // Update last scroll position
     };
 
-    // Attach event listener
-    window.addEventListener("scroll", handleScroll);
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
 
-    // Cleanup event listener on component unmount
+    // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

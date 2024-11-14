@@ -63,7 +63,10 @@ const Home = ({ isMuted, toggleMute }) => {
         <Contact />
       </Element>
 
-      <button className="mute-button" onClick={toggleMute}>
+      <button
+        className={`mute-button ${isMuted ? 'active' : ''}`}
+        onClick={toggleMute}
+      >
         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
       </button>
     </div>

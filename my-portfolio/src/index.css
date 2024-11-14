@@ -1,11 +1,14 @@
-
 /* index.css */
-html, body {
+html {
   height: 100%;
   margin: 0;
   scroll-behavior: smooth; /* Smooth scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
 
 .loading-screen {
@@ -48,25 +51,6 @@ html, body {
 .music-choice-modal button:hover {
   background-color: #ddd;
 }
-
-/* Mute/Unmute button */
-.mute-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #000000;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.mute-button:hover {
-  background-color: #555;
-}
-
 
 /* Music Prompt Styling */
 .music-prompt {
