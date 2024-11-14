@@ -1,5 +1,4 @@
-// home.jsx
-
+// src/components/Home.jsx
 import React, { useEffect } from "react";
 import { Element } from "react-scroll";
 import "../styles/home.css";
@@ -22,10 +21,9 @@ const Home = ({ isMuted, toggleMute }) => {
       const height = window.innerHeight;
 
       // Calculate rotation values based on mouse position
-      const rotateX = ((y / height) - 0.5) * 20;  // Limit to -10 to 10 degrees
-      const rotateY = ((x / width) - 0.5) * -20; // Limit to -10 to 10 degrees
+      const rotateX = ((y / height) - 0.5) * 20;
+      const rotateY = ((x / width) - 0.5) * -20;
 
-      // Apply rotation to the home-content element
       const textElement = document.querySelector('.home-content');
       if (textElement) {
         textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -43,14 +41,14 @@ const Home = ({ isMuted, toggleMute }) => {
     <div className="home">
       <Navbar />
       <div className="home-size">
-      <section id="threeDModel" className="threeDModel-section">
-        <ThreeDModel />
-      </section>
+        <section id="threeDModel" className="threeDModel-section">
+          <ThreeDModel />
+        </section>
 
-      <section id="home" className="home-content">
-        <h1>Welcome to <br /> My Portfolio</h1>
-        <p>Discover more about <br /> my work and skills.</p>
-      </section>
+        <section id="home" className="home-content">
+          <h1>Welcome to <br /> My Portfolio</h1>
+          <p>Discover more about <br /> my work and skills.</p>
+        </section>
       </div>
       <Element name="about" className="section">
         <About />
@@ -65,11 +63,9 @@ const Home = ({ isMuted, toggleMute }) => {
         <Contact />
       </Element>
 
-      {/* Mute/Unmute Button */}
       <button className="mute-button" onClick={toggleMute}>
-  <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
-</button>
-
+        <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
+      </button>
     </div>
   );
 };
