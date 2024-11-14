@@ -8,27 +8,27 @@ const Navbar = () => {
     <div className="navbar">
       <ul>
         <li>
-          <Link to="home" spy={true} smooth={true} duration={500} offset={-100}>
+          <Link to="home" spy={true} smooth={true} duration={100} offset={-100}>
             Home
           </Link>
         </li>
         <li>
-          <Link to="about" spy={true} smooth={true} duration={500} offset={-100}>
+          <Link to="about" spy={true} smooth={true} duration={100} offset={-100}>
             About
           </Link>
         </li>
         <li>
-          <Link to="skills" spy={true} smooth={true} duration={500} offset={-100}>
+          <Link to="skills" spy={true} smooth={true} duration={100} offset={-100}>
             Skills
           </Link>
         </li>
         <li>
-          <Link to="projects" spy={true} smooth={true} duration={500} offset={-100}>
+          <Link to="projects" spy={true} smooth={true} duration={100} offset={-100}>
             Projects
           </Link>
         </li>
         <li>
-          <Link to="contact" spy={true} smooth={true} duration={500} offset={-100}>
+          <Link to="contact" spy={true} smooth={true} duration={100} offset={-100}>
             Contact
           </Link>
         </li>
