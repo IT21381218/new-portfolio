@@ -1,26 +1,7 @@
-/* src/index.css */
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
-
-.header {
-  background-color: #333;
-  padding: 1rem;
-  color: white;
-}
-
-.navbar .nav-link {
-  margin-right: 1rem;
-  color: white;
-  text-decoration: none;
-}
-
-.navbar .nav-link.active {
-  font-weight: bold;
-}
-
 
 .loading-screen {
   display: flex;
@@ -33,4 +14,119 @@ body {
   left: 0;
   background-color: rgb(0, 0, 0); /* Adjust color as needed */
   z-index: 1000; /* Ensure it covers other content */
+}
+
+/* Music Choice Modal */
+.music-choice-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1500;
+}
+
+.music-choice-modal button {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.music-choice-modal button:hover {
+  background-color: #ddd;
+}
+
+/* Mute/Unmute button */
+.mute-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mute-button:hover {
+  background-color: #555;
+}
+
+
+/* Music Prompt Styling */
+.music-prompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0px 15px rgb(255, 255, 255); /* Shadow for depth */
+  text-align: center;
+  z-index: 1500;
+  width: 300px;
+  animation: fadeIn 1s ease forwards; /* Fade-in animation */
+}
+
+.music-prompt p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Button Styling */
+.music-button {
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent button with white border */
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded buttons */
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.music-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+  color: #fff;
+  transform: scale(1.05); /* Slight scaling effect */
+  box-shadow: 0 0px 15px rgb(255, 255, 255); /* Glow effect */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%); /* Slide up slightly */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Mobile Responsive Styling */
+@media (max-width: 480px) {
+  .music-prompt {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .music-button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
 }

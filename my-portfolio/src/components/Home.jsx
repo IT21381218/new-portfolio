@@ -1,3 +1,5 @@
+// home.jsx
+
 import React, { useEffect } from "react";
 import { Element } from "react-scroll";
 import "../styles/home.css";
@@ -6,8 +8,10 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import ThreeDModel from "./ThreeDModel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
-const Home = () => {
+const Home = ({ isMuted, toggleMute }) => {
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -17,8 +21,8 @@ const Home = () => {
       const height = window.innerHeight;
 
       // Calculate rotation values based on mouse position
-      const rotateX = ((y / height) - 0.5) * 10;  // Limit to -10 to 10 degrees
-      const rotateY = ((x / width) - 0.5) * -10; // Limit to -10 to 10 degrees
+      const rotateX = ((y / height) - 0.5) * 20;  // Limit to -10 to 10 degrees
+      const rotateY = ((x / width) - 0.5) * -20; // Limit to -10 to 10 degrees
 
       // Apply rotation to the home-content element
       const textElement = document.querySelector('.home-content');
@@ -57,6 +61,12 @@ const Home = () => {
       <Element name="contact" className="section">
         <Contact />
       </Element>
+
+      {/* Mute/Unmute Button */}
+      <button className="mute-button" onClick={toggleMute}>
+  <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
+</button>
+
     </div>
   );
 };
