@@ -7,6 +7,7 @@ import Skills from "./Skills";
 import Services from './Services';
 import Projects from "./Projects";
 import Contact from "./Contact";
+import FollowMe from "./FollowMe";
 import ThreeDModel from "./ThreeDModel";
 import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -86,6 +87,9 @@ const Home = ({ isMuted, toggleMute }) => {
       </Element>
       <Element name="contact" className="section">
         <Contact />
+      </Element>
+      <Element name="followMe" className="section">
+        <FollowMe />
       </Element>
 
       <button
