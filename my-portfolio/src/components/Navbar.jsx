@@ -37,12 +37,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="about" spy={true} smooth={true} duration={100} offset={-100}>
+          <Link to="about" spy={true} smooth={true} duration={100} offset={100}>
             About
           </Link>
           </li>
         <li>
-          <Link to="skills" spy={true} smooth={true} duration={100} offset={-100}>
+          <Link to="skills" spy={true} smooth={true} duration={100} offset={100}>
             Skills
           </Link>
         </li>

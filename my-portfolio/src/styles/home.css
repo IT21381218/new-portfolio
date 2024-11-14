@@ -25,7 +25,7 @@ html{
   color: white;
 }
 .home-size{
-  height: 100vh;
+  height: 80vh;
 }
 
 .home-content {
@@ -123,7 +123,6 @@ html{
   }
 }
 
-/* home.css */
 /* Mute button styling */
 .mute-button {
   width: 60px; /* Smaller width */

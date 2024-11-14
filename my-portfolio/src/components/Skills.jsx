@@ -1,7 +1,9 @@
 // src/components/Skills.jsx
 import React from "react";
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt } from "react-icons/fa";
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaGitAlt, FaGithub, FaFigma,FaPython  } from "react-icons/fa";
 import { DiMongodb } from "react-icons/di";
+import { SiPowerbi, SiJupyter,SiPostman} from "react-icons/si";
+import { GrOracle } from "react-icons/gr";
 import "../styles/skills.css";
 
 function Skills() {
@@ -13,7 +15,14 @@ function Skills() {
     { name: "JavaScript", icon: <FaJs size={50} /> },
     { name: "Node.js", icon: <FaNodeJs size={50} /> },
     { name: "Git", icon: <FaGitAlt size={50} /> },
-    { name: "MongoDB", icon: <DiMongodb size={50} /> }
+    { name: "MongoDB", icon: <DiMongodb size={50} /> },
+    { name: "Power BI", icon: <SiPowerbi size={50} /> },
+    { name: "OracleSQL", icon: <GrOracle size={50} /> },
+    { name: "GitHub", icon: <FaGithub size={50} /> },
+    { name: "Figma", icon: <FaFigma size={50} /> },
+    { name: "Python ", icon: <FaPython size={50} /> },
+    { name: "Jupyter ", icon: <SiJupyter size={50} /> },
+    { name: "Postman  ", icon: <SiPostman  size={50} /> }
   ];
 
   return (

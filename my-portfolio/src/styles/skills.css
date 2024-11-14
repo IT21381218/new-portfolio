@@ -1,0 +1,133 @@
+/* Skills Section Styling */
+.skills {
+    background-color: #000; /* Black background */
+    color: white; /* White text */
+    padding: 50px 20px; /* Padding for spacing */
+    text-align: center;
+  }
+  
+  .skills h1 {
+    font-size: 2.5rem; /* Large heading */
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 2px; /* Space out letters */
+    color: #fff;
+  }
+  
+  .skills p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between skills */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .skill-card {
+    background-color: #222; /* Dark card background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden; /* Hide any overflow for the border animation */
+    border: 2px solid transparent; /* Border to create glowing effect */
+  }
+  
+  /* Futuristic Hover Effect */
+  .skill-card:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* White glowing effect */
+    background-color: #333; /* Slightly lighter background on hover */
+    border-color: #fff; /* Light border on hover */
+  }
+  
+  /* Adding a subtle glowing border during hover */
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, #fff, #aaa, #fff, #aaa); /* Subtle white gradient for the glow */
+    border-radius: 50%;
+    animation: pulse-border 1.5s infinite ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Place behind the card content */
+  }
+  
+  /* Animation for the glowing border */
+  @keyframes pulse-border {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0.5;
+    }
+  }
+  
+  .skill-icon {
+    font-size: 3rem; /* Larger icons */
+    color: #fff;
+    margin-bottom: 10px; /* Space between icon and text */
+    transition: transform 0.3s ease;
+  }
+  
+  /* When hovering over the icon, add a slight spin or animation */
+  .skill-card:hover .skill-icon {
+    transform: rotate(360deg); /* Icon rotates 360 degrees */
+  }
+  
+  .skill-card p {
+    font-size: 1rem;
+    color: #ccc;
+    font-weight: 600;
+    text-transform: uppercase; /* Uppercase text */
+    margin-top: 10px; /* Space between icon and skill name */
+    transition: color 0.3s ease;
+  }
+  
+  /* On hover, change the color of the text for a futuristic feel */
+  .skill-card:hover p {
+    color: #fff; /* Text color changes to white */
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .skills-container {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjust grid layout for smaller screens */
+      gap: 15px; /* Smaller gap on mobile */
+    }
+  
+    .skills h1 {
+      font-size: 2rem; /* Smaller font size for mobile */
+    }
+  
+    .skills p {
+      font-size: 1rem; /* Smaller paragraph font size */
+    }
+  
+    .skill-card {
+      padding: 15px; /* Less padding on mobile */
+    }
+  
+    .skill-icon {
+      font-size: 2.5rem; /* Smaller icons on mobile */
+    }
+  }
+  
