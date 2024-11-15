@@ -38,7 +38,7 @@ function Services() {
   useEffect(() => {
     const autoSlide = setInterval(() => {
       handleSwipeLeft();
-    }, 4000); // Adjust auto-slide interval
+    }, 6000); // Adjust auto-slide interval
     return () => clearInterval(autoSlide);
   }, []);
 

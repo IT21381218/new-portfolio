@@ -37,6 +37,7 @@
 }
 
 .navbar li a {
+  cursor: pointer;
   color: rgba(255, 255, 255, 0.8); /* Soft white */
   text-decoration: none;
   font-size: 1.2rem;
