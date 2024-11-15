@@ -10,15 +10,15 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      name: "Project One",
-      image: "https://via.placeholder.com/300", // Replace with project image URL
+      name: "Guident Computers",
+      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png", // Replace with project image URL
       description: "A brief description of Project One, explaining its purpose and features.",
       github: "https://github.com",
     },
     {
       id: 2,
       name: "Project Two",
-      image: "https://via.placeholder.com/300", // Replace with project image URL
+      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1714587388/citymart/logo_transparent_limzrg.png", // Replace with project image URL
       description: "A brief description of Project Two, explaining its purpose and features.",
       github: "https://github.com",
     },
