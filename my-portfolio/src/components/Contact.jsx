@@ -114,7 +114,7 @@ function ContactForm() {
       {/* Image Section */}
       <div className="image-section">
         <img
-          src={isFromOrganization ? "/image1.jpg" : "/image2.jpg"}
+          src={isFromOrganization ? "/image1.png" : "/image2.png"}
           alt="Contact"
           className="dynamic-image"
         />
