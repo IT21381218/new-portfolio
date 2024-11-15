@@ -8,6 +8,7 @@ import Services from './Services';
 import Projects from "./Projects";
 import Contact from "./Contact";
 import FollowMe from "./FollowMe";
+import Countup from "./Countup"
 import ThreeDModel from "./ThreeDModel";
 import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -75,6 +76,9 @@ const Home = ({ isMuted, toggleMute }) => {
       </div>
       <Element name="about" className="section">
         <About />
+      </Element>
+      <Element name="countup" className="section">
+        <Countup />
       </Element>
       <Element name="skills" className="section">
         <Skills />
