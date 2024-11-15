@@ -72,7 +72,7 @@ function Services() {
 
   return (
     <div className="services" {...swipeableProps}>
-      <h1>Our Services</h1>
+      <h1>My Services</h1>
       <p>⟵ Swipe ⟶</p>
 
       <div className="card-container">
