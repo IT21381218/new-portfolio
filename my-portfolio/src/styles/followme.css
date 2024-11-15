@@ -1,7 +1,7 @@
 /* Global styles for the FollowMe component */
 .followme {
     width: 100%;
-    height: 33vh;
+    height: 23rem; /* Adjust to auto for responsive height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,8 +47,8 @@
   /* Animated text inside the tape for "FOLLOW ME" text */
   .police-tape-text {
     display: inline-flex;
-    gap: 50px; /* Add a 10px gap between each FOLLOW ME text */
-    animation: tapeTextAnimationRightToLeft 10s linear infinite; /* Left to right scrolling */
+    gap: 50px; /* Add a 50px gap between each FOLLOW ME text */
+    animation: tapeTextAnimationRightToLeft 15s linear infinite; /* Increased duration for slower scrolling */
     font-family: "Impact", sans-serif;
     font-size: 2.5rem; /* Larger text */
     color: black;
@@ -63,7 +63,7 @@
     height: 3rem;
     display: flex;
     gap: 15px; /* Add a 15px gap between each social link */
-    animation: tapeTextAnimationRightToLeft 10s linear infinite; /* Right to left scrolling */
+    animation: tapeTextAnimationRightToLeft 15s linear infinite; /* Increased duration for slower scrolling */
     font-family: "Arial", sans-serif;
     font-size: 1.5rem; /* Smaller text for social links */
     color: black;
@@ -84,11 +84,97 @@
     color: rgb(75, 75, 0); /* Change color on hover */
   }
   
-  /* Optional: Add a smooth transition to the tape text when scrolling */
-  .police-tape-text {
-    transition: transform 0.2s ease-out;
+  /* Keyframes to animate "COMING SOON" text from left to right */
+  @keyframes tapeTextAnimationLeftToRight {
+    0% {
+      transform: translateX(-100%); /* Start from the left */
+    }
+    100% {
+      transform: translateX(100%); /* End at right */
+    }
   }
   
-  .social-links {
-    transition: transform 0.2s ease-out;
+  /* Animated "COMING SOON" text */
+  .coming-soon{
+    margin-top: 90px;
   }
+  .coming-soon {
+    position: relative;
+    width: 100%;
+    height: 3rem; /* Tape height */
+    background-color: #eed202; /* Updated color */
+    border: 2px solid black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(0deg); /* Slight tilt for the first tape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for more depth */
+  }
+  
+  .coming-soon-text {
+    display: inline-flex;
+    gap: 50px; /* Add a 50px gap between each "COMING SOON" text */
+    animation: tapeTextAnimationLeftToRight 15s linear infinite; /* Increased duration for slower scrolling */
+    font-family: "Impact", sans-serif;
+    font-size: 2.5rem; /* Larger text */
+    color: black;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); /* Adding text shadow for better readability */
+    letter-spacing: 0.1rem;
+  }
+  
+  /* Mobile responsive styles */
+  @media (max-width: 768px) {
+    /* Adjust the size and layout for smaller screens */
+    .followme {
+      height: 180px; /* Allow height to adjust dynamically */
+      padding: 0 0px;
+    }
+  
+    /* Adjust the tape height for smaller devices */
+    .police-tape, .social-links, .coming-soon {
+      height: 2.5rem;
+    }
+  
+    /* Adjust font size for better readability on small screens */
+    .police-tape-text, .coming-soon-text {
+      font-size: 2rem;
+      gap: 30px;
+    }
+  
+    .social-links {
+      font-size: 1.2rem;
+      gap: 10px;
+    }
+  
+    .social-links a {
+      font-size: 2rem; /* Slightly smaller size for mobile */
+      padding: 0 10px;
+    }
+  }
+  
+  /* Extra small screens (e.g., mobile devices) */
+  @media (max-width: 480px) {
+    .followme {
+      padding: 0 0px;
+    }
+  
+    .police-tape-text, .coming-soon-text {
+      font-size: 1.8rem; /* Smaller font size for extra small screens */
+      gap: 20px; /* Decrease gap for small screens */
+    }
+  
+    .social-links {
+      font-size: 1.1rem;
+    }
+  
+    .social-links a {
+      font-size: 1.8rem; /* Even smaller font size for very small screens */
+    }
+  
+    .coming-soon {
+      margin-top: 15px; /* Add more space for smaller screens */
+    }
+  }
+  

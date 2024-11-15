@@ -1,38 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/followme.css";
 
 function FollowMe() {
-  useEffect(() => {
-    // Handle scroll event to move the text based on scroll position
-    const handleScroll = () => {
-      const tape = document.querySelector(".police-tape-text");
-      const socialLinks = document.querySelector(".social-links");
-
-      if (tape) {
-        // Adjust position of the tape text based on scroll
-        const scrollY = window.scrollY; // Access scrollY via window
-        tape.style.transform = `translateY(${scrollY * 0.25}px)`; // Adjust this multiplier for better effect
-      }
-// Apply movement to social links based on scroll
-if (socialLinks) {
-  socialLinks.style.transform = `translateY(${window.scrollY * 0.15}px)`; // Use window.scrollY
-}
-};
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <section className="followme">
       {/* First tape: "FOLLOW ME" text */}
       <div className="police-tape">
         <div className="police-tape-text">
           {/* Repeat the Follow Me text infinitely */}
-          <span>FOLLOW ME</span>
           <span>FOLLOW ME</span>
           <span>FOLLOW ME</span>
           <span>FOLLOW ME</span>
@@ -69,6 +44,16 @@ if (socialLinks) {
           <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
             SPOTIFY
           </a>
+          
+        </div>
+      </div>
+
+      {/* Third tape: "COMING SOON" text (moving from left to right) */}
+      <div className="coming-soon">
+        <div className="coming-soon-text">
+          {/* Repeat the "COMING SOON" text infinitely */}
+          <span>EMAIL: rajmalperera@gmail.com</span>
+          <span>PHONE: (+94)71 477 7848</span>
         </div>
       </div>
     </section>
