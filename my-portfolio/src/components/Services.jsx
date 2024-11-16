@@ -34,13 +34,13 @@ function Services() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationKey, setAnimationKey] = useState(0); // Add animationKey to force re-render
 
-  // Auto-slide feature
-  useEffect(() => {
-    const autoSlide = setInterval(() => {
-      handleSwipeLeft();
-    }, 6000); // Adjust auto-slide interval
-    return () => clearInterval(autoSlide);
-  }, []);
+  // // Auto-slide feature
+  // useEffect(() => {
+  //   const autoSlide = setInterval(() => {
+  //     handleSwipeLeft();
+  //   }, 6000); // Adjust auto-slide interval
+  //   return () => clearInterval(autoSlide);
+  // }, []);
 
   const handleSwipeLeft = () => {
     setAnimationKey((prevKey) => prevKey + 1); // Change key to force re-render
