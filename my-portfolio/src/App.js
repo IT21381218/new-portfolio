@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import MyWorks from "./components/MyWorks";
 import { trefoil } from "ldrs";
 import "./index.css";
 
@@ -83,6 +84,7 @@ function App() {
           <Router>      
             <Routes>
               <Route path="/" element={<Home isMuted={isMuted} toggleMute={toggleMute} />} />
+              <Route path="/myworks" element={<MyWorks />} />
             </Routes>
           </Router>
         </>

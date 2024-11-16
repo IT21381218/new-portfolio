@@ -24,22 +24,23 @@ html{
   background-color: black;
   color: white;
 }
+
 .home-size{
   height: 80vh;
 }
 
 .home-content {
   position: absolute;
-  top: 40px; /* Space from the top */
-  left: 40px; /* Space from the left */
-  width: calc(100% - 80px); /* Limit width with margins on both sides */
+  top: 40px; 
+  left: 40px; 
+  width: calc(100% - 80px); 
   display: flex;
-  justify-content: space-between; /* Positions h1 on the left and p on the right */
+  justify-content: space-between; 
   align-items: flex-start;
   padding: 0 20px;
   z-index: 10;
-  transform-origin: center; /* Ensures the rotation happens around the center of the element */
-  transition: transform 0.1s ease-out; /* Smooth transition for rotation */
+  transform-origin: center; 
+  transition: transform 0.1s ease-out; 
 }
 
 .home-content h1 {
@@ -59,15 +60,14 @@ html{
   color: #ccc;
   text-align: right;
   position: absolute;
-  top: 400px; /* Adjust the top to your liking */
-  left: 60%; /* Center it horizontally */
-  transform: translateX(50%); /* Offset it to the right to make it more centered */
+  top: 400px;
+  left: 60%;
+  transform: translateX(50%);
   max-width: 300px;
   word-wrap: break-word;
   animation: fadeInUp 1.5s ease-out forwards;
 }
 
-/* Keyframes for fade-in animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -87,7 +87,6 @@ html{
   z-index: 10;
 }
 
-/* 3D Model container */
 .threeDModel-container {
   position: absolute;
   top: 0;
@@ -102,7 +101,7 @@ html{
 /* Mobile styles for responsiveness */
 @media (max-width: 768px) {
   .home-content {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     align-items: flex-start;
   }
   .home-content h1 {
@@ -123,77 +122,50 @@ html{
   }
 }
 
-/* Mute button styling */
 .mute-button {
-  width: 60px; /* Smaller width */
-  height: 60px; /* Smaller height */
+  width: 60px; 
+  height: 60px;
   position: fixed;
-  bottom: 20px; /* Position it near the bottom-left */
-  left: 20px; /* Position it near the left */
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.7) 70%); /* Radial gradient background */
+  bottom: 20px;
+  left: 20px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.7) 70%);
   color: white;
-  font-size: 1.8rem; /* Slightly smaller font size */
-  border-radius: 50%; /* Circular shape */
-  border: 3px solid rgba(0, 255, 255, 0.8); /* Glowing border */
+  font-size: 1.8rem;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 255, 0.8);
   cursor: pointer;
-  z-index: 10; /* Ensure it's on top of other content */
+  z-index: 10; 
   transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, scale 0.4s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3); /* Neon glowing effect */
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3); 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  backdrop-filter: blur(5px); /* Soft blur behind the button */
+  backdrop-filter: blur(5px);
 }
 
-/* Hover effect for the mute button */
 .mute-button:hover {
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0.6) 70%); /* Brighter radial gradient */
-  box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5); /* More intense glowing effect */
-  transform: scale(1.1); /* Slightly bigger on hover */
-  animation: pulseAnimation 1.5s infinite alternate ease-in-out; /* Added pulse animation */
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0.6) 70%);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5); 
+  transform: scale(1.1); 
+  animation: pulseAnimation 1.5s infinite alternate ease-in-out;
 }
 
-/* Active state when muted */
 .mute-button.active {
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 70%); /* Red gradient for muted state */
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.3); /* Red glow when muted */
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 70%);
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.3); 
 }
 
-/* Transition on icon inside the button */
 .mute-button .fa-volume-up,
 .mute-button .fa-volume-mute {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Rotate and fade icon when active (muted) */
 .mute-button.active .fa-volume-mute {
-  transform: rotate(180deg); /* Flip icon when muted */
-  opacity: 1; /* Full opacity for the mute icon */
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
-/* Rotate and fade out the volume up icon when muted */
 .mute-button .fa-volume-up {
-  opacity: 0; /* Fade out the volume-up icon */
-}
-
-.mute-button.active .fa-volume-up {
-  opacity: 0; /* Keep it hidden in the active state */
-}
-
-/* Keyframe for pulse effect */
-@keyframes pulseAnimation {
-  0% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1.15);
-  }
-}
-
-
-/* Focus effect for better accessibility */
-.mute-button:focus {
-  outline: none;
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5); /* White outline on focus */
+  opacity: 1;
 }

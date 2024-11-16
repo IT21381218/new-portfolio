@@ -1,315 +1,141 @@
 .projects {
-    text-align: center;
-    background-color: #000000;
-    color: white;
-    padding: 20px; /* Added padding for better spacing on mobile */
-  }
-  
+  text-align: center;
+  padding: 50px 20px;
+  background-color: rgb(0, 0, 0); /* Black background */
+  color: white; /* White text */
+  position: relative;
+  overflow: hidden; /* Hide stars that go outside the section */
+  z-index: 1; /* Ensure the stars stay in the background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the content takes up full viewport height */
+}
+
+/* Center the h1 horizontally and vertically */
+.projects h1 {
+  font-size: 15rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff; /* White title */
+  margin: 0; /* Remove default margin */
+}
+
+/* Responsive adjustments for h1 */
+@media (max-width: 768px) {
   .projects h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #fff;
+    font-size: 6rem;
   }
-  
-  .projects p {
-    font-size: 1.5rem;
-    color: #ccc;
-    margin-bottom: 40px;
+}
+
+@media (max-width: 480px) {
+  .projects h1 {
+    font-size: 4rem;
   }
-  
-  .project-cards {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 20px;
-    /* Ensure spacing between cards */
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 4rem; /* Larger font for the count */
+  color: #fff; /* White color for the count */
+  font-weight: bold;
+}
+
+/* Twinkling stars */
+.star {
+  position: absolute;
+  top: -10px;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: twinkle 2s infinite alternate, moveStars 10s infinite;
+  animation-delay: calc(-2s * var(--i)); /* Delays each star's twinkle effect */
+}
+
+/* Twinkle effect */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
   }
-  
-  .project-card {
-    background-color: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 300px;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 20px; /* Add margin for better spacing */
-    flex: 1 1 calc(33.333% - 20px); /* Three cards per row on larger screens */
+  50% {
+    opacity: 1;
   }
-  
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  100% {
+    opacity: 0.5;
   }
-  
-  .project-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+}
+
+/* Shooting star animation */
+@keyframes moveStars {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
   }
-  
-  .project-info {
-    padding: 20px;
-  }
-  
-  .project-info h2 {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .project-info p {
-    font-size: 1rem;
-    color: #bbb;
-    margin-bottom: 15px;
-  }
-  
-  /* Modal Styles */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it is on top of everything else */
+  100% {
+    transform: translateX(100vw) translateY(100vh);
     opacity: 0;
-    animation: fadeInModal 0.5s forwards;
   }
-  
-  .modal-content {
-    background-color: #222;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    max-width: 800px;
-    width: 100%;
+}
+
+/* Shooting star trail */
+@keyframes shootingStars {
+  0% {
+    transform: translateY(-100px) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100vw);
     opacity: 0;
-    transform: scale(0.8);
-    animation: scaleInModal 0.5s forwards;
   }
-  
-  .modal-inner {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap; /* Allow flex items to wrap on smaller screens */
-  }
-  
-  .modal-image {
-    flex: 1;
-    max-width: 100%; /* Ensure the image doesn't overflow */
-  }
-  
-  .modal-image img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    border-radius: 8px;
-  }
-  
-  .modal-details {
-    flex: 2;
-    text-align: left;
-    padding: 20px;
-    max-width: 500px; /* Limit width for mobile */
-  }
-  
-  .modal-details h2 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 20px;
-  }
-  
-  .modal-details p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .github-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-  }
-  
-  .github-button:hover {
-    background-color: #444;
-  }
-  
-  /* Modal Close Animation */
-  .modal-closing {
-    opacity: 0;
-    animation: fadeOutModal 0.5s forwards; /* Fade out effect */
-  }
-  
-  .modal-content-closing {
-    opacity: 0;
-    transform: scale(0.8); /* Shrinking effect */
-    animation: scaleOutModal 0.5s forwards; /* Scale out effect */
-  }
-  
-  /* Fade-out animation for modal */
-  @keyframes fadeOutModal {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  /* Scale-out animation for modal content */
-  @keyframes scaleOutModal {
-    0% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-  }
-  
-  /* Animation for modal fade-in and scaling */
-  @keyframes fadeInModal {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes scaleInModal {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
-  /* Close Button */
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #333;
-    color: #fff;
-    border: 3px solid #fff; /* White border */
-    padding: 15px; /* Padding to ensure a circular shape */
-    font-size: 1rem; /* Font size */
-    border-radius: 50%; /* Ensure it's a circle */
-    cursor: pointer;
-    transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Increased width for easier clicking */
-    height: 50px; /* Increased height for easier clicking */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Soft glow */
-    backdrop-filter: blur(5px); /* Soft blur behind the button */
-  }
-  
-  /* Hover effect */
-  .close-button:hover {
-    background-color: #2b2b2b00; /* Bright red on hover */
-    color: white;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(136, 136, 136, 0.5); /* Neon glow effect */
-    transform: scale(1.1) rotate(45deg); /* Slightly larger with rotation */
-    animation: bounce 0.3s ease-in-out; /* Bounce effect */
-  }
-  
-  /* Focus effect */
-  .close-button:focus {
-    outline: none;
-    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7); /* White focus outline */
-  }
-  
-  /* Add a bounce animation for interactivity */
-  @keyframes bounce {
-    0% {
-      transform: scale(1.1) rotate(45deg);
-    }
-    50% {
-      transform: scale(1.2) rotate(0deg);
-    }
-    100% {
-      transform: scale(1.1) rotate(45deg);
-    }
-  }
-  
-  /* Mobile Responsiveness */
-  @media screen and (max-width: 768px) {
-    .project-cards {
-      justify-content: center;
-      gap: 20px;
-    }
-  
-    .project-card {
-      width: 100%; /* Make cards full width on smaller screens */
-      flex: 1 1 100%; /* Ensure one card per row */
-      margin-bottom: 15px;
-    }
-  
-    .modal-inner {
-      flex-direction: column; /* Stack image and details vertically on smaller screens */
-      gap: 20px;
-    }
-  
-    .modal-image img {
-      max-width: 100%; /* Ensure the image is responsive */
-    }
-  
-    .modal-details h2 {
-      font-size: 2rem;
-    }
-  
-    .modal-details p {
-      font-size: 1rem;
-    }
-  
-    .github-button {
-      font-size: 1rem; /* Slightly smaller button text */
-      padding: 8px 15px;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .projects h1 {
-      font-size: 2.5rem; /* Adjust heading size for smaller screens */
-    }
-  
-    .projects p {
-      font-size: 1.2rem; /* Adjust paragraph size */
-    }
-  
-    .project-info h2 {
-      font-size: 1.5rem; /* Adjust project card heading */
-    }
-  
-    .project-info p {
-      font-size: 0.9rem; /* Adjust project description */
-    }
-  
-    .close-button {
-      width: 40px; /* Smaller close button on mobile */
-      height: 40px; /* Smaller close button on mobile */
-      font-size: 0.8rem; /* Smaller font size */
-    }
-  }
-  
+}
+
+/* Create more variety for the shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+  animation: shootingStars 3s linear infinite;
+  opacity: 0.8;
+  animation-delay: calc(-3s * var(--i));
+}
+
+.shooting-star:nth-child(odd) {
+  animation-duration: 4s;
+}
+
+.shooting-star:nth-child(even) {
+  animation-duration: 5s;
+  animation-delay: calc(-5s * var(--i));
+}
+
+/* Button Styling for Projects */
+.group.relative.overflow-hidden {
+  display: inline-flex;
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+  position: relative;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;  /* Adjust padding for button */
+  background-color: #111;  /* Black background for button */
+  color: #fff;  /* White text */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.group.relative.overflow-hidden:hover {
+  background-color: #444; /* Darker background on hover */
+}
+

@@ -120,4 +120,3 @@ const DownloadCVButton = () => {
 };
 
 export default About;
-

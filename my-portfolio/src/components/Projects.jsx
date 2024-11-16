@@ -1,105 +1,164 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import CountUp from 'react-countup';
+import { motion } from "framer-motion";
 import "../styles/projects.css";
 
+const TARGET_TEXT = "Go to My Works";  // The target text for the button
+const CYCLES_PER_LETTER = 2;  // Number of times each letter will scramble
+const SHUFFLE_TIME = 50;  // Time interval between each character shuffle
+const CHARS = "!@#$%^&*():{};|,.<>/?"; // Characters for the scrambling effect
+
 function Projects() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentProject, setCurrentProject] = useState(null);
-  const [isClosing, setIsClosing] = useState(false);
+  const [stars, setStars] = useState([]);
+  const [shootingStars, setShootingStars] = useState([]);
+  const [scrambledText, setScrambledText] = useState(TARGET_TEXT);
+  const [countUpStarted, setCountUpStarted] = useState(false);  // State to track when CountUp should start
+  const projectsRef = useRef(null);  // Ref for the projects section
 
-  // Data for the projects
-  const projects = [
-    {
-      id: 1,
-      name: "Guident Computers",
-      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png", // Replace with project image URL
-      description: "A brief description of Project One, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-    {
-      id: 2,
-      name: "Project Two",
-      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1714587388/citymart/logo_transparent_limzrg.png", // Replace with project image URL
-      description: "A brief description of Project Two, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-    {
-      id: 3,
-      name: "Project Three",
-      image: "https://via.placeholder.com/300", // Replace with project image URL
-      description: "A brief description of Project Three, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-  ];
-
-  // Function to open modal with selected project data
-  const openModal = (project) => {
-    setCurrentProject(project);
-    setIsModalOpen(true);
+  // Function to handle when the component is in the viewport
+  const handleScroll = () => {
+    if (projectsRef.current) {
+      const rect = projectsRef.current.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 1.5 && rect.bottom >= 0) {
+        setCountUpStarted(true);  // Start CountUp when the component is in view
+        window.removeEventListener("scroll", handleScroll);  // Remove listener once in view
+      }
+    }
   };
 
-  // Function to close the modal with animation
-  const closeModal = () => {
-    setIsClosing(true); // Start closing animation
-    setTimeout(() => {
-      setIsModalOpen(false); // Set isModalOpen to false after animation completes
-      setIsClosing(false);
-      setCurrentProject(null);
-    }, 500); // Match the duration of the closing animation
+  // Scramble text function
+  const scrambleText = () => {
+    const targetArray = TARGET_TEXT.split('');
+    let scrambledArray = [...targetArray];
+    let currentIndex = 0;
+
+    // Start scrambling each character
+    const scrambleInterval = setInterval(() => {
+      let newText = scrambledArray.map((char, index) => {
+        if (index === currentIndex) {
+          // Replace the current character with a random character from CHARS
+          return CHARS.charAt(Math.floor(Math.random() * CHARS.length));
+        }
+        return char;
+      });
+
+      setScrambledText(newText.join(''));
+
+      currentIndex += 1;
+
+      if (currentIndex >= targetArray.length * CYCLES_PER_LETTER) {
+        clearInterval(scrambleInterval); // Stop scrambling after all characters are cycled
+        setScrambledText(TARGET_TEXT); // Reset to the original target text
+      }
+    }, SHUFFLE_TIME);
   };
+
+  // Set up stars and shooting stars
+  useEffect(() => {
+    const randomStars = [];
+    const numberOfStars = 50;
+    for (let i = 0; i < numberOfStars; i++) {
+      randomStars.push(i);
+    }
+    setStars(randomStars);
+
+    const shootingStarsArr = [];
+    const numberOfShootingStars = 10;
+    for (let i = 0; i < numberOfShootingStars; i++) {
+      shootingStarsArr.push(i);
+    }
+    setShootingStars(shootingStarsArr);
+
+    // Add event listener to trigger scroll event
+    window.addEventListener("scroll", handleScroll);
+    
+    // Cleanup on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <section className="projects">
-      <h1>Projects</h1>
-      <p>A showcase of my work</p>
+    <section className="projects" ref={projectsRef}>
+      <h1>PROJECTS</h1>
+      <p>Number of projects</p>
 
-      <div className="project-cards">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="project-card"
-            onClick={() => openModal(project)}
-          >
-            <img
-              src={project.image}
-              alt={project.name}
-              className="project-image"
-            />
-            <div className="project-info">
-              <h2>{project.name}</h2>
-            </div>
-          </div>
-        ))}
+      <div className="projects-container">
+        <h2>
+          {countUpStarted && (
+            <CountUp start={0} end={3} duration={3} separator="," />
+          )}
+        </h2>
       </div>
 
-      {/* Modal/Popup */}
-      {isModalOpen && currentProject && (
+      {/* Static stars */}
+      {stars.map((_, index) => (
         <div
-          className={`modal ${isClosing ? "modal-closing" : ""}`} // Apply the closing animation
-        >
+          key={index}
+          className={`star star-${['small', 'medium', 'large'][Math.floor(Math.random() * 3)]}`}
+          style={{
+            left: `${Math.random() * 100}vw`,
+            top: `${Math.random() * 100}vh`,
+            animationDuration: `${Math.random() * 5 + 5}s`,
+            animationDelay: `${Math.random() * 5}s`,
+          }}
+        />
+      ))}
+
+      {/* Shooting stars */}
+      {shootingStars.map((_, index) => {
+        const duration = `${Math.random() * 3 + 2}s`;
+        const delay = `${Math.random() * 2}s`;
+        const rotation = `${Math.random() * 360}deg`;
+        const left = `${Math.random() * 100}vw`;
+        const top = `${Math.random() * 100}vh`;
+
+        return (
           <div
-            className={`modal-content ${isClosing ? "modal-content-closing" : ""}`} // Apply the closing animation
+            key={index}
+            className="shooting-star"
+            style={{
+              left,
+              top,
+              animationDuration: duration,
+              animationDelay: delay,
+              transform: `rotate(${rotation})`,
+            }}
+          />
+        );
+      })}
+
+      {/* Button to link to MyWorks */}
+      <motion.div
+        whileHover={{ scale: 1.025 }}
+        whileTap={{ scale: 0.975 }}
+      >
+        <Link to="/myworks">
+          <motion.button
+            className="group relative overflow-hidden rounded-lg border-[1px] border-neutral-500 bg-neutral-700 px-6 py-3 font-mono font-medium uppercase text-neutral-300 transition-colors hover:text-indigo-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            onMouseEnter={scrambleText} // Trigger text scrambling on hover
           >
-            <button className="close-button" onClick={closeModal}>X</button>
-            <div className="modal-inner">
-              <div className="modal-image">
-                <img src={currentProject.image} alt={currentProject.name} />
-              </div>
-              <div className="modal-details">
-                <h2>{currentProject.name}</h2>
-                <p>{currentProject.description}</p>
-                <a
-                  href={currentProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-button"
-                >
-                  View on GitHub
-                </a>
-              </div>
+            <div className="relative z-10 flex items-center gap-2">
+              <span>{scrambledText}</span>
             </div>
-          </div>
-        </div>
-      )}
+            <motion.span
+              initial={{ y: "100%" }}
+              animate={{ y: "-100%" }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "mirror",
+                duration: 1,
+                ease: "linear",
+              }}
+              className="duration-300 absolute inset-0 z-0 scale-125 bg-gradient-to-t from-indigo-400/0 from-40% via-indigo-400/100 to-indigo-400/0 to-60% opacity-0 transition-opacity group-hover:opacity-100"
+            />
+          </motion.button>
+        </Link>
+      </motion.div>
     </section>
   );
 }
