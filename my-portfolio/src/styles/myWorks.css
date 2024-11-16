@@ -1,3 +1,4 @@
+/* General Styles */
 .myWork {
   padding: 0;
   margin: 0;
@@ -30,6 +31,7 @@
   box-sizing: border-box;
 }
 
+/* Work Cards */
 .work-card {
   cursor: pointer;
   background: linear-gradient(145deg, #2a2a2a, #1f1f1f);  /* Rich gradient background */
@@ -43,7 +45,6 @@
   padding-bottom: 10px; /* To create space for the line */
 }
 
-/* Hover effect for cards */
 .work-card:hover {
   transform: translateY(-10px); /* Subtle card lift effect */
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More prominent shadow */
@@ -77,7 +78,6 @@
   z-index: 2; /* Keeps the title above the line */
 }
 
-
 /* Enhanced Line Effect under the card */
 .work-card::after {
   content: "";
@@ -91,27 +91,10 @@
   box-shadow: 0 0 10px rgba(255, 126, 95, 0.7); /* Subtle glow effect */
 }
 
-/* Pulse effect on hover for the line */
 .work-card:hover::after {
   width: 100%; /* Expands the line on hover */
   box-shadow: 0 0 20px rgba(255, 126, 95, 1), 0 0 25px rgba(254, 180, 123, 0.5); /* Glow intensifies on hover */
 }
-
-/* Card Hover Effects - Smooth Transition */
-.work-card:hover {
-  transform: translateY(-12px); /* Slightly more movement */
-  background: linear-gradient(145deg, #3b3b3b, #252525);
-}
-
-.work-card:hover .work-image {
-  transform: scale(1.08); /* Bigger zoom effect for more emphasis */
-}
-
-/* Card Hover - Title stays white */
-.work-card:hover .work-title {
-  color: #fff; /* No color change for title */
-}
-
 /* Popup Styles */
 .popup-overlay {
   position: fixed;
@@ -218,4 +201,82 @@
 
 .popup-content.close {
   animation: popup-close 0.3s ease forwards;
+}
+
+/* Mobile Responsive Adjustments */
+
+/* For devices smaller than 768px */
+@media (max-width: 768px) {
+  .popup-content {
+    flex-direction: column;
+    width: 90%; /* Popup takes more width */
+    height: auto; /* Let it auto adjust based on content */
+    max-height: none; /* Remove the restriction on max height */
+  }
+
+  .popup-image {
+    width: 100%; /* Image takes full width on small screens */
+    height: 200px; /* Limit the height */
+    object-fit: cover; /* Ensure proper aspect ratio */
+  }
+
+  .popup-details {
+    padding: 15px; /* Less padding */
+    width: 100%; /* Full width for text area */
+  }
+
+  .popup-title {
+    font-size: 1.5rem; /* Smaller title font size */
+  }
+
+  .popup-description {
+    font-size: 1rem; /* Smaller description font size */
+  }
+
+  .popup-github-button {
+    padding: 8px 16px; /* Smaller button padding */
+  }
+
+  .popup-close {
+    font-size: 1.5rem; /* Smaller close button */
+  }
+}
+
+/* For devices smaller than 480px */
+@media (max-width: 480px) {
+  .popup-content {
+    width: 95%; /* Take up even more width */
+    max-width: 100%; /* Ensure it fits within the screen */
+  }
+
+  .popup-title {
+    font-size: 1.2rem; /* Further reduce title font size */
+  }
+
+  .popup-description {
+    font-size: 0.9rem; /* Further reduce description font size */
+  }
+
+  .popup-github-button {
+    font-size: 0.9rem; /* Reduce button font size */
+  }
+
+  .popup-close {
+    font-size: 1.2rem; /* Adjust close button size */
+  }
+}
+
+
+/* For devices smaller than 768px */
+@media (max-width: 768px) {
+  .myWork h1 {
+    font-size: calc(12vw + 3rem); /* Adjust for smaller screens */
+  }
+}
+
+/* For devices smaller than 480px */
+@media (max-width: 480px) {
+  .myWork h1 {
+    font-size: calc(7vw + 2rem); /* Make the font smaller on very small screens */
+  }
 }
