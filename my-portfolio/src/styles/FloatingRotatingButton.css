@@ -1,7 +1,7 @@
 /* General container for the floating button */
 .floating-button-container {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -11,29 +11,30 @@
 
 /* Floating button styles */
 .floating-button {
-  background: #000; /* Black background */
+  background: #1a73e8; /* Blue background */
   color: #fff; /* White text */
   border: none;
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-size: 2.5rem;
+  width: 70px;  /* Reduced size */
+  height: 70px; /* Reduced size */
+  font-size: 2rem; /* Reduced font size */
   font-weight: bold;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
   position: relative;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth cubic transition */
+  transition: all 0.3s ease; /* Smooth transition */
   transform-style: preserve-3d; /* Enable 3D effect */
+  overflow: hidden;
 }
 
 /* Hover effect for the floating button */
 .floating-button:hover {
-  transform: scale(1.1) rotate(360deg); /* 360-degree rotation */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  background-color: #222; /* Darker black background */
+  transform: scale(1.05) rotate(180deg); /* Slightly smaller scale */
+  background-color: #0b59b1; /* Darker blue background */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Slightly smaller shadow on hover */
   filter: brightness(1.2); /* Glowing effect */
 }
 
@@ -44,62 +45,63 @@
 
 /* Menu options container */
 .menu-options {
-  margin-top: 20px;
+  margin-top: 15px; /* Reduced spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  animation: futuristic-slide-in 0.7s ease-in-out; /* Futuristic slide-in */
+  gap: 12px; /* Reduced gap between menu items */
+  animation: futuristic-slide-in 0.7s ease-in-out;
+  transition: transform 0.3s ease-out;
 }
 
 /* Individual menu items */
 .menu-item {
-  background: #fff; /* White background */
-  color: #333; /* Dark text */
-  border: 2px solid #333; /* Border for contrast */
-  padding: 15px 30px;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: 500;
+  background: transparent; /* Transparent background */
+  color: #1a73e8; /* Blue text */
+  border: 2px solid #1a73e8; /* Blue border */
+  padding: 12px 26px; /* Reduced padding */
+  border-radius: 25px;
+  font-size: 1rem; /* Reduced font size */
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Hover effect for menu items */
 .menu-item:hover {
-  background: #000; /* Black background for hover */
+  background: #1a73e8; /* Blue background on hover */
   color: #fff; /* White text on hover */
-  transform: scale(1.05) translateY(-5px); /* Slight scaling and lift */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  filter: brightness(1.3); /* Glowing effect */
+  transform: scale(1.03) translateY(-2px); /* Slightly smaller scale and lift */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+  filter: brightness(1.2); /* Glowing effect */
 }
 
-.menu-item::before {
+/* Underline animation effect on hover */
+.menu-item span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-bottom: 2px; /* Slightly smaller padding */
+}
+
+.menu-item span::after {
   content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: rgba(255, 255, 255, 0.3); /* Light white glow */
-  transition: all 0.4s ease;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1; /* Behind text */
-}
-
-.menu-item:hover::before {
+  left: 0;
+  bottom: 0;
   width: 0;
-  height: 0;
+  height: 2px;
+  background: #fff; /* White underline */
+  transition: width 0.3s ease-in-out;
 }
 
-/* Remove underline from links */
-.menu-item a {
-  text-decoration: none; /* Removes the underline */
-  color: inherit; /* Ensure link text color inherits the color of the menu item */
+.menu-item:hover span::after {
+  width: 100%;
 }
 
 /* Keyframe animation for futuristic slide-in */
@@ -114,20 +116,20 @@
   }
   100% {
     opacity: 1;
-    transform: translateY(0) rotateY(0); /* Menu items slide in smoothly */
+    transform: translateY(0) rotateY(0);
   }
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .floating-button {
-    width: 55px;
-    height: 55px;
-    font-size: 2rem;
+    width: 55px;  /* Smaller size on mobile */
+    height: 55px; /* Smaller size on mobile */
+    font-size: 1.8rem; /* Smaller font size on mobile */
   }
 
   .menu-item {
-    font-size: 1rem;
-    padding: 12px 22px;
+    font-size: 0.9rem; /* Smaller font size for menu items */
+    padding: 10px 20px; /* Smaller padding for menu items */
   }
 }

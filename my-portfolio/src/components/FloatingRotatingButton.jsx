@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll"; // Import Link for smooth scrolling
 import "../styles/FloatingRotatingButton.css";
 
 const FloatingRotatingButton = () => {
@@ -19,9 +19,67 @@ const FloatingRotatingButton = () => {
       </button>
       {isOpen && (
         <div className="menu-options">
-          <Link to="/" className="menu-item">Home</Link>
-          <button className="menu-item">Option 2</button>
-          <button className="menu-item">Option 3</button>
+          {/* Use Link for scroll navigation */}
+          <Link
+            to="home"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={-100}
+          >
+            <span>Home</span>
+          </Link>
+          <Link
+            to="about"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={50}
+          >
+            <span>About</span>
+          </Link>
+          <Link
+            to="skills"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={50}
+          >
+            <span>Skills</span>
+          </Link>
+          <Link
+            to="projects"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={100}
+          >
+            <span>Projects</span>
+          </Link>
+          <Link
+            to="services"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={100}
+          >
+            <span>Services</span>
+          </Link>
+          <Link
+            to="contact"
+            className="menu-item"
+            spy={true}
+            smooth={true}
+            duration={500}
+            offset={100}
+          >
+            <span>Contact</span>
+          </Link>
         </div>
       )}
     </div>

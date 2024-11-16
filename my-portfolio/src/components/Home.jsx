@@ -10,6 +10,7 @@ import Contact from "./Contact";
 import FollowMe from "./FollowMe";
 import ThreeDModel from "./ThreeDModel";
 import Navbar from "./Navbar";
+import FButton from "./FloatingRotatingButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
@@ -62,7 +63,7 @@ const Home = ({ isMuted, toggleMute }) => {
 
   return (
     <div className="home">
-      <Navbar />
+      <FButton/>
       <div className="home-size">
         <section id="threeDModel" className="threeDModel-section">
           <ThreeDModel />
