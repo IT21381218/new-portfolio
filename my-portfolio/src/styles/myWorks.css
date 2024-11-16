@@ -32,7 +32,7 @@
 
 .work-card {
   cursor: pointer;
-  background: linear-gradient(145deg, #ffffff, #ffffff); /* Rich gradient background */
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);  /* Rich gradient background */
   border: 2px solid #333; /* Soft border */
   border-radius: 20px; /* Rounder corners for a modern look */
   overflow: hidden;
@@ -70,7 +70,7 @@
   top: 10px;
   font-size: 1.6rem;
   font-weight: bold;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 10px; /* Make it lower */
   text-transform: uppercase; /* Gives a bolder, modern feel */
   position: relative;
