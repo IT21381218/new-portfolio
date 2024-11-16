@@ -1,107 +1,89 @@
 import React, { useState } from "react";
 import "../styles/myWorks.css";
 
-function Projects() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentProject, setCurrentProject] = useState(null);
-  const [isClosing, setIsClosing] = useState(false);
+const works = [
+  {
+    name: "E-Commerce Website",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png",
+    description: "A fully functional e-commerce platform with cart and payment integration.",
+    github: "https://github.com/username/ecommerce-project", // Replace with actual link
+  },
+  {
+    name: "Portfolio Website",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690883334/photo-1559268950-2d7ceb2efa3a_upa7wp.png",
+    description: "A personal portfolio showcasing skills, projects, and contact information.",
+    github: "https://github.com/username/portfolio-project", // Replace with actual link
+  },
+  {
+    name: "Social Media App",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690900415/Untitled-5_qvgdlq.png",
+    description: "A social media platform with user authentication and real-time chat.",
+    github: "https://github.com/username/socialmedia-project", // Replace with actual link
+  },
+];
 
-  // Data for the projects
-  const projects = [
-    {
-      id: 1,
-      name: "Guident Computers",
-      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png", // Replace with project image URL
-      description: "A brief description of Project One, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-    {
-      id: 2,
-      name: "Project Two",
-      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1714587388/citymart/logo_transparent_limzrg.png", // Replace with project image URL
-      description: "A brief description of Project Two, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-    {
-      id: 3,
-      name: "Project Three",
-      image: "https://via.placeholder.com/300", // Replace with project image URL
-      description: "A brief description of Project Three, explaining its purpose and features.",
-      github: "https://github.com",
-    },
-  ];
+const MyWorks = () => {
+  const [selectedWork, setSelectedWork] = useState(null);
+  const [animationState, setAnimationState] = useState(""); // Tracks animation state
 
-  // Function to open modal with selected project data
-  const openModal = (project) => {
-    setCurrentProject(project);
-    setIsModalOpen(true);
+  const openPopup = (work) => {
+    setSelectedWork(work);
+    setAnimationState("open");
   };
 
-  // Function to close the modal with animation
-  const closeModal = () => {
-    setIsClosing(true); // Start closing animation
+  const closePopup = () => {
+    setAnimationState("close");
     setTimeout(() => {
-      setIsModalOpen(false); // Set isModalOpen to false after animation completes
-      setIsClosing(false);
-      setCurrentProject(null);
-    }, 500); // Match the duration of the closing animation
+      setSelectedWork(null);
+    }, 300); // Match duration with the CSS animation
   };
 
   return (
-    <section className="projects">
-      <h1>Projects</h1>
-      <p>A showcase of my work</p>
+    <section className="myWork">
+      <h1>PROJECTS</h1>
 
-      <div className="project-cards">
-        {projects.map((project) => (
+      <div className="work-container">
+        {works.map((work, index) => (
           <div
-            key={project.id}
-            className="project-card"
-            onClick={() => openModal(project)}
+            key={index}
+            className="work-card"
+            onClick={() => openPopup(work)}
           >
-            <img
-              src={project.image}
-              alt={project.name}
-              className="project-image"
-            />
-            <div className="project-info">
-              <h2>{project.name}</h2>
+            <img src={work.image} alt={work.name} className="work-image" />
+            <div className="work-details">
+              <h2 className="work-title">{work.name}</h2>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Modal/Popup */}
-      {isModalOpen && currentProject && (
-        <div
-          className={`modal ${isClosing ? "modal-closing" : ""}`} // Apply the closing animation
-        >
+      {selectedWork && (
+        <div className="popup-overlay" onClick={closePopup}>
           <div
-            className={`modal-content ${isClosing ? "modal-content-closing" : ""}`} // Apply the closing animation
+            className={`popup-content ${animationState}`}
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the popup
           >
-            <button className="close-button" onClick={closeModal}>X</button>
-            <div className="modal-inner">
-              <div className="modal-image">
-                <img src={currentProject.image} alt={currentProject.name} />
-              </div>
-              <div className="modal-details">
-                <h2>{currentProject.name}</h2>
-                <p>{currentProject.description}</p>
-                <a
-                  href={currentProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-button"
-                >
-                  View on GitHub
-                </a>
-              </div>
+            <img src={selectedWork.image} alt={selectedWork.name} className="popup-image" />
+            <div className="popup-details">
+              <h2 className="popup-title">{selectedWork.name}</h2>
+              <p className="popup-description">{selectedWork.description}</p>
+              <a
+                href={selectedWork.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="popup-github-button"
+              >
+                View on GitHub
+              </a>
             </div>
+            <button className="popup-close" onClick={closePopup}>
+              &times;
+            </button>
           </div>
         </div>
       )}
     </section>
   );
-}
+};
 
-export default Projects;
+export default MyWorks;
