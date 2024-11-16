@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/myWorks.css";
+import FButton from "./FloatingRotatingButton";
 
 const works = [
   {
@@ -20,7 +21,7 @@ const works = [
     description: "Our application, TravelLodge allows læal homeowners to put their accornrnodations for rent-for tourists who doesn't want to invest a lot of money in hotels- This will allow more tourists to visit and stay as long as they wish for a reasonable price. This also tWps spread good word atnJt how eæy it is to Visit our country and stay.",
     github: "https://github.com/rumeshsmrr/RentalApplication/tree/main", // Replace with actual link
   },
-  
+
     {
       name: "CityMart",
       image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/facebook_profile_image_wxa3sv.png",
@@ -56,6 +57,7 @@ const MyWorks = () => {
 
   return (
     <section className="myWork">
+      <FButton/>
       <h1>PROJECTS</h1>
 
       <div className="work-container">
