@@ -140,6 +140,21 @@ const MyWorks = ({ isMuted, toggleMute }) => {
       </div>
 
       <h1>MY SONGS</h1>
+      <div class="music-corner">
+    <h1>Welcome to my music corner!</h1>
+    <p>
+        I've been producing music under the name "Ekzetef" since 2020, when I first started at the age of 20. Over the years, I’ve developed my skills and passion for making EDM music, with a special focus on genres like dubstep, electronic, trap, and synthwave. These are the sounds I love, and they’ve become my signature style.
+    </p>
+    <p>
+        I began my journey in music production using FL Studio as my Digital Audio Workstation (DAW). Everything I know about FL Studio, I’ve learned through self-study and by watching countless tutorials online. The learning process has been a rewarding challenge, but I’ve come a long way. Along the way, I’ve also picked up skills in mixing and mastering, ensuring my tracks sound polished and professional.
+    </p>
+    <p>
+        Below, you can check out some of my tracks, available for you to listen to. Feel free to explore my full music collection on <a href="https://open.spotify.com/artist/0FYHTOs5JRs91T1kieiYBP" target="_blank" class="link">Spotify</a> and <a href="https://www.youtube.com/channel/UCh2lSlzUxZRu0bvLceDUMow" target="_blank" class="link">YouTube</a>, where you’ll find more of my creations and music projects.
+    </p>
+</div>
+
+
+
       <div className="song-container">
         {songs.map((song, index) => (
           <div key={index} className="song-card">
