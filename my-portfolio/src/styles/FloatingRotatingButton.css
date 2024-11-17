@@ -33,10 +33,10 @@
 /* Floating button pulsing effect */
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.5);
+    box-shadow: 0 0px 15px rgba(26, 115, 232, 0.5);
   }
   50% {
-    box-shadow: 0 8px 30px rgba(26, 115, 232, 0.8);
+    box-shadow: 0 0px 30px rgba(26, 115, 232, 0.8);
   }
 }
 
@@ -162,19 +162,28 @@
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+  /* Floating button size for mobile */
   .floating-button {
     width: 55px;
     height: 55px;
     font-size: 1.8rem;
   }
 
+  /* Menu items for mobile */
   .menu-item {
-    font-size: 1rem; /* Adjusted font size for mobile */
-    padding: 12px 25px; /* Adjusted padding */
-    width: 160px; /* Ensure enough width for mobile */
+    font-size: 1rem; /* Reduced font size for mobile */
+    padding: 20px 25px; /* Reduced padding */
+    width: 100px; /* Ensure enough width for mobile */
   }
 
+  /* Icon size for mobile */
   .menu-item i {
     font-size: 1.6rem; /* Adjusted icon size */
+  }
+
+  /* Menu options container adjustment for mobile */
+  .menu-options {
+    gap: 15px; /* Adjust gap for mobile */
+    margin-top: 20px; /* Slightly reduce margin-top */
   }
 }
