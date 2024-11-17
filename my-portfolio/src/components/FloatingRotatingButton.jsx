@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll"; // Import Link for smooth scrolling
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaCogs, FaEnvelope } from "react-icons/fa"; // Import icons
 import "../styles/FloatingRotatingButton.css";
 
 const FloatingRotatingButton = () => {
@@ -19,7 +20,7 @@ const FloatingRotatingButton = () => {
       </button>
       {isOpen && (
         <div className="menu-options">
-          {/* Use Link for scroll navigation */}
+          {/* Use Link for scroll navigation with icons */}
           <Link
             to="home"
             className="menu-item"
@@ -28,7 +29,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={-100}
           >
-            <span>Home</span>
+            <FaHome /> {/* Home Icon */}
           </Link>
           <Link
             to="about"
@@ -38,7 +39,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <span>About</span>
+            <FaUser /> {/* About Icon */}
           </Link>
           <Link
             to="skills"
@@ -48,7 +49,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <span>Skills</span>
+            <FaCode /> {/* Skills Icon */}
           </Link>
           <Link
             to="projects"
@@ -58,7 +59,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <span>Projects</span>
+            <FaProjectDiagram /> {/* Projects Icon */}
           </Link>
           <Link
             to="services"
@@ -68,7 +69,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <span>Services</span>
+            <FaCogs /> {/* Services Icon */}
           </Link>
           <Link
             to="contact"
@@ -78,7 +79,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <span>Contact</span>
+            <FaEnvelope /> {/* Contact Icon */}
           </Link>
         </div>
       )}

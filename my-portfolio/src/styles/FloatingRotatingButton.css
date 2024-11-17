@@ -133,3 +133,13 @@
     padding: 10px 20px; /* Smaller padding for menu items */
   }
 }
+
+/* Style the icons in menu items */
+.menu-item svg {
+  font-size: 1.5rem; /* Adjust icon size */
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover svg {
+  color: #fff; /* Change icon color on hover */
+}
