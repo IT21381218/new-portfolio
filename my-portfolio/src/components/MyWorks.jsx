@@ -1,52 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/myWorks.css";
 import MyWOrkFButton from "./MyWorkFloatingButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const works = [
   {
     name: "Guident Computers",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png",
-    description: "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka Their business serves as an intermediary between a buyer and suppliers.",
-    github: "https://github.com/rumeshsmrr/ITP_WD_B1_G14", 
+    description: "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka. Their business serves as an intermediary between a buyer and suppliers.",
+    github: "https://github.com/rumeshsmrr/ITP_WD_B1_G14",
   },
   {
     name: "Revolt Airline",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690883334/photo-1559268950-2d7ceb2efa3a_upa7wp.png",
     description: "This airline reservation ticket booking system is a comprehensive and user-friendly web application that simplifies the process of reserving and booking flight tickets for travelers. This project aims to streamline the airline ticket booking process and enhance the overall travel experience for users.",
-    github: "https://github.com/IT21381218/Airlines-Reservation-Ticket-Booking-System", 
+    github: "https://github.com/IT21381218/Airlines-Reservation-Ticket-Booking-System",
   },
   {
     name: "TravelLodge",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690900415/Untitled-5_qvgdlq.png",
-    description: "Our application, TravelLodge allows local homeowners to put their accommodations for rent-for tourists who don't want to invest a lot of money in hotels. This allows more tourists to visit and stay as long as they wish for a reasonable price.",
-    github: "https://github.com/rumeshsmrr/RentalApplication/tree/main", 
+    description: "Our application, TravelLodge, allows local homeowners to put their accommodations for rent-for tourists who don't want to invest a lot of money in hotels. This allows more tourists to visit and stay as long as they wish for a reasonable price.",
+    github: "https://github.com/rumeshsmrr/RentalApplication/tree/main",
   },
   {
     name: "CityMart",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/facebook_profile_image_wxa3sv.png",
     description: "CityMart is a web application that provides voice navigation for visually impaired users, allowing them to shop online with ease. Key features include voice commands for adding items to the cart and submitting feedback.",
-    github: "https://github.com/IT21381218/CityMart", 
+    github: "https://github.com/IT21381218/CityMart",
   },
 ];
 
 const songs = [
   {
-    name: "Aura",
+    name: "Ekzetef - Aura",
     cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731864365/Untitled-1_dvw0ui.jpg",
     description: "A chill lo-fi track to relax and study.",
     audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731864297/aura_qo2sso.mp3",
   },
   {
-    name: "Song 2",
-    cover: "https://example.com/cover2.jpg",
+    name: "Ekzetef - Murder Bass",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868800/my%20portfolio/EpY8tHeXYAEYkxV_fapvqf.jpg",
     description: "An upbeat electronic dance track.",
-    audio: "https://example.com/audio2.mp3",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870786/my%20portfolio/Ekzetef_-_Murder_Bass_Official_Audio_v14d99.m4a",
+  },
+  {
+    name: "Ekzetef - Visuals",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868802/my%20portfolio/EeCLJsqXkAAjtv1_v5rddo.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Visuals_Official_Video_ai8fx6.m4a",
+  },
+  {
+    name: "Selena Gomez - Lose You To Love Me (Ekzetef Remix)",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868800/my%20portfolio/artworks-0QyiVcZsOnVMeHr2-cjRUYA-t500x500_b529ft.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870479/my%20portfolio/Selena_Gomez_-_Lose_You_To_Love_Me_Ekzetef_Remix_mrnxaw.m4a",
+  },
+  {
+    name: "Ekzetef - Universe",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868803/my%20portfolio/dc4f914e97274e418682d78b1b671100_464_464_kykvv3.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870479/my%20portfolio/Ekzetef_-_Universe_hjincm.m4a",
+  },
+  {
+    name: "Ekzetef - Nefertiti",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868798/my%20portfolio/artworks-3x1xlnpw6w8zJyPx-hhcdRA-t240x240_qmetei.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Nefertiti_jowfbn.m4a",
+  },
+  {
+    name: "Ekzetef - Black Hole",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868799/my%20portfolio/ab67616d00001e02af14388eeef310bd44ab2553_fjiyvn.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870474/my%20portfolio/Ekzetef_-_Black_Hole_wwuy1t.m4a",
+  },
+  {
+    name: "Modjo - Lady (Hear Me Tonight)[Ekzetef Remix]",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731870188/my%20portfolio/Modjoalbumcover_gexvih.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731867524/my%20portfolio/Lady_master_zvmkog.mp3",
   },
 ];
 
-const MyWorks = () => {
+const MyWorks = ({ isMuted, toggleMute }) => {
   const [selectedWork, setSelectedWork] = useState(null);
   const [animationState, setAnimationState] = useState("");
+  const [currentAudio, setCurrentAudio] = useState(null); // Track the current audio element
+  const audioRefs = useRef([]);
 
   const openPopup = (work) => {
     setSelectedWork(work);
@@ -60,8 +100,27 @@ const MyWorks = () => {
     }, 300);
   };
 
+  const handleAudioPlay = (index) => {
+    const newAudio = audioRefs.current[index];
+    
+    // Pause the current audio if it's playing
+    if (currentAudio && currentAudio !== newAudio) {
+      currentAudio.pause();
+    }
+
+    // Set the current audio to the new one and play it
+    setCurrentAudio(newAudio);
+    newAudio.play();
+  };
+
   return (
     <section className="myWork">
+      <button
+        className={`mute-button ${isMuted ? "active" : ""}`}
+        onClick={toggleMute} // Call toggleMute to change mute state
+      >
+        <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
+      </button>
       <MyWOrkFButton />
       <h1>PROJECTS</h1>
 
@@ -88,7 +147,12 @@ const MyWorks = () => {
             <div className="song-details">
               <h2 className="song-title">{song.name}</h2>
               <p className="song-description">{song.description}</p>
-              <audio controls className="audio-player">
+              <audio
+                ref={(el) => (audioRefs.current[index] = el)} // Store references to audio elements
+                controls
+                className="audio-player"
+                onPlay={() => handleAudioPlay(index)} // Handle play to stop current audio and start new one
+              >
                 <source src={song.audio} type="audio/mpeg" />
                 Your browser does not support the audio element.
               </audio>
@@ -97,13 +161,25 @@ const MyWorks = () => {
         ))}
       </div>
 
+      {/* Mute/Unmute Button */}
+      <button
+        className={`mute-button ${isMuted ? "active" : ""}`}
+        onClick={toggleMute}
+      >
+        <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
+      </button>
+
       {selectedWork && (
         <div className="popup-overlay" onClick={closePopup}>
           <div
             className={`popup-content ${animationState}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={selectedWork.image} alt={selectedWork.name} className="popup-image" />
+            <img
+              src={selectedWork.image}
+              alt={selectedWork.name}
+              className="popup-image"
+            />
             <div className="popup-details">
               <h2 className="popup-title">{selectedWork.name}</h2>
               <p className="popup-description">{selectedWork.description}</p>

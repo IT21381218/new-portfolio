@@ -86,7 +86,7 @@ function App() {
           <Router>      
             <Routes>
               <Route path="/" element={<Home isMuted={isMuted} toggleMute={toggleMute} />} />
-              <Route path="/myworks" element={<MyWorks />} />
+              <Route path="/myworks" element={<MyWorks isMuted={isMuted} toggleMute={toggleMute} />} />
             </Routes>
           </Router>
         </>
