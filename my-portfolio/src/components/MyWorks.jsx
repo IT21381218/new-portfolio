@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/myWorks.css";
-import FButton from "./FloatingRotatingButton";
+import MyWOrkFButton from "./MyWorkFloatingButton";
 
 const works = [
   {
@@ -57,7 +57,7 @@ const MyWorks = () => {
 
   return (
     <section className="myWork">
-      <FButton/>
+      <MyWOrkFButton/>
       <h1>PROJECTS</h1>
 
       <div className="work-container">

@@ -87,7 +87,7 @@ function Projects() {
       <div className="projects-container">
         <h2>
           {countUpStarted && (
-            <CountUp start={0} end={3} duration={3} separator="," />
+            <CountUp start={0} end={4} duration={3} separator="," />
           )}
         </h2>
       </div>
