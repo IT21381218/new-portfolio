@@ -58,7 +58,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+  background-color: rgba(0, 0, 0, 0.932); /* Dark transparent background */
   color: #fff;
   padding: 30px;
   border-radius: 15px;

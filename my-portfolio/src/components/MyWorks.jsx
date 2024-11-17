@@ -6,42 +6,47 @@ const works = [
   {
     name: "Guident Computers",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png",
-    description: "Guident Computers is a business store that sells computer parts and other electronic gocxis to consumers in Sri Lanka Their business serves as an intermediary between a buyer and suppliers.",
-    github: "https://github.com/rumeshsmrr/ITP_WD_B1_G14", // Replace with actual link
+    description: "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka Their business serves as an intermediary between a buyer and suppliers.",
+    github: "https://github.com/rumeshsmrr/ITP_WD_B1_G14", 
   },
   {
     name: "Revolt Airline",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690883334/photo-1559268950-2d7ceb2efa3a_upa7wp.png",
-    description: "This airline reservation ticket moking system is a comprehensive and user-friendly web application that simplifies the præess of reserving and booking flight tickets for travelers. This project aims to streamline the airline ticket booking præess and enhance the overall travel experience for usffS.",
-    github: "https://github.com/IT21381218/Airlines-Reservation-Ticket-Booking-System", // Replace with actual link
+    description: "This airline reservation ticket booking system is a comprehensive and user-friendly web application that simplifies the process of reserving and booking flight tickets for travelers. This project aims to streamline the airline ticket booking process and enhance the overall travel experience for users.",
+    github: "https://github.com/IT21381218/Airlines-Reservation-Ticket-Booking-System", 
   },
   {
     name: "TravelLodge",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690900415/Untitled-5_qvgdlq.png",
-    description: "Our application, TravelLodge allows læal homeowners to put their accornrnodations for rent-for tourists who doesn't want to invest a lot of money in hotels- This will allow more tourists to visit and stay as long as they wish for a reasonable price. This also tWps spread good word atnJt how eæy it is to Visit our country and stay.",
-    github: "https://github.com/rumeshsmrr/RentalApplication/tree/main", // Replace with actual link
+    description: "Our application, TravelLodge allows local homeowners to put their accommodations for rent-for tourists who don't want to invest a lot of money in hotels. This allows more tourists to visit and stay as long as they wish for a reasonable price.",
+    github: "https://github.com/rumeshsmrr/RentalApplication/tree/main", 
   },
+  {
+    name: "CityMart",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/facebook_profile_image_wxa3sv.png",
+    description: "CityMart is a web application that provides voice navigation for visually impaired users, allowing them to shop online with ease. Key features include voice commands for adding items to the cart and submitting feedback.",
+    github: "https://github.com/IT21381218/CityMart", 
+  },
+];
 
-    {
-      name: "CityMart",
-      image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/facebook_profile_image_wxa3sv.png",
-      description: `🌐 Excited to share CityMart – a web application designed with accessibility and convenience at its heart! 🛒
-      
-    🎉 Built using the MERN stack, this project was a collaboration between myself and Eehanee Hettiarachchi to create a user-friendly shopping experience for all, especially for individuals with visual impairments. Through CityMart, users can navigate the supermarket, add items to their cart, and even give feedback – all using voice commands! 🎙️
-    
-    🔍 Our main focus was to make ordering food accessible and seamless, empowering half-blind or visually impaired users to independently and confidently complete their shopping online.
-    
-    🚀 Key Features:
-    ⚫ Voice Navigation: Browse and navigate without lifting a finger.
-    ⚫ Voice-Activated Cart Management: Add items directly to the cart using voice commands.
-    ⚫ Feedback via Voice Commands: User-friendly feedback system.`,
-      github: "https://github.com/IT21381218/CityMart", // Replace with actual link
-    }
+const songs = [
+  {
+    name: "Aura",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731864365/Untitled-1_dvw0ui.jpg",
+    description: "A chill lo-fi track to relax and study.",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731864297/aura_qo2sso.mp3",
+  },
+  {
+    name: "Song 2",
+    cover: "https://example.com/cover2.jpg",
+    description: "An upbeat electronic dance track.",
+    audio: "https://example.com/audio2.mp3",
+  },
 ];
 
 const MyWorks = () => {
   const [selectedWork, setSelectedWork] = useState(null);
-  const [animationState, setAnimationState] = useState(""); // Tracks animation state
+  const [animationState, setAnimationState] = useState("");
 
   const openPopup = (work) => {
     setSelectedWork(work);
@@ -52,12 +57,12 @@ const MyWorks = () => {
     setAnimationState("close");
     setTimeout(() => {
       setSelectedWork(null);
-    }, 300); // Match duration with the CSS animation
+    }, 300);
   };
 
   return (
     <section className="myWork">
-      <MyWOrkFButton/>
+      <MyWOrkFButton />
       <h1>PROJECTS</h1>
 
       <div className="work-container">
@@ -75,11 +80,28 @@ const MyWorks = () => {
         ))}
       </div>
 
+      <h1>MY SONGS</h1>
+      <div className="song-container">
+        {songs.map((song, index) => (
+          <div key={index} className="song-card">
+            <img src={song.cover} alt={song.name} className="song-cover" />
+            <div className="song-details">
+              <h2 className="song-title">{song.name}</h2>
+              <p className="song-description">{song.description}</p>
+              <audio controls className="audio-player">
+                <source src={song.audio} type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        ))}
+      </div>
+
       {selectedWork && (
         <div className="popup-overlay" onClick={closePopup}>
           <div
             className={`popup-content ${animationState}`}
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the popup
+            onClick={(e) => e.stopPropagation()}
           >
             <img src={selectedWork.image} alt={selectedWork.name} className="popup-image" />
             <div className="popup-details">
