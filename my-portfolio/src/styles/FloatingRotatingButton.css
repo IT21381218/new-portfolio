@@ -11,7 +11,7 @@
 
 /* Floating button styles */
 .floating-button {
-  background: linear-gradient(135deg, #1a73e8, #0b59b1);
+  background: linear-gradient(135deg, #000000, #000000);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgb(255, 255, 255);
   position: relative;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -33,18 +33,19 @@
 /* Floating button pulsing effect */
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0px 15px rgba(26, 115, 232, 0.5);
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
   }
   50% {
-    box-shadow: 0 0px 30px rgba(26, 115, 232, 0.8);
+    box-shadow: 0 0px 30px rgba(255, 255, 255, 0.8);
   }
 }
 
 /* Hover effect for the floating button */
 .floating-button:hover {
+  color: #000000;
   transform: scale(1.1) rotate(180deg);
-  background: linear-gradient(135deg, #0b59b1, #1a73e8);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+  box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
   filter: brightness(1.2);
 }
 
@@ -79,8 +80,8 @@
 /* Individual menu items */
 .menu-item {
   background: transparent;
-  color: #1a73e8;
-  border: 2px solid #1a73e8;
+  color: #ffffff;
+  border: 3px solid #ffffff;
   padding: 20px 30px; /* Adjusted padding */
   border-radius: 25px;
   font-size: 1.1rem; /* Reduced font size for span text */
@@ -89,7 +90,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.377);
   text-transform: uppercase;
   letter-spacing: 1px;
   display: flex;
@@ -134,7 +135,7 @@
 
 /* Hover effect for menu items */
 .menu-item:hover {
-  background: linear-gradient(135deg, #1a73e8, #0b59b1);
+  background: linear-gradient(135deg, #000000, #000000);
   color: #fff;
   transform: scale(1.05) translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);

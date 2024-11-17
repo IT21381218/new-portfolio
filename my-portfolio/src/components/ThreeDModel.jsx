@@ -47,7 +47,7 @@ const ThreeDModel = () => {
         }
       });
 
-      object.scale.set(4, 4, 4);
+      object.scale.set(5, 5, 5);
       object.position.set(0, 0, -4);
       scene.add(object);
     });
@@ -62,8 +62,8 @@ const ThreeDModel = () => {
       // Apply smooth rotation and floating effect
       if (modelRef.current) {
         // Floating effect
-        modelRef.current.position.y = Math.sin(elapsedTime * 0.8) * 0.4;
-        modelRef.current.position.x = Math.sin(elapsedTime * 0.5) * 0.2; // Adjust amplitude and speed here
+        modelRef.current.position.y = Math.sin(elapsedTime * 0.1) * 0.4;
+        modelRef.current.position.x = Math.sin(elapsedTime * 0.1) * 0.2; // Adjust amplitude and speed here
 
         // Rotation effect based on mouse or touch position
         modelRef.current.rotation.x = mousePos.current.y * Math.PI * 0.3; // Horizontal rotation effect

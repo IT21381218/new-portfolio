@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-scroll"; // Import Link for smooth scrolling
 import "../styles/FloatingRotatingButton.css"; // Import the updated CSS
 
+
 const FloatingRotatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +45,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <i className="fas fa-user"></i> {/* FontAwesome User Icon */}
+            <i class="fa-solid fa-address-card"></i>{/* FontAwesome User Icon */}
             <span>About</span>
           </Link>
 
@@ -57,7 +58,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <i className="fas fa-tools"></i> {/* FontAwesome Tools Icon */}
+            <i class="fa-solid fa-brain"></i> {/* FontAwesome Tools Icon */}
             <span>Skills</span>
           </Link>
 
@@ -83,7 +84,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <i className="fas fa-cogs"></i> {/* FontAwesome Cogs Icon */}
+            <i class="fa-solid fa-handshake-angle"></i> {/* FontAwesome Cogs Icon */}
             <span>Services</span>
           </Link>
 
@@ -96,7 +97,7 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <i className="fas fa-envelope"></i> {/* FontAwesome Envelope Icon */}
+            <i class="fa-solid fa-address-book"></i>{/* FontAwesome Envelope Icon */}
             <span>Contact</span>
           </Link>
         </div>
