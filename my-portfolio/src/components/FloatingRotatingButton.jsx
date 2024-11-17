@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll"; // Import Link for smooth scrolling
-import { FaHome, FaUser, FaCode, FaProjectDiagram, FaCogs, FaEnvelope } from "react-icons/fa"; // Import icons
-import "../styles/FloatingRotatingButton.css";
+import "../styles/FloatingRotatingButton.css"; // Import the updated CSS
 
 const FloatingRotatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +11,18 @@ const FloatingRotatingButton = () => {
 
   return (
     <div className="floating-button-container">
+      {/* Floating button */}
       <button
         className={`floating-button ${isOpen ? "rotate" : ""}`}
         onClick={toggleMenu}
       >
         +
       </button>
+
+      {/* Menu options */}
       {isOpen && (
         <div className="menu-options">
-          {/* Use Link for scroll navigation with icons */}
+          {/* Menu item: Home */}
           <Link
             to="home"
             className="menu-item"
@@ -29,8 +31,11 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={-100}
           >
-            <FaHome /> {/* Home Icon */}
+            <i className="fas fa-home"></i> {/* FontAwesome Home Icon */}
+            <span>Home</span>
           </Link>
+
+          {/* Menu item: About */}
           <Link
             to="about"
             className="menu-item"
@@ -39,8 +44,11 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <FaUser /> {/* About Icon */}
+            <i className="fas fa-user"></i> {/* FontAwesome User Icon */}
+            <span>About</span>
           </Link>
+
+          {/* Menu item: Skills */}
           <Link
             to="skills"
             className="menu-item"
@@ -49,8 +57,11 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={50}
           >
-            <FaCode /> {/* Skills Icon */}
+            <i className="fas fa-tools"></i> {/* FontAwesome Tools Icon */}
+            <span>Skills</span>
           </Link>
+
+          {/* Menu item: Projects */}
           <Link
             to="projects"
             className="menu-item"
@@ -59,8 +70,11 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <FaProjectDiagram /> {/* Projects Icon */}
+            <i className="fas fa-briefcase"></i> {/* FontAwesome Briefcase Icon */}
+            <span>Projects</span>
           </Link>
+
+          {/* Menu item: Services */}
           <Link
             to="services"
             className="menu-item"
@@ -69,8 +83,11 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <FaCogs /> {/* Services Icon */}
+            <i className="fas fa-cogs"></i> {/* FontAwesome Cogs Icon */}
+            <span>Services</span>
           </Link>
+
+          {/* Menu item: Contact */}
           <Link
             to="contact"
             className="menu-item"
@@ -79,7 +96,8 @@ const FloatingRotatingButton = () => {
             duration={500}
             offset={100}
           >
-            <FaEnvelope /> {/* Contact Icon */}
+            <i className="fas fa-envelope"></i> {/* FontAwesome Envelope Icon */}
+            <span>Contact</span>
           </Link>
         </div>
       )}

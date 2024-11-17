@@ -11,135 +11,170 @@
 
 /* Floating button styles */
 .floating-button {
-  background: #1a73e8; /* Blue background */
-  color: #fff; /* White text */
+  background: linear-gradient(135deg, #1a73e8, #0b59b1);
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 70px;  /* Reduced size */
-  height: 70px; /* Reduced size */
-  font-size: 2rem; /* Reduced font size */
+  width: 70px;
+  height: 70px;
+  font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  transition: all 0.3s ease; /* Smooth transition */
-  transform-style: preserve-3d; /* Enable 3D effect */
+  transition: all 0.3s ease;
   overflow: hidden;
+  animation: pulse 2s infinite;
+}
+
+/* Floating button pulsing effect */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(26, 115, 232, 0.5);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(26, 115, 232, 0.8);
+  }
 }
 
 /* Hover effect for the floating button */
 .floating-button:hover {
-  transform: scale(1.05) rotate(180deg); /* Slightly smaller scale */
-  background-color: #0b59b1; /* Darker blue background */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Slightly smaller shadow on hover */
-  filter: brightness(1.2); /* Glowing effect */
+  transform: scale(1.1) rotate(180deg);
+  background: linear-gradient(135deg, #0b59b1, #1a73e8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  filter: brightness(1.2);
 }
 
 /* Rotation effect when toggled */
 .floating-button.rotate {
-  transform: rotate(45deg); /* Rotate button to show it's active */
+  transform: rotate(45deg);
 }
 
 /* Menu options container */
 .menu-options {
-  margin-top: 15px; /* Reduced spacing */
+  margin-top: 30px; /* Increased margin-top to increase the height of the menu */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px; /* Reduced gap between menu items */
-  animation: futuristic-slide-in 0.7s ease-in-out;
-  transition: transform 0.3s ease-out;
+  gap: 20px; /* Increased gap between menu items */
+  animation: slide-in 0.5s ease-in-out;
+  transform-origin: top center;
+}
+
+/* Slide-in animation for menu items */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Individual menu items */
 .menu-item {
-  background: transparent; /* Transparent background */
-  color: #1a73e8; /* Blue text */
-  border: 2px solid #1a73e8; /* Blue border */
-  padding: 12px 26px; /* Reduced padding */
+  background: transparent;
+  color: #1a73e8;
+  border: 2px solid #1a73e8;
+  padding: 20px 30px; /* Adjusted padding */
   border-radius: 25px;
-  font-size: 1rem; /* Reduced font size */
+  font-size: 1.1rem; /* Reduced font size for span text */
   font-weight: 600;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
   letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100px; /* Ensure the menu item has enough width to show both icon and text */
+}
+
+/* Text and Icon Transition Effect */
+.menu-item span,
+.menu-item i {
+  position: absolute;
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-item span {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition-delay: 0s;
+}
+
+.menu-item i {
+  transition-delay: 0.3s;
+}
+
+/* Show text when hovering */
+.menu-item:hover span {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.menu-item:hover i {
+  opacity: 0;
+  transform: translateY(10px);
+  transition-delay: 0s;
 }
 
 /* Hover effect for menu items */
 .menu-item:hover {
-  background: #1a73e8; /* Blue background on hover */
-  color: #fff; /* White text on hover */
-  transform: scale(1.03) translateY(-2px); /* Slightly smaller scale and lift */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Slightly smaller shadow */
-  filter: brightness(1.2); /* Glowing effect */
+  background: linear-gradient(135deg, #1a73e8, #0b59b1);
+  color: #fff;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.2);
 }
 
-/* Underline animation effect on hover */
-.menu-item span {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  padding-bottom: 2px; /* Slightly smaller padding */
-}
-
+/* Remove underline animation from span text */
 .menu-item span::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background: #fff; /* White underline */
-  transition: width 0.3s ease-in-out;
+  /* content: ""; */
+  /* position: absolute; */
+  /* bottom: -3px; */
+  /* left: 0; */
+  /* height: 3px; */
+  /* width: 100%; */
+  /* background: #fff; */
+  /* transform: scaleX(0); */
+  /* transform-origin: left; */
+  /* transition: transform 0.3s ease-in-out; */
 }
 
+/* Menu item hover underline animation removed */
 .menu-item:hover span::after {
-  width: 100%;
-}
-
-/* Keyframe animation for futuristic slide-in */
-@keyframes futuristic-slide-in {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) rotateY(90deg);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translateY(15px) rotateY(45deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotateY(0);
-  }
+  /* transform: scaleX(1); */
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .floating-button {
-    width: 55px;  /* Smaller size on mobile */
-    height: 55px; /* Smaller size on mobile */
-    font-size: 1.8rem; /* Smaller font size on mobile */
+    width: 55px;
+    height: 55px;
+    font-size: 1.8rem;
   }
 
   .menu-item {
-    font-size: 0.9rem; /* Smaller font size for menu items */
-    padding: 10px 20px; /* Smaller padding for menu items */
+    font-size: 1rem; /* Adjusted font size for mobile */
+    padding: 12px 25px; /* Adjusted padding */
+    width: 160px; /* Ensure enough width for mobile */
   }
-}
 
-/* Style the icons in menu items */
-.menu-item svg {
-  font-size: 1.5rem; /* Adjust icon size */
-  transition: color 0.3s ease;
-}
-
-.menu-item:hover svg {
-  color: #fff; /* Change icon color on hover */
+  .menu-item i {
+    font-size: 1.6rem; /* Adjusted icon size */
+  }
 }

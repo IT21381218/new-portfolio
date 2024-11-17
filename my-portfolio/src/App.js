@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import MyWorks from "./components/MyWorks";
 import { trefoil } from "ldrs";
 import "./index.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 trefoil.register();  // Register the trefoil component
 
