@@ -79,7 +79,7 @@
 
 /* Individual menu items */
 .menu-item {
-  background: transparent;
+  background: linear-gradient(135deg, #000000, #000000);
   color: #ffffff;
   border: 3px solid #ffffff;
   padding: 20px 30px; /* Adjusted padding */
