@@ -1,79 +1,25 @@
 // src/components/Home.jsx
-import React, { useEffect } from "react";
+import React from "react";
 import { Element } from "react-scroll";
 import "../styles/home.css";
+import Top from "./Top";
 import About from "./About";
 import Skills from "./Skills";
-import Services from './Services';
+import Services from "./Services";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import FollowMe from "./FollowMe";
-import ThreeDModel from "./ThreeDModel";
 import FButton from "./FloatingRotatingButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ isMuted, toggleMute }) => {
-
-  useEffect(() => {
-    const textElement = document.querySelector('.home-content');
-
-    // Mouse-based rotation
-    const handleMouseMove = (event) => {
-      const x = event.clientX;
-      const y = event.clientY;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      // Calculate rotation values based on mouse position
-      const rotateX = ((y / height) - 0.5) * 20;
-      const rotateY = ((x / width) - 0.5) * -20;
-
-      if (textElement) {
-        textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      }
-    };
-
-    // Touch-based rotation
-    const handleTouchMove = (event) => {
-      const touch = event.touches[0];
-      const x = touch.clientX;
-      const y = touch.clientY;
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-
-      const rotateX = ((y / height) - 0.5) * 20;
-      const rotateY = ((x / width) - 0.5) * -20;
-
-      if (textElement) {
-        textElement.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
-
-    // Clean up the event listeners on component unmount
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, []);
-
   return (
     <div className="home">
-      <FButton/>
-      <div className="home-size">
-        <section id="threeDModel" className="threeDModel-section">
-          <new3d />
-          <ThreeDModel />
-        </section>
-
-        <section id="home" className="home-content">
-          <h1>Welcome to <br /> My Portfolio</h1>
-          <p>Discover more about <br /> my work and skills.</p>
-        </section>
-      </div>
+      <FButton />
+      <Element name="top" className="section">
+        <Top />
+      </Element>
       <Element name="about" className="section">
         <About />
       </Element>

@@ -1,4 +1,3 @@
-/* home.css */
 *,
 *::before,
 *::after {
@@ -7,123 +6,31 @@
   padding: 0;
 }
 
-html{
+html {
   width: 100%;
   overflow-x: hidden;
 }
 
 .home {
-  padding-top: 100px;
-  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100vw;
   overflow-x: hidden;
   position: relative;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
 }
 
-.home-size{
-  height: 80vh;
-}
-
-.home-content {
-  position: absolute;
-  top: 40px; 
-  left: 40px; 
-  width: calc(100% - 80px); 
-  display: flex;
-  justify-content: space-between; 
-  align-items: flex-start;
-  padding: 0 20px;
-  z-index: 10;
-  transform-origin: center; 
-  transition: transform 0.1s ease-out; 
-}
-
-.home-content h1 {
-  font-size: 4rem;
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
-  color: #fff;
-  line-height: 1.2;
-  text-align: left;
-  margin: 0;
-  animation: fadeInUp 1.5s ease-out forwards;
-}
-
-.home-content p {
-  font-size: 1.5rem;
-  font-family: 'Arial', sans-serif;
-  color: #ccc;
-  text-align: right;
-  position: absolute;
-  top: 400px;
-  left: 60%;
-  transform: translateX(50%);
-  max-width: 300px;
-  word-wrap: break-word;
-  animation: fadeInUp 1.5s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(-20%) rotateX(10deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) rotateX(0);
-  }
-}
-
 .section {
-  padding: 100px 20px;
   text-align: center;
   width: 100%;
   max-width: 100vw;
   z-index: 10;
 }
 
-.threeDModel-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Mobile styles for responsiveness */
-@media (max-width: 768px) {
-  .home-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .home-content h1 {
-    font-size: 3rem;
-  }
-  .home-content p {
-    font-size: 1.2rem;
-    text-align: left;
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-content h1 {
-    font-size: 2rem;
-    top: 10px;
-    left: 10px;
-  }
-}
-
 .mute-button {
-  width: 60px; 
+  width: 60px;
   height: 60px;
   position: fixed;
   bottom: 20px;
@@ -134,9 +41,9 @@ html{
   border-radius: 50%;
   border: 3px solid rgba(0, 255, 255, 0.8);
   cursor: pointer;
-  z-index: 10; 
+  z-index: 10;
   transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease, scale 0.4s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3); 
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,14 +53,13 @@ html{
 
 .mute-button:hover {
   background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0.6) 70%);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5); 
-  transform: scale(1.1); 
-  animation: pulseAnimation 1.5s infinite alternate ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 50px rgba(0, 255, 255, 0.5);
+  transform: scale(1.1);
 }
 
 .mute-button.active {
   background: radial-gradient(circle, rgba(255, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 70%);
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.3); 
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.3);
 }
 
 .mute-button .fa-volume-up,

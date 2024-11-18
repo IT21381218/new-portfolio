@@ -1,51 +1,56 @@
 .projects {
   text-align: center;
   padding: 50px 20px;
-  background-color: rgb(0, 0, 0); /* Black background */
-  color: white; /* White text */
+  background-color: rgb(0, 0, 0);
+  color: white;
   position: relative;
-  overflow: hidden; /* Hide stars that go outside the section */
-  z-index: 1; /* Ensure the stars stay in the background */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures the content takes up full viewport height */
+  min-height: 100vh;
 }
 
-/* Center the h1 horizontally and vertically */
 .projects h1 {
   font-size: 15rem;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #fff; /* White title */
-  margin: 0; /* Remove default margin */
-}
-
-/* Responsive adjustments for h1 */
-@media (max-width: 768px) {
-  .projects h1 {
-    font-size: 6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .projects h1 {
-    font-size: 4rem;
-  }
+  color: #fff;
+  margin: 0;
 }
 
 .projects-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 30px; /* Add space between the count-up sections */
   margin-top: 20px;
 }
 
-h2 {
-  font-size: 4rem; /* Larger font for the count */
-  color: #fff; /* White color for the count */
+.count-up {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-up h2 {
+  font-size: 4rem;
+  color: #fff;
   font-weight: bold;
+  margin: 0; /* Remove default margin for better alignment */
+}
+
+.count-up p {
+  margin-top: 10px; /* Add a gap below the number */
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+/* Divider Styling */
+.divider {
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0.7;
+  margin: 0 20px; /* Add space around the divider */
 }
 
 /* Twinkling stars */
