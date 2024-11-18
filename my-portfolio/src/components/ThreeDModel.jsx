@@ -87,6 +87,30 @@ const ThreeDModel = () => {
       mousePos.current = { x, y }; // Update touch position using ref
     };
 
+    // Device orientation handling for mobile devices
+    const handleOrientation = (event) => {
+      const { gamma, beta, alpha } = event; // Get device orientation values
+
+      // Rotation effect based on gamma (left-right tilt) and beta (up-down tilt)
+      const rotateX = beta / 2; // Up/Down rotation (X-axis)
+      const rotateY = gamma / 2; // Left/Right rotation (Y-axis)
+
+      // Apply rotation and movement to the model
+      if (modelRef.current) {
+        modelRef.current.rotation.x = rotateX * Math.PI / 180; // Convert to radians
+        modelRef.current.rotation.y = rotateY * Math.PI / 180; // Convert to radians
+
+        // Apply smooth movement based on tilt
+        modelRef.current.position.x = Math.sin(gamma * Math.PI / 180) * 0.4;
+        modelRef.current.position.y = Math.sin(beta * Math.PI / 180) * 0.4;
+      }
+    };
+
+    // Add event listener for device orientation
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener("deviceorientation", handleOrientation);
+    }
+
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("touchmove", handleTouchMove);
 
@@ -101,6 +125,9 @@ const ThreeDModel = () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
+      if (window.DeviceOrientationEvent) {
+        window.removeEventListener("deviceorientation", handleOrientation);
+      }
       if (sceneRef.current) {
         sceneRef.current.removeChild(renderer.domElement);
       }
