@@ -6,7 +6,6 @@ import { TextureLoader } from "three";
 const ThreeDModel = () => {
   const sceneRef = useRef(null);
   const modelRef = useRef(null);
-  const mousePos = useRef({ x: 0, y: 0 }); // Use ref instead of state to avoid re-renders
   const clock = useRef(new THREE.Clock()); // Clock for tracking animation time
 
   useEffect(() => {
@@ -65,44 +64,33 @@ const ThreeDModel = () => {
         modelRef.current.position.y = Math.sin(elapsedTime * 0.1) * 0.4;
         modelRef.current.position.x = Math.sin(elapsedTime * 0.1) * 0.2; // Adjust amplitude and speed here
 
-        // Rotation effect based on mouse or touch position
-        modelRef.current.rotation.x = mousePos.current.y * Math.PI * 0.3; // Horizontal rotation effect
-        modelRef.current.rotation.y = mousePos.current.x * Math.PI * 0.3; // Vertical rotation effect
+        // Default rotation effect based on user input (either mouse or device)
+        modelRef.current.rotation.x = 0; // Will be updated based on device orientation
+        modelRef.current.rotation.y = 0; // Will be updated based on device orientation
       }
 
       renderer.render(scene, camera);
     };
     animate();
 
-    const handleMouseMove = (event) => {
-      const x = (event.clientX / window.innerWidth) - 0.5;
-      const y = (event.clientY / window.innerHeight) - 0.5;
-      mousePos.current = { x, y }; // Update mouse position using ref
-    };
-
-    const handleTouchMove = (event) => {
-      const touch = event.touches[0];
-      const x = (touch.clientX / window.innerWidth) - 0.5;
-      const y = (touch.clientY / window.innerHeight) - 0.5;
-      mousePos.current = { x, y }; // Update touch position using ref
-    };
-
-    // Device orientation handling for mobile devices
+    // Handle mobile device orientation
     const handleOrientation = (event) => {
       const { gamma, beta, alpha } = event; // Get device orientation values
 
-      // Rotation effect based on gamma (left-right tilt) and beta (up-down tilt)
-      const rotateX = beta / 2; // Up/Down rotation (X-axis)
-      const rotateY = gamma / 2; // Left/Right rotation (Y-axis)
+      // Check if gamma and beta are available (they might not be in some browsers)
+      if (gamma === null || beta === null) {
+        return;
+      }
 
-      // Apply rotation and movement to the model
+      // Normalize gamma and beta to a more usable scale
+      const rotateX = beta / 90; // Adjust to rotate on the X-axis (Up/Down tilt)
+      const rotateY = gamma / 90; // Adjust to rotate on the Y-axis (Left/Right tilt)
+
+      // Apply the rotation effect to the 3D model
       if (modelRef.current) {
+        // Convert to radians for Three.js rotation
         modelRef.current.rotation.x = rotateX * Math.PI / 180; // Convert to radians
         modelRef.current.rotation.y = rotateY * Math.PI / 180; // Convert to radians
-
-        // Apply smooth movement based on tilt
-        modelRef.current.position.x = Math.sin(gamma * Math.PI / 180) * 0.4;
-        modelRef.current.position.y = Math.sin(beta * Math.PI / 180) * 0.4;
       }
     };
 
@@ -110,9 +98,6 @@ const ThreeDModel = () => {
     if (window.DeviceOrientationEvent) {
       window.addEventListener("deviceorientation", handleOrientation);
     }
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -123,8 +108,6 @@ const ThreeDModel = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleTouchMove);
       if (window.DeviceOrientationEvent) {
         window.removeEventListener("deviceorientation", handleOrientation);
       }
