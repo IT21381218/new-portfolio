@@ -13,7 +13,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMusicEnabled, setIsMusicEnabled] = useState(false); // For music control
   const [isMuted, setIsMuted] = useState(true); // For mute functionality, starts muted
-  const [audio] = useState(new Audio("/assets/songs/palace slowed + reverb (prod. adturnup) [ ezmp3.cc ].mp3")); // Load the audio file
+  const [audio] = useState(new Audio("https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731959999/my%20portfolio/palace_slowed_reverb_prod._adturnup_ezmp3.cc_qpllou.mp3")); // Load the audio file
   const [isPromptVisible, setIsPromptVisible] = useState(true); // Control prompt visibility
 
   useEffect(() => {
