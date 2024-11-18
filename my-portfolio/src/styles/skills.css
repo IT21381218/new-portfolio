@@ -1,59 +1,44 @@
-/* Global Fixes for Overflow */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-* {
-  box-sizing: inherit;
-}
-
-/* Wrapper to ensure no horizontal scrolling */
+/* Ensure that the page fills the entire viewport height */
 .skills-wrapper {
-  width: 100%;
-  overflow-x: hidden;
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #000000; /* Dark background for the page */
+  padding: 0;
 }
 
-/* Skills Section Styling */
+/* Styles for the skills section */
 .skills {
-  background-color: #000;
-  color: white;
-  padding: 30px 40px;
   text-align: center;
-  max-width: 1200px; /* Constrain width */
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.skills h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
   color: #fff;
+  width: 100%;
+  max-width: 1200px; /* Limit the width of the section */
+  padding: 20px;
 }
 
-.skills p {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 20px;
+/* Styles for the h1 tag */
+.skills h1 {
+  font-size: 15rem; /* Larger font size for desktop */
+  color: #fff; /* White color for the text */
+  font-weight: bold; /* Make the title bold */
+  margin-bottom: -10px; /* Reduced space below the title */
+  letter-spacing: 2px; /* Space out the letters a bit */
 }
 
+/* Styles for the skills container */
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Create a grid that adapts */
   gap: 15px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 15px; /* Horizontal padding */
   box-sizing: border-box;
 }
 
+/* Styling for each individual skill card */
 .skill-card {
-  background-color: #222;
+  background-color: #222; /* Dark background for the card */
   padding: 15px;
   border-radius: 10px;
   display: flex;
@@ -63,17 +48,19 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  border: 2px solid transparent;
-  cursor: pointer;
+  border: 2px solid transparent; /* Border initially transparent */
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
 }
 
+/* Hover effect for skill card */
 .skill-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  background-color: #333;
-  border-color: #888;
+  transform: scale(1.05); /* Slight scaling of the card */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Light shadow around the card */
+  background-color: #333; /* Lighter background on hover */
+  border-color: #888; /* Border color changes on hover */
 }
 
+/* Radial gradient effect on hover */
 .skill-card::before {
   content: '';
   position: absolute;
@@ -85,64 +72,102 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s; /* Smooth effect for gradient */
 }
 
+/* Hover effect for radial gradient */
 .skill-card:hover::before {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Styling for the icons inside the skill card */
 .skill-icon {
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 8px;
-  transition: transform 0.3s ease;
+  font-size: 2.5rem; /* Icon size */
+  color: #fff; /* Icon color */
+  margin-bottom: 8px; /* Space between icon and text */
+  transition: transform 0.3s ease; /* Smooth rotation on hover */
 }
 
+/* Icon rotation effect when the card is hovered */
 .skill-card:hover .skill-icon {
-  transform: rotate(360deg);
+  transform: rotate(360deg); /* Icon rotates on hover */
 }
 
+/* Styling for the text inside each skill card */
 .skill-card p {
-  font-size: 0.9rem;
-  color: #ccc;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-top: 8px;
-  transition: color 0.3s ease;
+  font-size: 0.9rem; /* Font size for skill name */
+  color: #ccc; /* Light color for the text */
+  font-weight: 600; /* Semi-bold text */
+  text-transform: uppercase; /* Uppercase text */
+  margin-top: 8px; /* Space between icon and text */
+  transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
+/* Selected state styles for skill cards */
 .skill-card.selected {
-  background-color: #fff;
+  background-color: #fff; /* White background for selected card */
 }
 
+/* When selected, change icon and text color */
 .skill-card.selected .skill-icon,
 .skill-card.selected p {
-  color: #000;
+  color: #000; /* Dark color for selected icon and text */
 }
 
-/* Media Query for Extra Small Screens */
-@media (max-width: 480px) {
-  .skills h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+/* Mobile responsive adjustments */
+
+/* For devices with a max width of 768px (tablets and smaller devices) */
+@media (max-width: 768px) {
+  .skills-wrapper {
+    padding: 20px; /* Add some padding around the edges */
   }
 
-  .skills p {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+  .skills h1 {
+    font-size: 4.5rem; /* Smaller font size for title on mobile */
+    letter-spacing: 1px; /* Adjust letter spacing */
+  }
+
+  .skills-container {
+    padding: 5px 10px; /* Adjust horizontal padding for smaller screens */
   }
 
   .skill-card {
-    padding: 12px;
+    padding: 10px; /* Adjust padding inside the cards */
   }
 
   .skill-icon {
-    font-size: 2rem;
+    font-size: 2rem; /* Smaller icon size for mobile */
   }
 
   .skill-card p {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Smaller text for skill name */
+  }
+}
+
+/* For devices with a max width of 480px (small mobile devices) */
+@media (max-width: 480px) {
+  .skills-wrapper {
+    padding: 15px; /* Reduce padding */
+  }
+
+  .skills h1 {
+    font-size: 4.5rem; /* Further reduce font size for smaller screens */
+  }
+
+  .skills-container {
+    padding: 5px 5px; /* Even smaller horizontal padding */
+  }
+
+  .skill-card {
+    padding: 8px; /* Smaller padding inside skill cards */
+  }
+
+  .skill-icon {
+    font-size: 1.8rem; /* Further reduce icon size */
+  }
+
+  .skill-card p {
+    font-size: 0.75rem; /* Even smaller font size for text */
   }
 }

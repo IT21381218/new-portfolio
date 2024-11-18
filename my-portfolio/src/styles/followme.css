@@ -48,7 +48,7 @@
   .police-tape-text {
     display: inline-flex;
     gap: 50px; /* Add a 50px gap between each FOLLOW ME text */
-    animation: tapeTextAnimationRightToLeft 15s linear infinite; /* Increased duration for slower scrolling */
+    animation: tapeTextAnimationLeftToRight 15s linear infinite; /* Increased duration for slower scrolling */
     font-family: "Impact", sans-serif;
     font-size: 2.5rem; /* Larger text */
     color: black;

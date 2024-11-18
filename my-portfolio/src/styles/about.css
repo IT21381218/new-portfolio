@@ -1,12 +1,13 @@
 /* About Section Styling */
 .about {
-  background-color: #000; /* Black background */
+  background-color: #00000000; /* Black background */
   color: white; /* White text */
   padding: 50px 20px; /* Padding for spacing */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column; /* Stack content vertically on small screens */
+  min-height: 100vh;
 }
 
 .about-container {

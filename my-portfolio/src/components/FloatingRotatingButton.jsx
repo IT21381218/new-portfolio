@@ -25,7 +25,7 @@ const FloatingRotatingButton = () => {
         <div className="menu-options">
           {/* Menu item: Home */}
           <Link
-            to="home"
+            to="top"
             className="menu-item"
             spy={true}
             smooth={true}
@@ -43,7 +43,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={50}
+            offset={0}
           >
             <i class="fa-solid fa-address-card"></i>{/* FontAwesome User Icon */}
             <span>About</span>
@@ -56,7 +56,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={50}
+            offset={0}
           >
             <i class="fa-solid fa-brain"></i> {/* FontAwesome Tools Icon */}
             <span>Skills</span>
@@ -69,7 +69,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={100}
+            offset={0}
           >
             <i className="fas fa-briefcase"></i> {/* FontAwesome Briefcase Icon */}
             <span>Projects</span>
@@ -82,7 +82,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={100}
+            offset={0}
           >
             <i class="fa-solid fa-handshake-angle"></i> {/* FontAwesome Cogs Icon */}
             <span>Services</span>
@@ -95,7 +95,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={100}
+            offset={0}
           >
             <i class="fa-solid fa-address-book"></i>{/* FontAwesome Envelope Icon */}
             <span>Contact</span>

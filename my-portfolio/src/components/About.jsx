@@ -38,7 +38,7 @@ const About = () => {
         </div>
         <div className="about-image">
           <img
-            src="https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704089/Untitled-4_cchifz.png"
+            src="https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704089/my%20portfolio/Untitled-4_cchifz.png"
             alt="Poornaka"
           />
         </div>

@@ -8,25 +8,25 @@ const servicesData = [
     id: 1,
     title: "Fullstack Development",
     description: "Building scalable and robust full-stack applications.",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704487/796426334420222470_pmxogf.png",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704487/my%20portfolio/796426334420222470_pmxogf.png",
   },
   {
     id: 2,
     title: "UI/UX Design",
     description: "Crafting intuitive and visually appealing user interfaces.",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704852/796427687334938743_o8d0od.png",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704852/my%20portfolio/796427687334938743_o8d0od.png",
   },
   {
     id: 3,
     title: "Music Production",
     description: "Creating and producing custom music tracks for various needs.",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704990/796428228500825517_beqjnj.png",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731704990/my%20portfolio/796428228500825517_beqjnj.png",
   },
   {
     id: 4,
     title: "Power BI Data Analytics",
     description: "Turning complex data into interactive, insightful reports.",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731705580/796430775416468303_gcf9qh.png",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731705580/my%20portfolio/796430775416468303_gcf9qh.png",
   },
 ];
 

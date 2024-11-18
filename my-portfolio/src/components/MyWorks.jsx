@@ -25,7 +25,7 @@ const works = [
   },
   {
     name: "CityMart",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/facebook_profile_image_wxa3sv.png",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/my%20portfolio/facebook_profile_image_wxa3sv.png",
     description: "CityMart is a web application that provides voice navigation for visually impaired users, allowing them to shop online with ease. Key features include voice commands for adding items to the cart and submitting feedback.",
     github: "https://github.com/IT21381218/CityMart",
   },
@@ -34,9 +34,9 @@ const works = [
 const songs = [
   {
     name: "Ekzetef - Aura",
-    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731864365/Untitled-1_dvw0ui.jpg",
+    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731864365/my%20portfolio/Untitled-1_dvw0ui.jpg",
     description: "Release date: Dec 27, 2021",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731864297/aura_qo2sso.mp3",
+    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731864297/my%20portfolio/aura_qo2sso.mp3",
   },
   {
     name: "Ekzetef - Murder Bass",

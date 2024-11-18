@@ -13,7 +13,7 @@ import {
 import { DiMongodb } from "react-icons/di";
 import { SiPowerbi, SiJupyter, SiPostman } from "react-icons/si";
 import { GrOracle } from "react-icons/gr";
-import "../styles/skills.css";
+import "../styles/skills.css"; // Ensure your CSS file is linked properly
 
 function Skills() {
   const [selectedSkill, setSelectedSkill] = useState(null);
@@ -37,24 +37,21 @@ function Skills() {
 
   return (
     <div className="skills-wrapper">
-      <section className="skills">
-        <h1>Skills</h1>
-        <p>My professional skills.</p>
-        <div className="skills-container">
-          {skills.map((skill) => (
-            <div
-              key={skill.id}
-              className={`skill-card ${
-                selectedSkill === skill.id ? "selected" : ""
-              }`}
-              onClick={() => setSelectedSkill(skill.id)}
-            >
-              <div className="skill-icon">{skill.icon}</div>
-              <p>{skill.name}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+<section className="skills">
+  <h1>SKILLS</h1>
+  <div className="skills-container">
+    {skills.map((skill) => (
+      <div
+        key={skill.id}
+        className={`skill-card ${selectedSkill === skill.id ? "selected" : ""}`}
+        onClick={() => setSelectedSkill(skill.id)}
+      >
+        <div className="skill-icon">{skill.icon}</div>
+        <p>{skill.name}</p>
+      </div>
+    ))}
+  </div>
+</section>
     </div>
   );
 }

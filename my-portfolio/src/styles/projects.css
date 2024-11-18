@@ -1,7 +1,7 @@
 .projects {
   text-align: center;
   padding: 50px 20px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   color: white;
   position: relative;
   overflow: hidden;
@@ -24,6 +24,7 @@
   display: flex;
   gap: 30px; /* Add space between the count-up sections */
   margin-top: 20px;
+  justify-content: center; /* Center the items */
 }
 
 .count-up {
@@ -132,9 +133,9 @@
   position: relative;
   font-family: 'Courier New', Courier, monospace;
   text-transform: uppercase;
-  padding: 0.75rem 1.5rem;  /* Adjust padding for button */
-  background-color: #111;  /* Black background for button */
-  color: #fff;  /* White text */
+  padding: 0.75rem 1.5rem; /* Adjust padding for button */
+  background-color: #111; /* Black background for button */
+  color: #fff; /* White text */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -144,3 +145,41 @@
   background-color: #444; /* Darker background on hover */
 }
 
+
+
+
+@media screen and (max-width: 480px) {
+  .projects h1 {
+    font-size: 4rem; /* Further reduce font size for very small screens */
+  }
+
+  .projects-container {
+    gap: 15px;
+  }
+
+  .count-up h2 {
+    font-size: 2.5rem; /* Smaller font size */
+  }
+
+  .count-up p {
+    font-size: 1rem; /* Further reduce font size */
+  }
+
+  .divider {
+    font-size: 1.5rem; /* Smaller divider text */
+  }
+
+  .star {
+    width: 3px; /* Even smaller stars on very small screens */
+    height: 3px;
+  }
+
+  .shooting-star {
+    width: 2px; /* Even smaller shooting stars */
+    height: 2px;
+  }
+
+  .group.relative.overflow-hidden {
+    padding: 0.5rem; /* Reduce button padding */
+  }
+}
