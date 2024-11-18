@@ -145,7 +145,14 @@
   background-color: #444; /* Darker background on hover */
 }
 
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .projects h1 {
+    font-size: 6rem; /* Smaller font for mobile devices */
+  }
 
+
+}
 
 
 @media screen and (max-width: 480px) {

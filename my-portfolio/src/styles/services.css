@@ -30,14 +30,21 @@
 }
 
 .services {
+  background-color: rgb(0, 0, 0);
   text-align: center;
-  margin-top: 50px;
   color: white;
+  min-height: 100vh;  /* Ensure the section takes at least full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center;  /* Center content horizontally */
+
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.services h1 {
+  font-size: 15rem;
+  margin-bottom: 0px;
+
 }
 
 .card-container {
@@ -135,10 +142,11 @@ h1 {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+
 /* Mobile Responsive Styles */
 @media (max-width: 767px) {
-  h1 {
-    font-size: 2rem;
+  .services h1 {
+    font-size: 4rem;
   }
 
   .card-container {
@@ -162,32 +170,5 @@ h1 {
   .dot {
     width: 10px;
     height: 10px; /* Smaller dots */
-  }
-}
-
-/* Extra Small Devices (max-width: 480px) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  .card-container {
-    height: 320px; /* Further reduce card height */
-  }
-
-  .service-card img {
-    height: 150px; /* Adjust image height */
-  }
-
-  .service-card h2 {
-    font-size: 1.3rem;
-  }
-
-  .service-card p {
-    font-size: 0.9rem;
-  }
-
-  .dot {
-    margin: 0 6px; /* Reduce dot spacing */
   }
 }

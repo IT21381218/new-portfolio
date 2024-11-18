@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import "../styles/services.css";
 
@@ -32,30 +32,22 @@ const servicesData = [
 
 function Services() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [animationKey, setAnimationKey] = useState(0); // Add animationKey to force re-render
-
-  // // Auto-slide feature
-  // useEffect(() => {
-  //   const autoSlide = setInterval(() => {
-  //     handleSwipeLeft();
-  //   }, 6000); // Adjust auto-slide interval
-  //   return () => clearInterval(autoSlide);
-  // }, []);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const handleSwipeLeft = () => {
-    setAnimationKey((prevKey) => prevKey + 1); // Change key to force re-render
+    setAnimationKey((prevKey) => prevKey + 1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % servicesData.length);
   };
 
   const handleSwipeRight = () => {
-    setAnimationKey((prevKey) => prevKey + 1); // Change key to force re-render
+    setAnimationKey((prevKey) => prevKey + 1);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? servicesData.length - 1 : prevIndex - 1
     );
   };
 
   const handleDotClick = (index) => {
-    setAnimationKey((prevKey) => prevKey + 1); // Change key to force re-render
+    setAnimationKey((prevKey) => prevKey + 1);
     setCurrentIndex(index);
   };
 
@@ -72,12 +64,10 @@ function Services() {
 
   return (
     <div className="services" {...swipeableProps}>
-      <h1>My Services</h1>
-      <p>⟵ Swipe ⟶</p>
-
+      <h1>SERVICES</h1>
       <div className="card-container">
         <div
-          key={`current-${animationKey}`} // Dynamic key forces re-render
+          key={`current-${animationKey}`}
           className={`service-card current-card`}
         >
           <img src={currentService.image} alt={currentService.title} />
@@ -85,7 +75,7 @@ function Services() {
           <p>{currentService.description}</p>
         </div>
         <div
-          key={`next-${animationKey}`} // Dynamic key forces re-render
+          key={`next-${animationKey}`}
           className={`service-card next-card`}
         >
           <img src={nextService.image} alt={nextService.title} />
@@ -93,7 +83,7 @@ function Services() {
           <p>{nextService.description}</p>
         </div>
         <div
-          key={`prev-${animationKey}`} // Dynamic key forces re-render
+          key={`prev-${animationKey}`}
           className={`service-card prev-card`}
         >
           <img src={prevService.image} alt={prevService.title} />

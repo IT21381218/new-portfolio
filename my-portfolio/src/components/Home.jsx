@@ -32,9 +32,7 @@ const Home = ({ isMuted, toggleMute }) => {
       <Element name="services" className="section">
         <Services />
       </Element>
-      <Element name="contact" className="section">
-        <Contact />
-      </Element>
+
       <Element name="followMe" className="section">
         <FollowMe />
       </Element>
