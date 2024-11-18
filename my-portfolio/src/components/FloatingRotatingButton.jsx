@@ -95,7 +95,7 @@ const FloatingRotatingButton = () => {
             spy={true}
             smooth={true}
             duration={500}
-            offset={0}
+            offset={40}
           >
             <i class="fa-solid fa-address-book"></i>{/* FontAwesome Envelope Icon */}
             <span>Contact</span>

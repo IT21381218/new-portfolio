@@ -15,6 +15,7 @@ import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ isMuted, toggleMute }) => {
   return (
+
     <div className="home">
       <FButton />
       <Element name="top" className="section">
@@ -32,7 +33,9 @@ const Home = ({ isMuted, toggleMute }) => {
       <Element name="services" className="section">
         <Services />
       </Element>
-
+      <Element name="contact" className="section">
+        <Contact />
+      </Element>
       <Element name="followMe" className="section">
         <FollowMe />
       </Element>

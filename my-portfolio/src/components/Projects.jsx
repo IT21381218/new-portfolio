@@ -87,11 +87,12 @@ function Projects() {
 
         <div className="count-up">
           <h2>
-            {countUpStarted && <CountUp start={0} end={10} duration={3} separator="," />}
+            {countUpStarted && <CountUp start={0} end={8} duration={5} separator="," />}
           </h2>
           <p>Number of Songs</p>
         </div>
       </div>
+      <br></br>
 
       {stars.map((_, index) => (
         <div

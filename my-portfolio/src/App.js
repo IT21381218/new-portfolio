@@ -13,7 +13,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMusicEnabled, setIsMusicEnabled] = useState(false); // For music control
   const [isMuted, setIsMuted] = useState(true); // For mute functionality, starts muted
-  const [audio] = useState(new Audio("/assets/songs/partynextdoor - the news (sped up)_256k.mp3")); // Load the audio file
+  const [audio] = useState(new Audio("/assets/songs/palace slowed + reverb (prod. adturnup) [ ezmp3.cc ].mp3")); // Load the audio file
   const [isPromptVisible, setIsPromptVisible] = useState(true); // Control prompt visibility
 
   useEffect(() => {
