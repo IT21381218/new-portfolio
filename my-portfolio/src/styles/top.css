@@ -57,7 +57,7 @@
     }
   
     .tops p {
-      font-size: 2rem; /* Smaller font for text */
+      font-size: 3rem; /* Smaller font for text */
       bottom: 10%; /* Adjust position for smaller screens */
       right: 10%; /* Adjust position */
     }
@@ -70,20 +70,20 @@
   
     .tops p {
       font-size: 1.5rem; /* Reduce text size further */
-      bottom: 5%; /* Move the text a bit closer to the bottom */
+      bottom: 10%; /* Move the text a bit closer to the bottom */
       right: 5%; /* Adjust text position */
     }
   }
   
   @media (max-width: 480px) {
     .top h1 {
-      font-size: 6rem; /* Significantly reduce heading size on small devices */
+      font-size: 4.5rem; /* Significantly reduce heading size on small devices */
     }
   
     .tops p {
-      font-size: 1.2rem; /* Smaller font size */
-      bottom: 3%; /* Adjust vertical position */
-      right: 3%; /* Adjust horizontal position */
+      font-size: 1.8rem; /* Smaller font size */
+      bottom: 9%; /* Adjust vertical position */
+      right: 5%; /* Adjust horizontal position */
     }
   }
   
