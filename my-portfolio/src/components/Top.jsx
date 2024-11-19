@@ -40,7 +40,7 @@ const Top = () => {
 
       // Apply movement based on gamma and beta
       const moveX = (gamma / 90) * 100; // Horizontal movement based on tilt <-- --> defual value =20
-      const moveY = (beta / 90) * 50;  // Vertical movement based on tilt      defual value =20
+      const moveY = (beta / 90) * -50;  // Vertical movement based on tilt      defual value =20
 
       if (textElement) {
         textElement.style.transform = `
