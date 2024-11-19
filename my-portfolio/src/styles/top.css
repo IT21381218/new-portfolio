@@ -27,7 +27,7 @@
     top: 1%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 15rem;
+    font-size: 12rem;
     margin: 0;
     font-weight: bold;
     color: #fff;
@@ -53,7 +53,7 @@
   /* Media Queries for Mobile Devices */
   @media (max-width: 1200px) {
     .top h1 {
-      font-size: 10rem; /* Scale down heading on medium screens */
+      font-size: 7rem; /* Scale down heading on medium screens */
     }
   
     .tops p {
@@ -65,7 +65,7 @@
   
   @media (max-width: 768px) {
     .top h1 {
-      font-size: 4.5rem; /* Further reduce heading size */
+      font-size: 7rem; /* Further reduce heading size */
     }
   
     .tops p {
@@ -77,7 +77,7 @@
   
   @media (max-width: 480px) {
     .top h1 {
-      font-size: 4.5rem; /* Significantly reduce heading size on small devices */
+      font-size: 3.5rem; /* Significantly reduce heading size on small devices */
     }
   
     .tops p {

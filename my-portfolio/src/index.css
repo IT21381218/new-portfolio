@@ -10,6 +10,24 @@ body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+@font-face {
+  font-family: main;
+  src: url(../public/KUGILE_DEMO.TTF);
+}
+
+h1{
+  font-family:main;
+}
+
+@font-face {
+  font-family: sub;
+  src: url(../public/Amore\ Dreaming\ Sans\ Serif.ttf);
+}
+
+p,h2{
+  font-family:sub;
+  letter-spacing: 1px;
+}
 
 .loading-screen {
   display: flex;

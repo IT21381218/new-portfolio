@@ -2,7 +2,6 @@
 .myWork {
   padding: 0;
   margin: 0;
-  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,10 +14,15 @@
 }
 
 .myWork h1 {
-  font-size: 15rem; /* Adjusted for better responsiveness */
-  margin-bottom: 20px;
+  font-size: 12rem; /* Adjusted for better responsiveness */
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
+  margin-bottom: -15px;
+}
+
+.music-corner h2{
+  font-size: 3rem;
+  margin-bottom: 20px;
 }
 
 .work-container {
@@ -68,14 +72,10 @@
 
 /* Work Title */
 .work-title {
+  padding: 10px;
   top: 10px;
   font-size: 1.5rem;
-  /* font-weight: bold; */
   color: #ffffff;
-  margin-bottom: 10px; /* Make it lower */
-  /* text-transform: uppercase;
-  position: relative;
-  z-index: 2; /* Keeps the title above the line */
 }
 
 /* Enhanced Line Effect under the card */
@@ -86,15 +86,16 @@
   left: 0;
   width: 0;
   height: 4px;
-  background: linear-gradient(90deg, #ff7e5f, #feb47b); /* Gradient line with warm colors */
+  background: linear-gradient(90deg, #00ffff, #04d67f); /* Gradient line with warm colors */
   transition: width 0.5s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 126, 95, 0.7); /* Subtle glow effect */
+  box-shadow: 0 0 10px rgb(0, 119, 255); /* Subtle glow effect */
 }
 
 .work-card:hover::after {
   width: 100%; /* Expands the line on hover */
-  box-shadow: 0 0 20px rgba(255, 126, 95, 1), 0 0 25px rgba(254, 180, 123, 0.5); /* Glow intensifies on hover */
+  box-shadow: 0 0 20px rgb(0, 255, 170), 0 0 25px rgb(1, 238, 255); /* Glow intensifies on hover */
 }
+
 /* Popup Styles */
 .popup-overlay {
   position: fixed;
@@ -149,16 +150,17 @@
 
 .popup-github-button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   transition: background-color 0.3s ease;
 }
 
 .popup-github-button:hover {
-  background-color: #0056b3;
+  background-color: #202020;
+  color: rgb(255, 255, 255);
 }
 
 .popup-close {
@@ -166,10 +168,11 @@
   top: 10px;
   right: 10px;
   background: transparent;
-  color: #fff;
+  color: #646464;
   border: none;
   font-size: 2rem;
   cursor: pointer;
+  font-weight: bold;
 }
 
 /* Popup Animation */
@@ -203,7 +206,6 @@
   animation: popup-close 0.3s ease forwards;
 }
 
-
 .music-corner {
   padding: 0 50px;
   text-align: center;
@@ -221,7 +223,6 @@
   color: #ccc;
 }
 
-
 .link {
   color: #1DB954;  /* Spotify green */
   text-decoration: none;
@@ -230,7 +231,7 @@
 
 .link:hover {
   color: #00ff59;  /* Hover effect for links */
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .song-container {
@@ -284,86 +285,115 @@
   outline: none;
 }
 
-
 /* Mobile Responsive Adjustments */
+
+/* For devices smaller than 1200px (large tablets and small desktops) */
+@media (max-width: 1200px) {
+  .myWork h1 {
+    font-size: calc(7rem); /* Adjusted size for large screens */
+  }
+
+  .music-corner h2{
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .work-card {
+    width: 280px; /* Slightly smaller card width */
+  }
+  
+  .song-card {
+    width: 280px; /* Slightly smaller song card width */
+  }
+
+  .music-corner h1 {
+    font-size: 2.2em; /* Slightly smaller heading */
+  }
+}
 
 /* For devices smaller than 768px */
 @media (max-width: 768px) {
+  .myWork h1 {
+    font-size: calc(7rem); /* Adjusted for smaller screens */
+  }
+
+  .music-corner h2{
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
   .popup-content {
     flex-direction: column;
-    width: 90%; /* Popup takes more width */
-    height: auto; /* Let it auto adjust based on content */
-    max-height: none; /* Remove the restriction on max height */
+    width: 90%;
+    height: auto;
   }
 
   .popup-image {
-    width: 100%; /* Image takes full width on small screens */
-    height: 200px; /* Limit the height */
-    object-fit: cover; /* Ensure proper aspect ratio */
+    width: 100%;
+    height: 200px;
   }
 
   .popup-details {
-    padding: 15px; /* Less padding */
-    width: 100%; /* Full width for text area */
+    padding: 15px;
+    width: 100%;
   }
 
   .popup-title {
-    font-size: 1.5rem; /* Smaller title font size */
+    font-size: 1.5rem;
   }
 
   .popup-description {
-    font-size: 1rem; /* Smaller description font size */
+    font-size: 1rem;
   }
 
   .popup-github-button {
-    padding: 8px 16px; /* Smaller button padding */
+    padding: 8px 16px;
   }
 
   .popup-close {
-    font-size: 1.5rem; /* Smaller close button */
+    font-size: 1.5rem;
   }
 }
 
 /* For devices smaller than 480px */
 @media (max-width: 480px) {
+  .myWork h1 {
+    font-size: calc(3.5rem); /* Make the font smaller on very small screens */
+  }
+
+  .music-corner h2{
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
   .popup-content {
-    width: 95%; /* Take up even more width */
-    max-width: 100%; /* Ensure it fits within the screen */
+    width: 95%;
   }
 
   .popup-title {
-    font-size: 1.2rem; /* Further reduce title font size */
+    font-size: 1.2rem;
   }
 
   .popup-description {
-    font-size: 0.9rem; /* Further reduce description font size */
+    font-size: 0.9rem;
   }
 
   .popup-github-button {
-    font-size: 0.9rem; /* Reduce button font size */
+    font-size: 0.9rem;
   }
 
   .popup-close {
-    font-size: 1.2rem; /* Adjust close button size */
+    font-size: 1.2rem;
   }
-}
 
+  .work-card {
+    width: 90%; /* Make the work cards take up more space */
+  }
 
-/* For devices smaller than 768px */
-@media (max-width: 768px) {
-  .myWork h1 {
-    font-size: calc(12vw + 3rem); /* Adjust for smaller screens */
+  .song-card {
+    width: 90%; /* Adjust song cards to fit better */
   }
-  .music-corner h1 {
-    font-size: 2em;
-  }
-}
 
-/* For devices smaller than 480px */
-@media (max-width: 480px) {
-  .myWork h1 {
-    font-size: calc(7vw + 2rem); /* Make the font smaller on very small screens */
-  }
   .music-corner h1 {
     font-size: 2em;
   }

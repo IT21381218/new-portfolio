@@ -19,10 +19,10 @@
 
 /* Styles for the h1 tag */
 .skills h1 {
-  font-size: 15rem; /* Larger font size for desktop */
+  font-size: 12rem; /* Larger font size for desktop */
   color: #fff; /* White color for the text */
   font-weight: bold; /* Make the title bold */
-  margin-bottom: -10px; /* Reduced space below the title */
+  margin-bottom: -100px; /* Reduced space below the title */
   letter-spacing: 2px; /* Space out the letters a bit */
 }
 
@@ -115,59 +115,81 @@
   color: #000; /* Dark color for selected icon and text */
 }
 
-/* Mobile responsive adjustments */
 
-/* For devices with a max width of 768px (tablets and smaller devices) */
-@media (max-width: 768px) {
-  .skills-wrapper {
-    padding: 20px; /* Add some padding around the edges */
-  }
-
+/* For devices with a max width of 1200px */
+@media screen and (max-width: 1200px) {
   .skills h1 {
-    font-size: 4.5rem; /* Smaller font size for title on mobile */
-    letter-spacing: 1px; /* Adjust letter spacing */
+    font-size: 7rem; /* Reduce heading size */
+    margin-bottom: 0px; /* Adjust spacing below the title */
   }
 
   .skills-container {
-    padding: 5px 10px; /* Adjust horizontal padding for smaller screens */
+    gap: 10px; /* Reduce gap between skill cards */
   }
 
   .skill-card {
-    padding: 10px; /* Adjust padding inside the cards */
+    padding: 12px; /* Reduce padding for cards */
   }
 
   .skill-icon {
-    font-size: 2rem; /* Smaller icon size for mobile */
+    font-size: 2rem; /* Reduce icon size */
   }
 
   .skill-card p {
-    font-size: 0.8rem; /* Smaller text for skill name */
+    font-size: 0.85rem; /* Adjust text size */
   }
 }
 
-/* For devices with a max width of 480px (small mobile devices) */
-@media (max-width: 480px) {
-  .skills-wrapper {
-    padding: 15px; /* Reduce padding */
-  }
-
+/* For devices with a max width of 768px */
+@media screen and (max-width: 768px) {
   .skills h1 {
-    font-size: 4.5rem; /* Further reduce font size for smaller screens */
+    font-size: 7rem; /* Smaller font size for tablets */
+    margin-bottom: 0px; /* Adjust spacing below the title */
   }
 
   .skills-container {
-    padding: 5px 5px; /* Even smaller horizontal padding */
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust grid layout */
+    gap: 8px; /* Smaller gap for tighter spacing */
   }
 
   .skill-card {
-    padding: 8px; /* Smaller padding inside skill cards */
+    padding: 10px; /* Reduce padding further */
+    border-radius: 8px; /* Slightly smaller border radius */
   }
 
   .skill-icon {
-    font-size: 1.8rem; /* Further reduce icon size */
+    font-size: 1.8rem; /* Smaller icon size */
+    margin-bottom: 6px; /* Adjust space between icon and text */
   }
 
   .skill-card p {
-    font-size: 0.75rem; /* Even smaller font size for text */
+    font-size: 0.8rem; /* Smaller text */
+  }
+}
+
+/* For devices with a max width of 480px */
+@media screen and (max-width: 480px) {
+  .skills h1 {
+    font-size: 3.5rem; /* Further reduce heading size */
+    margin-bottom: 0px; /* Adjust spacing */
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+    gap: 5px; /* Minimal gap between cards */
+  }
+
+  .skill-card {
+    padding: 8px; /* Compact padding */
+    border-radius: 6px; /* Smaller border radius */
+  }
+
+  .skill-icon {
+    font-size: 1.5rem; /* Compact icon size */
+    margin-bottom: 4px; /* Reduce spacing between icon and text */
+  }
+
+  .skill-card p {
+    font-size: 0.75rem; /* Smaller text */
   }
 }

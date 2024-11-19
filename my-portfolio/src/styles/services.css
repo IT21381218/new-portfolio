@@ -42,8 +42,8 @@
 }
 
 .services h1 {
-  font-size: 15rem;
-  margin-bottom: 0px;
+  font-size: 12rem;
+  margin-bottom: -100px;
 
 }
 
@@ -51,7 +51,7 @@
   position: relative;
   width: 90%;
   max-width: 700px;
-  height: 420px; /* Increased card size */
+  height: 440px; /* Increased card size */
   margin: 20px auto;
   border-radius: 15px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
@@ -143,32 +143,93 @@
 }
 
 
-/* Mobile Responsive Styles */
-@media (max-width: 767px) {
+
+/* For devices with a max width of 1200px */
+@media screen and (max-width: 1200px) {
   .services h1 {
-    font-size: 4rem;
+    font-size: 7rem; /* Adjust title size */
+    margin-bottom: -50px; /* Fine-tune margin */
   }
 
   .card-container {
-    width: 95%;
-    max-width: 400px;
-    height: 360px; /* Smaller card size for mobile */
+    width: 85%; /* Slightly narrower width */
+    height: 380px; /* Adjust height */
   }
 
   .service-card img {
-    height: 180px; /* Reduce image height for mobile */
+    height: 250px; /* Proportionally adjust image */
   }
 
   .service-card h2 {
-    font-size: 1.5rem; /* Adjust title size */
+    font-size: 1.6rem; /* Resize title */
   }
 
   .service-card p {
-    font-size: 1rem; /* Adjust description size */
+    font-size: 1rem; /* Resize paragraph */
   }
 
   .dot {
     width: 10px;
-    height: 10px; /* Smaller dots */
+    height: 10px;
+  }
+}
+
+/* For devices with a max width of 768px */
+@media screen and (max-width: 768px) {
+  .services h1 {
+    font-size: 5rem; /* Smaller heading */
+    margin-bottom: 0; /* Reduce margin for compact layout */
+  }
+
+  .card-container {
+    width: 90%;
+    height: 320px; /* Decrease card height */
+  }
+
+  .service-card img {
+    height: 200px;
+  }
+
+  .service-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* For devices with a max width of 480px */
+@media screen and (max-width: 480px) {
+  .services h1 {
+    font-size: 3.5rem; /* Adjust for smaller screens */
+    margin-bottom: 10px; /* Avoid excessive spacing */
+  }
+
+  .card-container {
+    width: 95%;
+    height: 280px;
+  }
+
+  .service-card img {
+    height: 150px; /* Smaller images */
+  }
+
+  .service-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+  }
+
+  .dot {
+    width: 6px; /* Tiny dots for compact spacing */
+    height: 6px;
   }
 }

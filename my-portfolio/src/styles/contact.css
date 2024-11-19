@@ -27,7 +27,7 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: #fff;
@@ -165,57 +165,137 @@ textarea {
   padding: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* For devices with max-width: 1200px */
+@media screen and (max-width: 1200px) {
   .contact-form-container {
-    flex-direction: column;
-    align-items: center; /* Center-align all elements */
-    padding: 40px;
-    gap: 40px;
+    flex-direction: column; /* Stack the form and image vertically */
+    padding: 40px 30px; /* Adjust padding for smaller screen */
+    gap: 30px; /* Reduce gap between form and image */
+    max-width: 100%; /* Ensure the container fits within the viewport */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
   }
 
   .form-section {
-    max-width: 100%;
+    max-width: 100%; /* Allow form section to take full width */
+    text-align: center; /* Center-align text */
   }
 
   .contact-form {
-    gap: 20px;
-    width: 100%; /* Full width for the form */
-  }
-
-  input,
-  textarea {
-    font-size: 1rem;
+    gap: 20px; /* Reduce space between form fields */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form fields */
   }
 
   .submit-button {
-    font-size: 1.2rem;
-    padding: 12px;
+    width: 100%; /* Make submit button full-width */
+    padding: 18px;
+  }
+
+  .image-section {
+    width: 100%; /* Ensure the image section also takes full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .dynamic-image {
-    width: 100%; /* Full width for the image */
+    width: 100%; /* Make the image responsive */
+    max-width: 500px; /* Limit the max width */
+    height: auto; /* Adjust the height automatically */
+  }
+}
+
+/* For devices with max-width: 768px */
+@media screen and (max-width: 768px) {
+  .contact-form-container {
+    padding: 30px 20px; /* Reduce padding */
+    gap: 20px; /* Reduce the gap between form and image */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+  }
+
+  .form-section {
+    max-width: 100%; /* Allow form section to take full width */
+    text-align: center; /* Center-align text */
+  }
+
+  h1 {
+    font-size: 2.5rem; /* Reduce heading size for smaller screens */
+  }
+
+  .contact-form {
+    gap: 15px; /* Reduce space between form elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form fields */
+  }
+
+  .submit-button {
+    width: 100%; /* Full-width submit button */
+    padding: 14px;
+  }
+
+  .image-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dynamic-image {
+    width: 100%; /* Make the image responsive */
+    max-width: 400px; /* Limit the image size */
     height: auto; /* Maintain aspect ratio */
   }
 }
 
-@media (max-width: 480px) {
+/* For devices with max-width: 480px */
+@media screen and (max-width: 480px) {
   .contact-form-container {
-    padding: 20px;
-    gap: 20px;
+    padding: 20px 15px; /* Reduce padding further */
+    gap: 20px; /* Adjust gap between form and image */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+  }
+
+  .form-section {
+    max-width: 100%; /* Full width for form section */
+    text-align: center; /* Center-align form text */
   }
 
   h1 {
-    font-size: 1.7rem;
+    font-size: 2rem; /* Smaller heading size */
   }
 
-  .dynamic-image {
-    width: 100%; /* Full width for extra small screens */
-    height: auto; /* Keep aspect ratio */
+  .contact-form {
+    gap: 10px; /* Reduce space between form fields */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form fields */
   }
 
   .submit-button {
-    font-size: 1.1rem;
-    padding: 10px;
+    width: 100%; /* Full-width button */
+    padding: 12px;
+  }
+
+  .image-section {
+    width: 100%; /* Full width for the image section */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ensure the image is centered */
+  }
+
+  .dynamic-image {
+    width: 100%; /* Full width for the image */
+    max-width: 300px; /* Limit max width for very small screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .response-message {
+    font-size: 1rem; /* Smaller font for the response message */
+    padding: 12px; /* Adjust padding */
   }
 }

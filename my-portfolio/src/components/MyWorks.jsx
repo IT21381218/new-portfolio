@@ -141,7 +141,7 @@ const MyWorks = ({ isMuted, toggleMute }) => {
 
       <h1>MY SONGS</h1>
       <div class="music-corner">
-    <h1>Welcome to my music corner!</h1>
+    <h2>Welcome to my music corner!</h2>
     <p>
         I've been producing music under the name "Ekzetef" since 2020, when I first started at the age of 20. Over the years, I’ve developed my skills and passion for making EDM music, with a special focus on genres like dubstep, electronic, trap, and synthwave. These are the sounds I love, and they’ve become my signature style.
     </p>
