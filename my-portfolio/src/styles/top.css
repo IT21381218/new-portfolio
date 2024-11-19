@@ -1,89 +1,88 @@
 .top {
-    text-align: center;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-  }
-  
-  .threeDModel-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 100;
-    pointer-events: none;
-  }
-  
+  text-align: center;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+.threeDModel-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.top h1 {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12rem;
+  margin: 0;
+  font-weight: bold;
+  color: #fff;
+  z-index: 10;
+}
+
+/* Default styles for larger screens */
+.tops p {
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  font-size: 3rem;
+  color: #ffffff;
+  text-shadow: -20px 10px 7px rgb(0, 0, 0);
+  margin: 0;
+  text-align: right;
+  z-index: 101;
+
+  /* Smooth transition for rotation and movement */
+  transition: transform 0.1s ease-out;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 1200px) {
   .top h1 {
-    position: absolute;
-    top: 1%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12rem;
-    margin: 0;
-    font-weight: bold;
-    color: #fff;
-    z-index: 10;
+    font-size: 7rem; /* Scale down heading on medium screens */
   }
-  
-  /* Default styles for larger screens */
+
   .tops p {
-    position: absolute;
-    bottom: 20%;
-    right: 15%;
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: -20px 10px 7px rgb(0, 0, 0);
-    margin: 0;
-    text-align: right;
-    z-index: 101;
-  
-    /* Smooth transition for rotation and movement */
-    transition: transform 0.1s ease-out;
+    font-size: 3rem; /* Smaller font for text */
+    bottom: 10%; /* Adjust position for smaller screens */
+    right: 10%; /* Adjust position */
   }
-  
-  /* Media Queries for Mobile Devices */
-  @media (max-width: 1200px) {
-    .top h1 {
-      font-size: 7rem; /* Scale down heading on medium screens */
-    }
-  
-    .tops p {
-      font-size: 3rem; /* Smaller font for text */
-      bottom: 10%; /* Adjust position for smaller screens */
-      right: 10%; /* Adjust position */
-    }
+}
+
+@media (max-width: 768px) {
+  .top h1 {
+    font-size: 7rem; /* Further reduce heading size */
   }
-  
-  @media (max-width: 768px) {
-    .top h1 {
-      font-size: 7rem; /* Further reduce heading size */
-    }
-  
-    .tops p {
-      font-size: 1.5rem; /* Reduce text size further */
-      bottom: 10%; /* Move the text a bit closer to the bottom */
-      right: 5%; /* Adjust text position */
-    }
+
+  .tops p {
+    font-size: 1.5rem; /* Reduce text size further */
+    bottom: 10%; /* Move the text a bit closer to the bottom */
+    right: 5%; /* Adjust text position */
   }
-  
-  @media (max-width: 480px) {
-    .top h1 {
-      font-size: 3.5rem; /* Significantly reduce heading size on small devices */
-    }
-  
-    .tops p {
-      font-size: 1.8rem; /* Smaller font size */
-      bottom: 10%; /* Adjust vertical position */
-      right: 5%; /* Adjust horizontal position */
-    }
+}
+
+@media (max-width: 480px) {
+  .top h1 {
+    font-size: 3.5rem; /* Significantly reduce heading size on small devices */
   }
-  
+
+  .tops p {
+    font-size: 1.8rem; /* Smaller font size */
+    bottom: 10%; /* Adjust vertical position */
+    right: 5%; /* Adjust horizontal position */
+  }
+}
