@@ -139,6 +139,8 @@
   .police-tape-text, .coming-soon-text {
       font-size: 2.2rem; /* Slightly smaller font size */
       gap: 40px; /* Adjust gap between text */
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 
   .social-links {
@@ -167,16 +169,22 @@
   .police-tape-text, .coming-soon-text {
       font-size: 2rem;
       gap: 30px;
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 
   .social-links {
       font-size: 1.2rem;
       gap: 10px;
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 
   .social-links a {
       font-size: 2rem;
       padding: 0 10px;
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 }
 
@@ -198,17 +206,20 @@
 
   .social-links {
       font-size: 1.1rem;
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 
   .social-links a {
       font-size: 1.8rem; /* Even smaller font size for very small screens */
       font-family: "Impact", sans-serif;
       padding: 0 15px; /* Padding to ensure spacing between social links */
-      text-decoration: none; /* Remove underline */
-      color: black;
+
   }
 
   .coming-soon {
       margin-top: 15px; /* Add more space for smaller screens */
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
   }
 }

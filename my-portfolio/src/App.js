@@ -77,7 +77,7 @@ function App() {
           {/* Conditionally render the music prompt */}
           {isPromptVisible && (
   <div className="music-prompt fade-in">
-    <p>Would you like to hear music on our website?</p>
+    <p>Would you like to hear music on my website?</p>
     <button className="music-button" onClick={() => handleMusicPreference("yes")}>Yes</button>
     <button className="music-button" onClick={() => handleMusicPreference("no")}>No</button>
   </div>
