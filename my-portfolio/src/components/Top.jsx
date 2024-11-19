@@ -39,8 +39,8 @@ const Top = () => {
       const rotateY = gamma / 2; // Left/Right rotation   defual value =2
 
       // Apply movement based on gamma and beta
-      const moveX = (gamma / 90) * 500; // Horizontal movement based on tilt <-- --> defual value =20
-      const moveY = (beta / 90) * -50;  // Vertical movement based on tilt    /\ \/ defual value =20
+      const moveX = (gamma / 90) * 20; // Horizontal movement based on tilt <-- --> defual value =20
+      const moveY = (beta / 90) * -20;  // Vertical movement based on tilt    /\ \/ defual value =20
 
       if (textElement) {
         textElement.style.transform = `
