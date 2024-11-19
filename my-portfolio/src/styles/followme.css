@@ -190,6 +190,10 @@
   .police-tape-text, .coming-soon-text {
       font-size: 1.8rem; /* Smaller font size for extra small screens */
       gap: 20px; /* Decrease gap for small screens */
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
+      text-decoration: none; /* Remove underline */
+      color: black;
   }
 
   .social-links {
@@ -198,6 +202,10 @@
 
   .social-links a {
       font-size: 1.8rem; /* Even smaller font size for very small screens */
+      font-family: "Impact", sans-serif;
+      padding: 0 15px; /* Padding to ensure spacing between social links */
+      text-decoration: none; /* Remove underline */
+      color: black;
   }
 
   .coming-soon {
