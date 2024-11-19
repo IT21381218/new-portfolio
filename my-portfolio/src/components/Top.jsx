@@ -36,7 +36,7 @@ const Top = () => {
 
       // Apply rotation based on gamma and beta
       const rotateX = beta / 0; // Up/Down rotation
-      const rotateY = gamma / 0; // Left/Right rotation
+      const rotateY = gamma / 2; // Left/Right rotation
 
       // Apply movement based on gamma and beta
       const moveX = (gamma / 90) * 20; // Horizontal movement based on tilt
