@@ -35,7 +35,7 @@ const Top = () => {
       const { gamma, beta } = event; // Gamma (left-right tilt) and Beta (up-down tilt)
 
       // Apply rotation based on gamma and beta
-      const rotateX = beta / 20; // Up/Down rotation  defual value =2
+      const rotateX = beta / 2; // Up/Down rotation  defual value =2
       const rotateY = gamma / -2; // Left/Right rotation   defual value =2
 
       // Apply movement based on gamma and beta
