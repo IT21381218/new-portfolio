@@ -112,8 +112,8 @@ const ThreeDModel = () => {
       if (modelRef.current) {
         // Invert the direction of rotation for opposite movement
         targetRotation.current = {
-          x: -tiltY / -30, // Normalize tilt values to [-1, 1] range
-          y: -tiltX / -30,
+          x: -tiltY / -500, // Normalize tilt values to [-1, 1] range
+          y: -tiltX / -100,
         };
       }
     };
