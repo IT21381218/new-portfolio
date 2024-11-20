@@ -158,7 +158,7 @@ a:active p {
   .follow-me-marquee p,
   .email-phone-marquee p {
     font-family: followme;
-    font-size: 2.5rem; /* Adjust font size for larger screens */
+    font-size: 3.5rem; /* Adjust font size for larger screens */
   }
 
   .marquee-text-track,
@@ -178,7 +178,7 @@ a:active p {
   .follow-me-marquee p,
   .email-phone-marquee p {
     font-family: followme;
-    font-size: 2rem; /* Decrease font size for smaller screens */
+    font-size: 3.5rem; /* Decrease font size for smaller screens */
   }
 
   .marquee-text-track,
@@ -198,7 +198,7 @@ a:active p {
   .follow-me-marquee p,
   .email-phone-marquee p {
     font-family: followme;
-    font-size: 1.5rem; /* Further decrease font size for very small screens */
+    font-size: 3rem; /* Further decrease font size for very small screens */
   }
 
   .marquee-text-track,
