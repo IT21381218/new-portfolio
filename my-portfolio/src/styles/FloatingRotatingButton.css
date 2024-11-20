@@ -161,30 +161,78 @@
   /* transform: scaleX(1); */
 }
 
+
+
 /* Mobile responsiveness */
+@media (max-width: 1200px) {
+  .floating-button {
+    width: 65px;
+    height: 65px;
+    font-size: 1.9rem;
+  }
+
+  .menu-item {
+    font-size: 1rem;
+    padding: 18px 25px;
+    width: 110px;
+  }
+
+  .menu-options {
+    gap: 18px;
+    margin-top: 25px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* Floating button size for mobile */
   .floating-button {
     width: 55px;
     height: 55px;
     font-size: 1.8rem;
   }
 
-  /* Menu items for mobile */
   .menu-item {
-    font-size: 1rem; /* Reduced font size for mobile */
-    padding: 20px 25px; /* Reduced padding */
-    width: 100px; /* Ensure enough width for mobile */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    padding: 15px 20px; /* Reduce padding for smaller screens */
+    width: 90px; /* Adjust width to fit better */
   }
 
-  /* Icon size for mobile */
-  .menu-item i {
-    font-size: 1.6rem; /* Adjusted icon size */
-  }
-
-  /* Menu options container adjustment for mobile */
   .menu-options {
-    gap: 15px; /* Adjust gap for mobile */
-    margin-top: 20px; /* Slightly reduce margin-top */
+    gap: 15px; /* Less gap between menu items */
+    margin-top: 20px; /* Reduce space above the menu */
+  }
+
+  .menu-item span {
+    font-size: 0.75rem; /* Smaller text for span in mobile view */
+  }
+
+  .menu-item i {
+    font-size: 1.5rem; /* Reduce icon size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem; /* Smaller font for compact size */
+  }
+
+  .menu-item {
+    font-size: 0.8rem; /* Compact font size for smaller screens */
+    padding: 12px 15px; /* Reduced padding for tight spaces */
+    width: 80px; /* Compact width */
+  }
+
+  .menu-options {
+    gap: 12px; /* Less gap for tight layouts */
+    margin-top: 15px; /* Smaller margin above menu */
+  }
+
+  .menu-item span {
+    font-size: 0.7rem; /* Compact text for smaller screens */
+  }
+
+  .menu-item i {
+    font-size: 1.3rem; /* Smaller icon size */
   }
 }
