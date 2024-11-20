@@ -131,14 +131,86 @@ p,h2{
 }
 
 /* Mobile Responsive Styling */
-@media (max-width: 480px) {
+@media (max-width: 1200px) {
   .music-prompt {
-    width: 80%;
-    padding: 20px;
+    width: 350px;
+    padding: 25px;
+    font-size: 1rem;
   }
 
   .music-button {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    padding: 9px 18px;
+  }
+
+  .music-choice-modal {
+    width: 80%;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .music-choice-modal button {
+    padding: 8px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .music-prompt {
+    width: 300px;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .music-button {
+    font-size: 0.85rem;
     padding: 8px 16px;
+  }
+
+  .music-choice-modal {
+    width: 75%;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .music-choice-modal button {
+    padding: 7px 16px;
+    font-size: 0.9rem;
+  }
+
+  .loading-screen {
+    font-size: 1rem; /* Adjust text size if any */
+  }
+}
+
+@media (max-width: 480px) {
+  .music-prompt {
+    width: 80%;
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+
+  .music-button {
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
+
+  .music-choice-modal {
+    width: 90%;
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .music-choice-modal button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  h1, h2, p {
+    font-size: 1rem; /* Scale down text sizes for small screens */
+  }
+
+  .loading-screen {
+    font-size: 0.85rem;
   }
 }
