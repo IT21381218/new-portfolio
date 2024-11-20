@@ -1,225 +1,210 @@
-/* Global styles for the FollowMe component */
-.followme {
-  width: 100%;
-  min-height: 50vh; /* Adjust height to be dynamic based on content */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+/* Main app container background */
+.app-container {
   background-color: rgb(0, 0, 0);
-  color: white;
-  position: relative;
-  z-index: 1;
-  padding: 0 0px;
-  overflow: hidden;
-}
-
-/* Police tape style container */
-.police-tape {
-  position: relative;
-  width: 100%;
-  height: 3rem; /* Tape height */
-  background-color: #eed202; /* Updated color */
-  border: 2px solid black;
-  overflow: hidden;
+  color: black;
+  height: 60vh; /* Full viewport height */
   display: flex;
+  flex-direction: column; /* Stack the marquees vertically */
   justify-content: center;
   align-items: center;
-  transform: rotate(-5deg); /* Slight tilt for the first tape */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for more depth */
+  padding: 0;
+  margin: 0;
 }
 
-/* Add the rotated class for the second tape */
-.police-tape.rotated {
-  transform: rotate(5deg); /* Tilt for the second tape */
-}
-
-/* Keyframes to animate "FOLLOW ME" text from right to left */
-@keyframes tapeTextAnimationRightToLeft {
-  0% {
-      transform: translateX(100%); /* Start from the right */
-  }
-  100% {
-      transform: translateX(-100%); /* End at left */
-  }
-}
-
-/* Animated text inside the tape for "FOLLOW ME" text */
-.police-tape-text {
-  display: inline-flex;
-  gap: 50px; /* Add a 50px gap between each FOLLOW ME text */
-  animation: tapeTextAnimationLeftToRight 15s linear infinite; /* Increased duration for slower scrolling */
-  font-family: fantasy;
-  font-size: 2.5rem; /* Larger text */
-  color: black;
-  white-space: nowrap;
-  text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); /* Adding text shadow for better readability */
-  letter-spacing: 0.1rem;
-}
-
-/* Social links inside the second tape (from right to left) */
-.social-links {
-  width: 100%;
-  height: 3rem;
-  display: flex;
-  gap: 15px; /* Add a 15px gap between each social link */
-  animation: tapeTextAnimationRightToLeft 15s linear infinite; /* Increased duration for slower scrolling */
-  font-family: "Arial", sans-serif;
-  font-size: 1.5rem; /* Smaller text for social links */
-  color: black;
-  white-space: nowrap;
-  text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); /* Adding text shadow for better readability */
-}
-
-.social-links a {
-  font-size: 2.5rem;
-  font-family: "Impact", sans-serif;
-  padding: 0 15px; /* Padding to ensure spacing between social links */
-  text-decoration: none; /* Remove underline */
-  color: black; /* Color for links */
-  transition: color 0.3s ease; /* Add smooth transition for hover effect */
-}
-
-.social-links a:hover {
-  color: rgb(75, 75, 0); /* Change color on hover */
-}
-
-/* Keyframes to animate "COMING SOON" text from left to right */
-@keyframes tapeTextAnimationLeftToRight {
-  0% {
-      transform: translateX(-100%); /* Start from the left */
-  }
-  100% {
-      transform: translateX(100%); /* End at right */
-  }
-}
-
-/* Animated "COMING SOON" text */
-.coming-soon {
-  margin-top: 90px;
-}
-.coming-soon {
-  position: relative;
-  width: 100%;
-  height: 3rem; /* Tape height */
-  background-color: #eed202; /* Updated color */
-  border: 2px solid black;
+/* Marquee container */
+.marquee-text {
+  transform: rotate(5deg); /* Default rotation for the main marquee */
   overflow: hidden;
+  position: relative;
+  height: 3.5rem; /* Adjust height for better text alignment */
+  width: 100%;
+  background-color: #eed202; /* Yellow marquee background */
+  padding: 0; /* Remove extra vertical padding */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(0deg); /* Slight tilt for the first tape */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for more depth */
+  align-items: center; /* Center text vertically */
+  box-shadow: 0 0 0 5px rgb(0, 0, 0); /* Simulates an outer border (black) */
 }
 
-.coming-soon-text {
-  display: inline-flex;
-  gap: 50px; /* Add a 50px gap between each "COMING SOON" text */
-  animation: tapeTextAnimationRightToLeft 15s linear infinite; /* Increased duration for slower scrolling */
+.marquee-text-track {
+  display: flex;
+  align-items: center; /* Center text vertically */
+  gap: 4.8rem; /* Space between items */
+  width: max-content;
+  animation: marquee-move-text var(--speed, 10s) linear infinite var(--direction, normal);
+  padding-left: 4.8rem;
+}
+
+.marquee-text p {
   font-family: "Impact", sans-serif;
-  font-size: 2.5rem; /* Larger text */
-  color: black;
+  font-size: 3rem;
+  color: black; /* Black text color */
   white-space: nowrap;
-  text-shadow: 2px 2px 4px rgba(32, 32, 32, 0.5); /* Adding text shadow for better readability */
-  letter-spacing: 0.1rem;
+  text-decoration: none; /* Remove text decoration */
 }
 
-/* Mobile responsive styles */
+/* Follow Me Marquee specific styles */
+.follow-me-marquee {
+  transform: rotate(-5deg); /* Different rotation for the Follow Me marquee */
+  overflow: hidden;
+  position: relative;
+  height: 3.5rem; /* Adjust height for better text alignment */
+  width: 100%;
+  background-color: #eed202; /* Yellow marquee background */
+  padding: 0; /* Remove extra vertical padding */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  box-shadow: 0 0 0 5px rgb(0, 0, 0); /* Outer black border */
+  margin-bottom: 1rem; /* Space between Follow Me and main marquee */
+}
+
+.follow-me-marquee-track {
+  display: flex;
+  align-items: center; /* Center text vertically */
+  gap: 4.8rem; /* Space between items */
+  width: max-content;
+  animation: follow-me-move-text var(--speed, 10s) linear infinite;
+  padding-left: 4.8rem;
+}
+
+.follow-me-marquee p {
+  font-family: "Impact", sans-serif;
+  font-size: 3rem;
+  color: black; /* Black text color */
+  white-space: nowrap;
+  text-decoration: none; /* Remove text decoration */
+}
+
+/* Main text animation (left to right) */
+@keyframes marquee-move-text {
+  from {
+    transform: translateX(100%); /* Start from the left side */
+  }
+  to {
+    transform: translateX(-100%); /* Move to the right side */
+  }
+}
+
+/* Animation for the Follow Me marquee (move from right to left) */
+@keyframes follow-me-move-text {
+  from {
+    transform: translateX(-100%); /* Start from the right side */
+  }
+  to {
+    transform: translateX(100%); /* Move to the left side */
+  }
+}
+
+/* Hover effects for the links */
+a {
+  text-decoration: none; /* Remove underline by default */
+}
+
+a:hover p {
+  color: #726a2c; /* Change text color to red when hovered */
+  transition: color 0.3s ease;
+}
+
+a:active p {
+  transform: scale(1.1); /* Slightly increase the size when clicked */
+  transition: transform 0.1s ease;
+}
+
+/* Email & Phone Marquee specific styles */
+.email-phone-marquee {
+  overflow: hidden;
+  position: relative;
+  height: 3.5rem; /* Adjust height for better text alignment */
+  width: 100%;
+  background-color: #eed202; /* Yellow marquee background */
+  padding: 0; /* Remove extra vertical padding */
+  display: flex;
+  align-items: center; /* Center text vertically */
+  box-shadow: 0 0 0 5px rgb(0, 0, 0); /* Outer black border */
+  margin-top: 3rem; /* Space between main marquee and this one */
+}
+
+.email-phone-marquee-track {
+  display: flex;
+  align-items: center; /* Center text vertically */
+  gap: 4.8rem; /* Space between items */
+  width: max-content;
+  animation: email-phone-move-text var(--speed, 10s) linear infinite;
+  padding-left: 4.8rem;
+}
+
+.email-phone-marquee p {
+  font-family: "Impact", sans-serif;
+  font-size: 3rem;
+  color: black; /* Black text color */
+  white-space: nowrap;
+  text-decoration: none; /* Remove text decoration */
+}
+
+/* Animation for the email & phone marquee (move from right to left) */
+@keyframes email-phone-move-text {
+  from {
+    transform: translateX(100%); /* Start from the right side */
+  }
+  to {
+    transform: translateX(-100%); /* Move to the left side */
+  }
+}
+
+/* Responsive Styles */
+
+/* For max-width: 1200px */
 @media (max-width: 1200px) {
-  /* Adjust the size and layout for screens smaller than 1200px */
-  .followme {
-    min-height: 40vh;/* Allow height to adjust dynamically */
+  .marquee-text p,
+  .follow-me-marquee p,
+  .email-phone-marquee p {
+    font-size: 2.5rem; /* Adjust font size for larger screens */
   }
 
-  /* Adjust the tape height for screens smaller than 1200px */
-  .police-tape, .social-links, .coming-soon {
-      height: 2.8rem;
-  }
-
-  .police-tape-text, .coming-soon-text {
-      font-size: 2.2rem; /* Slightly smaller font size */
-      gap: 40px; /* Adjust gap between text */
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
-  }
-
-  .social-links {
-      font-size: 1.4rem;
-      gap: 12px;
-  }
-
-  .social-links a {
-      font-size: 2.2rem;
-      padding: 0 10px;
+  .marquee-text-track,
+  .follow-me-marquee-track,
+  .email-phone-marquee-track {
+    gap: 3rem; /* Adjust space between items */
   }
 }
 
+/* For max-width: 768px */
 @media (max-width: 768px) {
-  /* Adjust for tablets and smaller screens */
-  .followme {
-      height: 180px; /* Allow height to adjust dynamically */
-      padding: 0 0px;
-      min-height: 30vh;
+  .app-container {
+    height: auto; /* Allow container height to adjust based on content */
   }
 
-  .police-tape, .social-links, .coming-soon {
-      height: 2.5rem;
+  .marquee-text p,
+  .follow-me-marquee p,
+  .email-phone-marquee p {
+    font-size: 2rem; /* Decrease font size for smaller screens */
   }
 
-  .police-tape-text, .coming-soon-text {
-      font-size: 2rem;
-      gap: 30px;
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
+  .marquee-text-track,
+  .follow-me-marquee-track,
+  .email-phone-marquee-track {
+    gap: 2rem; /* Adjust space between items */
   }
 
-  .social-links {
-      font-size: 1.2rem;
-      gap: 10px;
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
-  }
-
-  .social-links a {
-      font-size: 2rem;
-      padding: 0 10px;
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
+  .email-phone-marquee {
+    margin-top: 2rem; /* Adjust spacing for smaller screens */
   }
 }
 
+/* For max-width: 480px */
 @media (max-width: 480px) {
-  /* Extra small screens (e.g., mobile devices) */
-  .followme {
-      padding: 0 0px;
-      min-height: 20vh;
+  .marquee-text p,
+  .follow-me-marquee p,
+  .email-phone-marquee p {
+    font-size: 1.5rem; /* Further decrease font size for very small screens */
   }
 
-  .police-tape-text, .coming-soon-text {
-      font-size: 1.8rem; /* Smaller font size for extra small screens */
-      gap: 20px; /* Decrease gap for small screens */
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
-      text-decoration: none; /* Remove underline */
-      color: black;
+  .marquee-text-track,
+  .follow-me-marquee-track,
+  .email-phone-marquee-track {
+    gap: 1.5rem; /* Adjust space between items */
   }
 
-  .social-links {
-      font-size: 1.1rem;
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
-  }
-
-  .social-links a {
-      font-size: 1.8rem; /* Even smaller font size for very small screens */
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
-
-  }
-
-  .coming-soon {
-      margin-top: 15px; /* Add more space for smaller screens */
-      font-family: "Impact", sans-serif;
-      padding: 0 15px; /* Padding to ensure spacing between social links */
+  .email-phone-marquee {
+    margin-top: 1rem; /* Adjust spacing for very small screens */
   }
 }

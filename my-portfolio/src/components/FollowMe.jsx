@@ -1,63 +1,59 @@
 import React from "react";
 import "../styles/followme.css";
 
-function FollowMe() {
+const Marquee = () => {
   return (
-    <section className="followme">
-      {/* First tape: "FOLLOW ME" text */}
-      <div className="police-tape">
-        <div className="police-tape-text">
-          {/* Repeat the Follow Me text infinitely */}
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
-          <span>FOLLOW ME</span>
+    <div className="app-container">
+      {/* Follow Me Marquee */}
+      <div className="follow-me-marquee">
+        <div className="follow-me-marquee-track">
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
+          <p>FOLLOW ME</p>
         </div>
       </div>
 
-      {/* Second tape: Social Links (moving from right to left) */}
-      <div className="police-tape rotated">
-        <div className="social-links">
-          {/* Wrap each social link text in an <a> tag with href pointing to the respective social media */}
+      {/* Main Marquee */}
+      <div className="marquee-text">
+        <div className="marquee-text-track">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            INSTAGRAM
-          </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-            X
+            <p>INSTAGRAM</p>
           </a>
           <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            FACEBOOK
+            <p>FACEBOOK</p>
           </a>
           <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-            LINKEDIN
+            <p>LINKEDIN</p>
           </a>
-          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
-            GITHUB
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <p>GITHUB</p>
           </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-            YOUTUBE
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <p>YOUTUBE</p>
           </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-            SPOTIFY
+          <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
+            <p>SPOTIFY</p>
           </a>
-          
+          <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
+            <p>X</p>
+          </a>
         </div>
       </div>
 
-      {/* Third tape: "COMING SOON" text (moving from left to right) */}
-      <div className="coming-soon">
-        <div className="coming-soon-text">
-          {/* Repeat the "COMING SOON" text infinitely */}
-          <span>EMAIL: rajmalperera@gmail.com</span>
-          <span>PHONE: (+94)71 477 7848</span>
+      {/* Email & Phone Marquee */}
+      <div className="email-phone-marquee">
+        <div className="email-phone-marquee-track">
+          <p>Email: rajmalperera@email.com</p>
+          <p>Phone: (+94)71-477-7848</p>
         </div>
       </div>
-    </section>
+      <br/>
+    </div>
   );
-}
+};
 
-export default FollowMe;
+export default Marquee;
