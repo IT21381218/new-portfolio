@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/myWorks.css";
 import MyWOrkFButton from "./MyWorkFloatingButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -88,6 +88,11 @@ const MyWorks = ({ isMuted, toggleMute }) => {
   const [currentAudio, setCurrentAudio] = useState(null); // Track the current audio element
   const audioRefs = useRef([]);
 
+  useEffect(() => {
+    // Scroll to the top of the page when the component mounts
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const openPopup = (work) => {
     setSelectedWork(work);
     setAnimationState("open");
@@ -102,12 +107,10 @@ const MyWorks = ({ isMuted, toggleMute }) => {
 
   const handleAudioPlay = (index) => {
     const newAudio = audioRefs.current[index];
-    
     // Pause the current audio if it's playing
     if (currentAudio && currentAudio !== newAudio) {
       currentAudio.pause();
     }
-
     // Set the current audio to the new one and play it
     setCurrentAudio(newAudio);
     newAudio.play();
