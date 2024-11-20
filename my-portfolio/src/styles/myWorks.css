@@ -285,6 +285,16 @@
   outline: none;
 }
 
+/* Highlight currently playing song card */
+.song-card.playing {
+  border: 2px solid #00e1ff; /* Glowing border color */
+  box-shadow: 0 0 15px #00ffd5, 0 0 20px #0004ff; /* Glow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
 /* Mobile Responsive Adjustments */
 
 /* For devices smaller than 1200px (large tablets and small desktops) */

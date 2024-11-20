@@ -85,11 +85,10 @@ const songs = [
 const MyWorks = ({ isMuted, toggleMute }) => {
   const [selectedWork, setSelectedWork] = useState(null);
   const [animationState, setAnimationState] = useState("");
-  const [currentAudio, setCurrentAudio] = useState(null); // Track the current audio element
+  const [currentAudioIndex, setCurrentAudioIndex] = useState(null); // Track the current audio index
   const audioRefs = useRef([]);
 
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -107,33 +106,28 @@ const MyWorks = ({ isMuted, toggleMute }) => {
 
   const handleAudioPlay = (index) => {
     const newAudio = audioRefs.current[index];
-    // Pause the current audio if it's playing
-    if (currentAudio && currentAudio !== newAudio) {
-      currentAudio.pause();
+    if (newAudio) {
+      // Pause any currently playing audio
+      audioRefs.current.forEach((audio, i) => {
+        if (i !== index && audio) {
+          audio.pause();
+        }
+      });
+      setCurrentAudioIndex(index); // Update the currently playing song index
+      newAudio.play();
     }
-    // Set the current audio to the new one and play it
-    setCurrentAudio(newAudio);
-    newAudio.play();
   };
 
   return (
     <section className="myWork">
-      <button
-        className={`mute-button ${isMuted ? "active" : ""}`}
-        onClick={toggleMute} // Call toggleMute to change mute state
-      >
+      <button className={`mute-button ${isMuted ? "active" : ""}`} onClick={toggleMute}>
         <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
       </button>
       <MyWOrkFButton />
       <h1>PROJECTS</h1>
-
       <div className="work-container">
         {works.map((work, index) => (
-          <div
-            key={index}
-            className="work-card"
-            onClick={() => openPopup(work)}
-          >
+          <div key={index} className="work-card" onClick={() => openPopup(work)}>
             <img src={work.image} alt={work.name} className="work-image" />
             <div className="work-details">
               <h2 className="work-title">{work.name}</h2>
@@ -143,33 +137,26 @@ const MyWorks = ({ isMuted, toggleMute }) => {
       </div>
 
       <h1>MY SONGS</h1>
-      <div class="music-corner">
-    <h2>Welcome to my music corner!</h2>
-    <p>
-        I've been producing music under the name "Ekzetef" since 2020, when I first started at the age of 20. Over the years, I’ve developed my skills and passion for making EDM music, with a special focus on genres like dubstep, electronic, trap, and synthwave. These are the sounds I love, and they’ve become my signature style.
-    </p>
-    <p>
-        I began my journey in music production using FL Studio as my Digital Audio Workstation (DAW). Everything I know about FL Studio, I’ve learned through self-study and by watching countless tutorials online. The learning process has been a rewarding challenge, but I’ve come a long way. Along the way, I’ve also picked up skills in mixing and mastering, ensuring my tracks sound polished and professional.
-    </p>
-    <p>
-        Below, you can check out some of my tracks, available for you to listen to. Feel free to explore my full music collection on <a href="https://open.spotify.com/artist/0FYHTOs5JRs91T1kieiYBP" target="_blank" class="link">Spotify</a> and <a href="https://www.youtube.com/channel/UCh2lSlzUxZRu0bvLceDUMow" target="_blank" class="link">YouTube</a>, where you’ll find more of my creations and music projects.
-    </p>
-</div>
-
-
+      <div className="music-corner">
+        <h2>Welcome to my music corner!</h2>
+        <p>I've been producing music under the name "Ekzetef" since 2020.</p>
+      </div>
 
       <div className="song-container">
         {songs.map((song, index) => (
-          <div key={index} className="song-card">
+          <div
+            key={index}
+            className={`song-card ${currentAudioIndex === index ? "playing" : ""}`} // Apply glowing effect to the currently playing song
+          >
             <img src={song.cover} alt={song.name} className="song-cover" />
             <div className="song-details">
               <h2 className="song-title">{song.name}</h2>
               <p className="song-description">{song.description}</p>
               <audio
-                ref={(el) => (audioRefs.current[index] = el)} // Store references to audio elements
+                ref={(el) => (audioRefs.current[index] = el)}
                 controls
                 className="audio-player"
-                onPlay={() => handleAudioPlay(index)} // Handle play to stop current audio and start new one
+                onPlay={() => handleAudioPlay(index)}
               >
                 <source src={song.audio} type="audio/mpeg" />
                 Your browser does not support the audio element.
@@ -179,25 +166,10 @@ const MyWorks = ({ isMuted, toggleMute }) => {
         ))}
       </div>
 
-      {/* Mute/Unmute Button */}
-      <button
-        className={`mute-button ${isMuted ? "active" : ""}`}
-        onClick={toggleMute}
-      >
-        <FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} />
-      </button>
-
       {selectedWork && (
         <div className="popup-overlay" onClick={closePopup}>
-          <div
-            className={`popup-content ${animationState}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedWork.image}
-              alt={selectedWork.name}
-              className="popup-image"
-            />
+          <div className={`popup-content ${animationState}`} onClick={(e) => e.stopPropagation()}>
+            <img src={selectedWork.image} alt={selectedWork.name} className="popup-image" />
             <div className="popup-details">
               <h2 className="popup-title">{selectedWork.name}</h2>
               <p className="popup-description">{selectedWork.description}</p>
