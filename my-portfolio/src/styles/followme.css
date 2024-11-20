@@ -35,7 +35,7 @@
 }
 
 .marquee-text p {
-  font-family: "Impact", sans-serif;
+  font-family:followme;
   font-size: 3rem;
   color: black; /* Black text color */
   white-space: nowrap;
@@ -67,7 +67,7 @@
 }
 
 .follow-me-marquee p {
-  font-family: "Impact", sans-serif;
+  font-family: followme;
   font-size: 3rem;
   color: black; /* Black text color */
   white-space: nowrap;
@@ -100,7 +100,7 @@ a {
 }
 
 a:hover p {
-  color: #726a2c; /* Change text color to red when hovered */
+  color: rgb(75, 75, 0); /* Change text color to red when hovered */
   transition: color 0.3s ease;
 }
 
@@ -133,7 +133,7 @@ a:active p {
 }
 
 .email-phone-marquee p {
-  font-family: "Impact", sans-serif;
+  font-family: followme;
   font-size: 3rem;
   color: black; /* Black text color */
   white-space: nowrap;

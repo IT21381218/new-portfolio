@@ -20,25 +20,25 @@ const Marquee = () => {
       {/* Main Marquee */}
       <div className="marquee-text">
         <div className="marquee-text-track">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/ekzetef/" target="_blank" rel="noopener noreferrer">
             <p>INSTAGRAM</p>
           </a>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/poornaka.perera/" target="_blank" rel="noopener noreferrer">
             <p>FACEBOOK</p>
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/poornaka-perera-ab56bb218/" target="_blank" rel="noopener noreferrer">
             <p>LINKEDIN</p>
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/IT21381218" target="_blank" rel="noopener noreferrer">
             <p>GITHUB</p>
           </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/@ekzetef2192" target="_blank" rel="noopener noreferrer">
             <p>YOUTUBE</p>
           </a>
-          <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://open.spotify.com/artist/0FYHTOs5JRs91T1kieiYBP" target="_blank" rel="noopener noreferrer">
             <p>SPOTIFY</p>
           </a>
-          <a href="https://spotify.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/ekzetef" target="_blank" rel="noopener noreferrer">
             <p>X</p>
           </a>
         </div>
@@ -47,7 +47,7 @@ const Marquee = () => {
       {/* Email & Phone Marquee */}
       <div className="email-phone-marquee">
         <div className="email-phone-marquee-track">
-          <p>Email: rajmalperera@email.com</p>
+          <p>Email: rajmalperera@gmail.com</p>
           <p>Phone: (+94)71-477-7848</p>
         </div>
       </div>

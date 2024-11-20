@@ -29,6 +29,11 @@ p,h2{
   letter-spacing: 1px;
 }
 
+@font-face {
+  font-family: followme;
+  src: url(../public/Front\ Page\ Neue.otf);
+}
+
 .loading-screen {
   display: flex;
   justify-content: center;
