@@ -157,7 +157,7 @@ a:active p {
   .marquee-text p,
   .follow-me-marquee p,
   .email-phone-marquee p {
-    font-family: "Impact", sans-serif;
+    font-family: followme;
     font-size: 2.5rem; /* Adjust font size for larger screens */
   }
 
@@ -177,7 +177,7 @@ a:active p {
   .marquee-text p,
   .follow-me-marquee p,
   .email-phone-marquee p {
-    font-family: "Impact", sans-serif;
+    font-family: followme;
     font-size: 2rem; /* Decrease font size for smaller screens */
   }
 
@@ -197,7 +197,7 @@ a:active p {
   .marquee-text p,
   .follow-me-marquee p,
   .email-phone-marquee p {
-    font-family: "Impact", sans-serif;
+    font-family: followme;
     font-size: 1.5rem; /* Further decrease font size for very small screens */
   }
 
