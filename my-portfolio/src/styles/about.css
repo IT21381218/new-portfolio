@@ -63,7 +63,7 @@
 .about-details p {
   font-size: 1.2rem;
   line-height: 1.8;
-  font-weight: 400;
+  font-weight: bold;
   color: #ccc; /* Slightly lighter gray text for readability */
   margin-bottom: 30px;
   max-width: 700px; /* Limit the width of the paragraph for better readability */
