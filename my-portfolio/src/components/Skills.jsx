@@ -34,8 +34,8 @@ function Skills() {
     { id: 12, name: "Python", icon: <FaPython size={50} /> },
     { id: 13, name: "Jupyter", icon: <SiJupyter size={50} /> },
     { id: 14, name: "Postman", icon: <SiPostman size={50} /> },
-    { id: 14, name: "Firebase", icon: <IoLogoFirebase size={50} /> },
-    { id: 14, name: "Express ", icon: <SiExpress  size={50} /> },
+    { id: 15, name: "Firebase", icon: <IoLogoFirebase size={50} /> },
+    { id: 16, name: "Express ", icon: <SiExpress  size={50} /> },
   ];
 
   return (
