@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: auto !important;
+}
+
+
 /* General Styles */
 .myWork {
   padding: 0;

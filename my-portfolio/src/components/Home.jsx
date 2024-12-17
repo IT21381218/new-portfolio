@@ -1,5 +1,4 @@
-// src/components/Home.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Element } from "react-scroll";
 import "../styles/home.css";
 import Top from "./Top";
@@ -14,8 +13,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ isMuted, toggleMute }) => {
-  return (
+  useEffect(() => {
+    window.scrollTo(0, 0); // Ensures the page loads from the top
+  }, []);
 
+  return (
     <div className="home">
       <FButton />
       <Element name="top" className="section">

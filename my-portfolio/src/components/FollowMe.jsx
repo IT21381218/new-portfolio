@@ -47,8 +47,8 @@ const Marquee = () => {
       {/* Email & Phone Marquee */}
       <div className="email-phone-marquee">
         <div className="email-phone-marquee-track">
-          <p>Email: rajmalperera@gmail.com</p>
-          <p>Phone: (+94)71-477-7848</p>
+          <p>EMAIL: rajmalperera@gmail.com</p>
+          <p>PHONE: (+94)71-477-7848</p>
         </div>
       </div>
       <br/>
