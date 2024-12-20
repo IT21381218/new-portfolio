@@ -75,3 +75,28 @@ html {
 .mute-button .fa-volume-up {
   opacity: 1;
 }
+
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background: #ebebeb; 
+  border-radius: 6px; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background:  #9c9c9c; 
+  }
+  
+  ::-webkit-scrollbar-track {
+  background: #000000; 
+  }
+  
+  
+  @media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none; 
+  }}
