@@ -6,6 +6,12 @@ import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const works = [
   {
+    name: "Zade Meadows",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1734466121/zade/808277497809506964_kikpql.png",
+    description: "I recently built a portfolio website for Zade Meadows, the enigmatic character from Haunting Adeline. This project was a creative experiment where I used AI-generated images and videos to bring Zade’s persona to life.",
+    github: "https://zade.vercel.app/",
+  },
+  {
     name: "Guident Computers",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png",
     description: "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka. Their business serves as an intermediary between a buyer and suppliers.",
@@ -191,7 +197,7 @@ const MyWorks = ({ isMuted, toggleMute }) => {
                 rel="noopener noreferrer"
                 className="popup-github-button"
               >
-                View on GitHub
+                Visit Project
               </a>
             </div>
             <button className="popup-close" onClick={closePopup}>
