@@ -153,6 +153,30 @@ html {
   margin-bottom: 20px;
 }
 
+.popup-buttons {
+  display: flex;
+  justify-content: center; /* Align buttons horizontally */
+  gap: 20px; /* Adds a gap between the buttons */
+  margin-top: 20px; /* Optional: Adds space above the buttons */
+}
+
+
+.popup-website-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.popup-website-button:hover {
+  background-color: #414141;
+  color: rgb(255, 255, 255);
+}
+
+
 .popup-github-button {
   padding: 10px 20px;
   background-color: #ffffff;
@@ -164,7 +188,7 @@ html {
 }
 
 .popup-github-button:hover {
-  background-color: #202020;
+  background-color: #414141;
   color: rgb(255, 255, 255);
 }
 

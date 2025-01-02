@@ -77,7 +77,7 @@ function Projects() {
       <div className="projects-container">
         <div className="count-up">
           <h2>
-            {countUpStarted && <CountUp start={0} end={4} duration={3} separator="," />}
+            {countUpStarted && <CountUp start={0} end={6} duration={3} separator="," />}
           </h2>
           <p>Number of Projects</p>
         </div>

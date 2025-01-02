@@ -6,10 +6,18 @@ import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
 
 const works = [
   {
+    name: "SkyNova",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1735845173/facebook_profile_image_oeq8bh.png",
+    description: "This project is a mobile-responsive web application designed as part of a job interview assignment. The website allows users to search for flights and view booking details.",
+    github: "https://github.com/IT21381218/InternshipFrontend.git",
+    website: "https://airline-lac.vercel.app/",
+  },
+  {
     name: "Zade Meadows",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1734466121/zade/808277497809506964_kikpql.png",
     description: "I recently built a portfolio website for Zade Meadows, the enigmatic character from Haunting Adeline. This project was a creative experiment where I used AI-generated images and videos to bring Zade’s persona to life.",
-    github: "https://zade.vercel.app/",
+    github: "https://github.com/IT21381218/zade.git",
+    website: "https://zade.vercel.app/",
   },
   {
     name: "Guident Computers",
@@ -93,10 +101,6 @@ const MyWorks = ({ isMuted, toggleMute }) => {
   const [animationState, setAnimationState] = useState("");
   const [currentAudioIndex, setCurrentAudioIndex] = useState(null); // Track the current audio index
   const audioRefs = useRef([]);
-
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -191,14 +195,26 @@ const MyWorks = ({ isMuted, toggleMute }) => {
             <div className="popup-details">
               <h2 className="popup-title">{selectedWork.name}</h2>
               <p className="popup-description">{selectedWork.description}</p>
-              <a
-                href={selectedWork.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="popup-github-button"
-              >
-                Visit Project
-              </a>
+              <div className="popup-buttons">
+                {selectedWork.website && (
+                  <a
+                    href={selectedWork.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="popup-website-button"
+                  >
+                    Visit Website
+                  </a>
+                )}
+                <a
+                  href={selectedWork.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="popup-github-button"
+                >
+                  Visit GitHub
+                </a>
+              </div>
             </div>
             <button className="popup-close" onClick={closePopup}>
               &times;
