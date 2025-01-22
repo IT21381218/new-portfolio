@@ -9,6 +9,7 @@ import {
   FaGithub,
   FaFigma,
   FaPython,
+  FaWordpress ,
 } from "react-icons/fa";
 import { IoLogoFirebase } from "react-icons/io5";
 import { DiMongodb } from "react-icons/di";
@@ -21,7 +22,7 @@ function Skills() {
 
   const skills = [
     { id: 1, name: "React", icon: <FaReact size={50} /> },
-    { id: 2, name: "HTML", icon: <FaHtml5 size={50} /> },
+    { id: 2, name: "WordPress", icon: <FaWordpress size={50} /> },
     { id: 3, name: "CSS", icon: <FaCss3Alt size={50} /> },
     { id: 4, name: "JavaScript", icon: <FaJs size={50} /> },
     { id: 5, name: "Node.js", icon: <FaNodeJs size={50} /> },
