@@ -2,28 +2,20 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import MyWorks from "./components/MyWorks";
-import { trefoil } from "ldrs";
 import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
-
-trefoil.register();  // Register the trefoil component
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [isMusicEnabled, setIsMusicEnabled] = useState(false); // For music control
   const [isMuted, setIsMuted] = useState(true); // For mute functionality, starts muted
-  const [audio] = useState(new Audio("https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731959999/my%20portfolio/palace_slowed_reverb_prod._adturnup_ezmp3.cc_qpllou.mp3")); // Load the audio file
+  const [audio] = useState(
+    new Audio(
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731959999/my%20portfolio/palace_slowed_reverb_prod._adturnup_ezmp3.cc_qpllou.mp3"
+    )
+  ); // Load the audio file
   const [isPromptVisible, setIsPromptVisible] = useState(true); // Control prompt visibility
-
-  useEffect(() => {
-    // Simulate loading screen delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // Adjust the timeout as needed
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(false); // Track loading state
 
   useEffect(() => {
     // Handle audio play/stop based on isMusicEnabled and isMuted states
@@ -61,29 +53,23 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
-        <div className="loading-screen">
-          <l-trefoil 
-            size="100" 
-            stroke="4" 
-            stroke-length="0.15" 
-            bg-opacity="0.1" 
-            speed="1.4" 
-            color="white" 
-          ></l-trefoil>
-        </div>
-      ) : (
+      {!isLoaded && <LoadingScreen onLoaded={() => setIsLoaded(true)} />}
+      {isLoaded && (
         <>
           {/* Conditionally render the music prompt */}
           {isPromptVisible && (
-  <div className="music-prompt fade-in">
-    <p>Would you like to hear music on my website?</p>
-    <button className="music-button" onClick={() => handleMusicPreference("yes")}>Yes</button>
-    <button className="music-button" onClick={() => handleMusicPreference("no")}>No</button>
-  </div>
-)}
+            <div className="music-prompt fade-in">
+              <p>Would you like to hear music on my website?</p>
+              <button className="music-button" onClick={() => handleMusicPreference("yes")}>
+                Yes
+              </button>
+              <button className="music-button" onClick={() => handleMusicPreference("no")}>
+                No
+              </button>
+            </div>
+          )}
 
-          <Router>      
+          <Router>
             <Routes>
               <Route path="/" element={<Home isMuted={isMuted} toggleMute={toggleMute} />} />
               <Route path="/myworks" element={<MyWorks isMuted={isMuted} toggleMute={toggleMute} />} />
