@@ -1,49 +1,98 @@
-import React, { useState, useRef, useEffect } from "react";
-import "../styles/myWorks.css";
-import MyWOrkFButton from "./MyWorkFloatingButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons";
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import "../styles/myWorks.css"
+import MyWOrkFButton from "./MyWorkFloatingButton"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faVolumeUp, faVolumeMute } from "@fortawesome/free-solid-svg-icons"
 
 const works = [
   {
+    name: "Star Market – UI/UX",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1754723490/Home_xvvljy.png",
+    description:
+      "Designed a responsive mobile and web platform for a premium seafood marketplace, focusing on both buyer and seller experiences. Created user flows, low to high-fidelity wireframes, and polished mockups in Figma. Incorporated a modern navy blue and gold theme, intuitive navigation, and key features such as product listings, search & filter, pre-orders, and promotions to deliver a user-centered, visually consistent interface.",
+    technologies: ["Figma"],
+    figma: "https://www.figma.com/design/kHlgFIFQTsepy2NrF5MLEh/Star-Market?node-id=0-1&t=42A0jOf8j80khONt-1",
+  },
+  {
+    name: "Expense Tracker",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1754725822/Capture_s7j7q7.jpg",
+    description:
+      "Designed and developed a fully functional web-based Expense Tracker for personal finance management. The application enables user profile management, expense recording with attachments, statistical analysis (daily, monthly, yearly), filtering/sorting by category and date, and PDF report generation.",
+    technologies: ["Selenium IDE","React.js", "Node.js", "Express.js", "MongoDB"],
+    github: "https://github.com/IT21381218/SQA",
+  },
+  {
+    name: "Cattle Site - Research Project",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1742198514/cattle%20site/dfd_vfjkf9.png",
+    description:
+      "Developed an integrated online platform for early cattle disease detection using Convolutional Neural Networks (CNNs) for image analysis and machine learning-based symptom diagnosis. The system provides real-time, farmer-friendly access to personalized treatment recommendations, aiming to improve livestock health, reduce economic losses, and support sustainable farming practices.",
+    technologies: ["Python", "TensorFlow", "CNN", "Machine Learning", "React.js", "Fast API", "Image Processing"],
+    github: "https://github.com/IT21381218/ResearchWeb",
+    website: "https://cattle-site.vercel.app/",
+  },
+  {
+    name: "CEVENT - UI/UX",
+    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1754724199/Home_scq5ae.png",
+    description:
+      "Designed an intuitive mobile application for seamless event creation, management, and participation. Conducted user research to identify pain points in event discovery and registration. Created user flows, low to high-fidelity wireframes, and interactive prototypes in Figma. Incorporated a clean, modern interface with vibrant accent colors, simplified navigation, and features such as event search & filter, RSVP management, reminders, and ticket scanning to ensure a smooth and engaging user experience.",
+    technologies: ["Figma"],
+    figma:
+      "https://www.figma.com/proto/am6WcdQcATaw9VbGXnXszu/Untitled?node-id=3-8&p=f&t=l041fojnBU29goig-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A10",
+  },
+  {
     name: "SkyNova",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1735845173/facebook_profile_image_oeq8bh.png",
-    description: "This project is a mobile-responsive web application designed as part of a job interview assignment. The website allows users to search for flights and view booking details.",
+    description:
+      "This project is a mobile-responsive web application designed as part of a job interview assignment. The website allows users to search for flights and view booking details.",
+    technologies: ["React.js"],
     github: "https://github.com/IT21381218/InternshipFrontend.git",
     website: "https://airline-lac.vercel.app/",
   },
   {
     name: "Zade Meadows",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1734466121/zade/808277497809506964_kikpql.png",
-    description: "I recently built a portfolio website for Zade Meadows, the enigmatic character from Haunting Adeline. This project was a creative experiment where I used AI-generated images and videos to bring Zade’s persona to life.",
+    description:
+      "I recently built a portfolio website for Zade Meadows, the enigmatic character from Haunting Adeline. This project was a creative experiment where I used AI-generated images and videos to bring Zade's persona to life.",
+    technologies: ["React.js"],
     github: "https://github.com/IT21381218/zade.git",
     website: "https://zade.vercel.app/",
   },
   {
     name: "Guident Computers",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690897838/Untitled-1_xewcwj.png",
-    description: "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka. Their business serves as an intermediary between a buyer and suppliers.",
+    description:
+      "Guident Computers is a business store that sells computer parts and other electronic goods to consumers in Sri Lanka. Their business serves as an intermediary between a buyer and suppliers.",
+    technologies: ["MERN Stack", "Bootstrap"],
     github: "https://github.com/rumeshsmrr/ITP_WD_B1_G14",
   },
   {
     name: "Revolt Airline",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690883334/photo-1559268950-2d7ceb2efa3a_upa7wp.png",
-    description: "This airline reservation ticket booking system is a comprehensive and user-friendly web application that simplifies the process of reserving and booking flight tickets for travelers. This project aims to streamline the airline ticket booking process and enhance the overall travel experience for users.",
+    description:
+      "This airline reservation ticket booking system is a comprehensive and user-friendly web application that simplifies the process of reserving and booking flight tickets for travelers. This project aims to streamline the airline ticket booking process and enhance the overall travel experience for users.",
+    technologies: ["HTML", "CSS", "JavaScript", "MySQL"],
     github: "https://github.com/IT21381218/Airlines-Reservation-Ticket-Booking-System",
   },
   {
     name: "TravelLodge",
     image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1690900415/Untitled-5_qvgdlq.png",
-    description: "Our application, TravelLodge, allows local homeowners to put their accommodations for rent-for tourists who don't want to invest a lot of money in hotels. This allows more tourists to visit and stay as long as they wish for a reasonable price.",
+    description:
+      "Our application, TravelLodge, allows local homeowners to put their accommodations for rent-for tourists who don't want to invest a lot of money in hotels. This allows more tourists to visit and stay as long as they wish for a reasonable price.",
+    technologies: ["Kotlin", "Firebase"],
     github: "https://github.com/rumeshsmrr/RentalApplication/tree/main",
   },
   {
     name: "CityMart",
-    image: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/my%20portfolio/facebook_profile_image_wxa3sv.png",
-    description: "CityMart is a web application that provides voice navigation for visually impaired users, allowing them to shop online with ease. Key features include voice commands for adding items to the cart and submitting feedback.",
+    image:
+      "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731766404/my%20portfolio/facebook_profile_image_wxa3sv.png",
+    description:
+      "CityMart is a web application that provides voice navigation for visually impaired users, allowing them to shop online with ease. Key features include voice commands for adding items to the cart and submitting feedback.",
+    technologies: ["MERN Stack"],
     github: "https://github.com/IT21381218/CityMart",
   },
-];
+]
 
 const songs = [
   {
@@ -56,37 +105,46 @@ const songs = [
     name: "Ekzetef - Murder Bass",
     cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868800/my%20portfolio/EpY8tHeXYAEYkxV_fapvqf.jpg",
     description: "Release date: Dec 17, 2020",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870786/my%20portfolio/Ekzetef_-_Murder_Bass_Official_Audio_v14d99.m4a",
+    audio:
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870786/my%20portfolio/Ekzetef_-_Murder_Bass_Official_Audio_v14d99.m4a",
   },
   {
     name: "Ekzetef - Visuals",
     cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868802/my%20portfolio/EeCLJsqXkAAjtv1_v5rddo.jpg",
     description: "Release date: Aug 1, 2020",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Visuals_Official_Video_ai8fx6.m4a",
+    audio:
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Visuals_Official_Video_ai8fx6.m4a",
   },
   {
     name: "Selena Gomez - Lose You To Love Me (Ekzetef Remix)",
-    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868800/my%20portfolio/artworks-0QyiVcZsOnVMeHr2-cjRUYA-t500x500_b529ft.jpg",
+    cover:
+      "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868800/my%20portfolio/artworks-0QyiVcZsOnVMeHr2-cjRUYA-t500x500_b529ft.jpg",
     description: "Release date: May 18, 2020",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870479/my%20portfolio/Selena_Gomez_-_Lose_You_To_Love_Me_Ekzetef_Remix_mrnxaw.m4a",
+    audio:
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870479/my%20portfolio/Selena_Gomez_-_Lose_You_To_Love_Me_Ekzetef_Remix_mrnxaw.m4a",
   },
   {
     name: "Ekzetef - Universe",
-    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868803/my%20portfolio/dc4f914e97274e418682d78b1b671100_464_464_kykvv3.jpg",
+    cover:
+      "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868803/my%20portfolio/dc4f914e97274e418682d78b1b671100_464_464_kykvv3.jpg",
     description: "Release date: Apr 6, 2020",
     audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870479/my%20portfolio/Ekzetef_-_Universe_hjincm.m4a",
   },
   {
     name: "Ekzetef - Nefertiti",
-    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868798/my%20portfolio/artworks-3x1xlnpw6w8zJyPx-hhcdRA-t240x240_qmetei.jpg",
+    cover:
+      "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868798/my%20portfolio/artworks-3x1xlnpw6w8zJyPx-hhcdRA-t240x240_qmetei.jpg",
     description: "Release date: Mar 7, 2020",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Nefertiti_jowfbn.m4a",
+    audio:
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870476/my%20portfolio/Ekzetef_-_Nefertiti_jowfbn.m4a",
   },
   {
     name: "Ekzetef - Black Hole",
-    cover: "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868799/my%20portfolio/ab67616d00001e02af14388eeef310bd44ab2553_fjiyvn.jpg",
+    cover:
+      "https://res.cloudinary.com/dwcxwpn7q/image/upload/v1731868799/my%20portfolio/ab67616d00001e02af14388eeef310bd44ab2553_fjiyvn.jpg",
     description: "Release date: Feb 3, 2020",
-    audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870474/my%20portfolio/Ekzetef_-_Black_Hole_wwuy1t.m4a",
+    audio:
+      "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731870474/my%20portfolio/Ekzetef_-_Black_Hole_wwuy1t.m4a",
   },
   {
     name: "Modjo - Lady (Hear Me Tonight)[Ekzetef Remix]",
@@ -94,43 +152,47 @@ const songs = [
     description: "Release date: Jan 7, 2020",
     audio: "https://res.cloudinary.com/dwcxwpn7q/video/upload/v1731867524/my%20portfolio/Lady_master_zvmkog.mp3",
   },
-];
+]
 
 const MyWorks = ({ isMuted, toggleMute }) => {
-  const [selectedWork, setSelectedWork] = useState(null);
-  const [animationState, setAnimationState] = useState("");
-  const [currentAudioIndex, setCurrentAudioIndex] = useState(null); // Track the current audio index
-  const audioRefs = useRef([]);
+  const [selectedWork, setSelectedWork] = useState(null)
+  const [animationState, setAnimationState] = useState("")
+  const [currentAudioIndex, setCurrentAudioIndex] = useState(null) // Track the current audio index
+  const audioRefs = useRef([])
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   const openPopup = (work) => {
-    setSelectedWork(work);
-    setAnimationState("open");
-  };
+    setSelectedWork(work)
+    setAnimationState("open")
+    // Prevent body scroll when popup is open
+    document.body.style.overflow = "hidden"
+  }
 
   const closePopup = () => {
-    setAnimationState("close");
+    setAnimationState("close")
+    // Restore body scroll when popup is closed
+    document.body.style.overflow = "unset"
     setTimeout(() => {
-      setSelectedWork(null);
-    }, 300);
-  };
+      setSelectedWork(null)
+    }, 300)
+  }
 
   const handleAudioPlay = (index) => {
-    const newAudio = audioRefs.current[index];
+    const newAudio = audioRefs.current[index]
     if (newAudio) {
       // Pause any currently playing audio
       audioRefs.current.forEach((audio, i) => {
         if (i !== index && audio) {
-          audio.pause();
+          audio.pause()
         }
-      });
-      setCurrentAudioIndex(index); // Update the currently playing song index
-      newAudio.play();
+      })
+      setCurrentAudioIndex(index) // Update the currently playing song index
+      newAudio.play()
     }
-  };
+  }
 
   return (
     <section className="myWork">
@@ -142,7 +204,7 @@ const MyWorks = ({ isMuted, toggleMute }) => {
       <div className="work-container">
         {works.map((work, index) => (
           <div key={index} className="work-card" onClick={() => openPopup(work)}>
-            <img src={work.image} alt={work.name} className="work-image" />
+            <img src={work.image || "/placeholder.svg"} alt={work.name} className="work-image" />
             <div className="work-details">
               <h2 className="work-title">{work.name}</h2>
             </div>
@@ -154,14 +216,38 @@ const MyWorks = ({ isMuted, toggleMute }) => {
       <div className="music-corner">
         <h2>Welcome to my music corner!</h2>
         <p>
-        I've been producing music under the name "Ekzetef" since 2020, when I first started at the age of 20. Over the years, I’ve developed my skills and passion for making EDM music, with a special focus on genres like dubstep, electronic, trap, and synthwave. These are the sounds I love, and they’ve become my signature style.
-    </p>
-    <p>
-        I began my journey in music production using FL Studio as my Digital Audio Workstation (DAW). Everything I know about FL Studio, I’ve learned through self-study and by watching countless tutorials online. The learning process has been a rewarding challenge, but I’ve come a long way. Along the way, I’ve also picked up skills in mixing and mastering, ensuring my tracks sound polished and professional.
-    </p>
-    <p>
-        Below, you can check out some of my tracks, available for you to listen to. Feel free to explore my full music collection on <a href="https://open.spotify.com/artist/0FYHTOs5JRs91T1kieiYBP" target="_blank" class="link">Spotify</a> and <a href="https://www.youtube.com/channel/UCh2lSlzUxZRu0bvLceDUMow" target="_blank" class="link">YouTube</a>, where you’ll find more of my creations and music projects.
-    </p>
+          I've been producing music under the name "Ekzetef" since 2020, when I first started at the age of 20. Over the
+          years, I've developed my skills and passion for making EDM music, with a special focus on genres like dubstep,
+          electronic, trap, and synthwave. These are the sounds I love, and they've become my signature style.
+        </p>
+        <p>
+          I began my journey in music production using FL Studio as my Digital Audio Workstation (DAW). Everything I
+          know about FL Studio, I've learned through self-study and by watching countless tutorials online. The learning
+          process has been a rewarding challenge, but I've come a long way. Along the way, I've also picked up skills in
+          mixing and mastering, ensuring my tracks sound polished and professional.
+        </p>
+        <p>
+          Below, you can check out some of my tracks, available for you to listen to. Feel free to explore my full music
+          collection on{" "}
+          <a
+            href="https://open.spotify.com/artist/0FYHTOs5JRs91T1kieiYBP"
+            target="_blank"
+            className="link"
+            rel="noreferrer"
+          >
+            Spotify
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.youtube.com/channel/UCh2lSlzUxZRu0bvLceDUMow"
+            target="_blank"
+            className="link"
+            rel="noreferrer"
+          >
+            YouTube
+          </a>
+          , where you'll find more of my creations and music projects.
+        </p>
       </div>
 
       <div className="song-container">
@@ -170,7 +256,7 @@ const MyWorks = ({ isMuted, toggleMute }) => {
             key={index}
             className={`song-card ${currentAudioIndex === index ? "playing" : ""}`} // Apply glowing effect to the currently playing song
           >
-            <img src={song.cover} alt={song.name} className="song-cover" />
+            <img src={song.cover || "/placeholder.svg"} alt={song.name} className="song-cover" />
             <div className="song-details">
               <h2 className="song-title">{song.name}</h2>
               <p className="song-description">{song.description}</p>
@@ -191,29 +277,58 @@ const MyWorks = ({ isMuted, toggleMute }) => {
       {selectedWork && (
         <div className="popup-overlay" onClick={closePopup}>
           <div className={`popup-content ${animationState}`} onClick={(e) => e.stopPropagation()}>
-            <img src={selectedWork.image} alt={selectedWork.name} className="popup-image" />
-            <div className="popup-details">
-              <h2 className="popup-title">{selectedWork.name}</h2>
-              <p className="popup-description">{selectedWork.description}</p>
-              <div className="popup-buttons">
-                {selectedWork.website && (
-                  <a
-                    href={selectedWork.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="popup-website-button"
-                  >
-                    Visit Website
-                  </a>
+            <div className="popup-scroll-container">
+              <img src={selectedWork.image || "/placeholder.svg"} alt={selectedWork.name} className="popup-image" />
+              <div className="popup-details">
+                <h2 className="popup-title">{selectedWork.name}</h2>
+                <p className="popup-description">{selectedWork.description}</p>
+
+                {/* Technologies Section */}
+                {selectedWork.technologies && (
+                  <div className="popup-technologies">
+                    <h3 className="technologies-title">Technologies:</h3>
+                    <div className="technologies-list">
+                      {selectedWork.technologies.map((tech, index) => (
+                        <span key={index} className="technology-tag">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 )}
-                <a
-                  href={selectedWork.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="popup-github-button"
-                >
-                  Visit GitHub
-                </a>
+
+                <div className="popup-buttons">
+                  {selectedWork.website && (
+                    <a
+                      href={selectedWork.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="popup-website-button"
+                    >
+                      Visit Website
+                    </a>
+                  )}
+                  {selectedWork.github && (
+                    <a
+                      href={selectedWork.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="popup-github-button"
+                    >
+                      Visit GitHub
+                    </a>
+                  )}
+                  {selectedWork.figma && (
+                    <a
+                      href={selectedWork.figma}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="popup-figma-button"
+                    >
+                      Visit Figma
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
             <button className="popup-close" onClick={closePopup}>
@@ -223,7 +338,7 @@ const MyWorks = ({ isMuted, toggleMute }) => {
         </div>
       )}
     </section>
-  );
-};
+  )
+}
 
-export default MyWorks;
+export default MyWorks

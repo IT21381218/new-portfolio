@@ -2,7 +2,6 @@ html {
   scroll-behavior: auto !important;
 }
 
-
 /* General Styles */
 .myWork {
   padding: 0;
@@ -19,13 +18,13 @@ html {
 }
 
 .myWork h1 {
-  font-size: 12rem; /* Adjusted for better responsiveness */
+  font-size: 12rem;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: -15px;
 }
 
-.music-corner h2{
+.music-corner h2 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
@@ -43,24 +42,23 @@ html {
 /* Work Cards */
 .work-card {
   cursor: pointer;
-  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);  /* Rich gradient background */
-  border: 2px solid #333; /* Soft border */
-  border-radius: 20px; /* Rounder corners for a modern look */
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f);
+  border: 2px solid #333;
+  border-radius: 20px;
   overflow: hidden;
   width: 300px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  position: relative; /* Allows for decorative elements */
-  padding-bottom: 10px; /* To create space for the line */
+  position: relative;
+  padding-bottom: 10px;
 }
 
 .work-card:hover {
-  transform: translateY(-10px); /* Subtle card lift effect */
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More prominent shadow */
-  background: linear-gradient(145deg, #3b3b3b, #282828); /* Darker hover gradient */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(145deg, #3b3b3b, #282828);
 }
 
-/* Image Zoom and Dim on Hover */
 .work-image {
   width: 100%;
   height: 200px;
@@ -71,11 +69,10 @@ html {
 }
 
 .work-card:hover .work-image {
-  transform: scale(1.05); /* Slight zoom effect */
-  filter: brightness(0.8); /* Dim the image to focus on the content */
+  transform: scale(1.05);
+  filter: brightness(0.8);
 }
 
-/* Work Title */
 .work-title {
   padding: 10px;
   top: 10px;
@@ -83,7 +80,6 @@ html {
   color: #ffffff;
 }
 
-/* Enhanced Line Effect under the card */
 .work-card::after {
   content: "";
   position: absolute;
@@ -91,14 +87,14 @@ html {
   left: 0;
   width: 0;
   height: 4px;
-  background: linear-gradient(90deg, #00ffff, #04d67f); /* Gradient line with warm colors */
+  background: linear-gradient(90deg, #00ffff, #04d67f);
   transition: width 0.5s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 10px rgb(0, 119, 255); /* Subtle glow effect */
+  box-shadow: 0 0 10px rgb(0, 119, 255);
 }
 
 .work-card:hover::after {
-  width: 100%; /* Expands the line on hover */
-  box-shadow: 0 0 20px rgb(0, 255, 170), 0 0 25px rgb(1, 238, 255); /* Glow intensifies on hover */
+  width: 100%;
+  box-shadow: 0 0 20px rgb(0, 255, 170), 0 0 25px rgb(1, 238, 255);
 }
 
 /* Popup Styles */
@@ -113,23 +109,52 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .popup-content {
   background-color: #1e1e1e;
-  display: flex;
   border-radius: 10px;
-  overflow: hidden;
-  max-width: 80%;
-  max-height: 80%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: popup-open 0.3s ease forwards;
+  max-width: 90%;
+  max-height: 90%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.popup-scroll-container {
+  display: flex;
+  max-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for Popup */
+.popup-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-scroll-container::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 4px;
+}
+
+.popup-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00ffff, #04d67f);
+  border-radius: 4px;
+}
+
+.popup-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #04d67f, #00ffff);
 }
 
 .popup-image {
   width: 50%;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .popup-details {
@@ -139,6 +164,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
+  min-height: 100%;
 }
 
 .popup-title {
@@ -151,17 +177,54 @@ html {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Technologies Section */
+.popup-technologies {
+  margin-bottom: 20px;
+}
+
+.technologies-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.technologies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.technology-tag {
+  background: linear-gradient(135deg, #00ffff, #04d67f);
+  color: #000000;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: box-shadow 0.3s ease;
+}
+
+.technology-tag:hover {
+  box-shadow: 0px 0px 10px rgb(0, 255, 255);
 }
 
 .popup-buttons {
   display: flex;
-  justify-content: center; /* Align buttons horizontally */
-  gap: 20px; /* Adds a gap between the buttons */
-  margin-top: 20px; /* Optional: Adds space above the buttons */
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
-
-.popup-website-button {
+.popup-website-button,
+.popup-github-button,
+.popup-figma-button {
   padding: 10px 20px;
   background-color: #ffffff;
   color: #000000;
@@ -169,25 +232,16 @@ html {
   border-radius: 10px;
   text-align: center;
   transition: background-color 0.3s ease;
+  flex: 1;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.popup-website-button:hover {
-  background-color: #414141;
-  color: rgb(255, 255, 255);
-}
-
-
-.popup-github-button {
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #000000;
-  text-decoration: none;
-  border-radius: 10px;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
-
-.popup-github-button:hover {
+.popup-website-button:hover,
+.popup-github-button:hover,
+.popup-figma-button:hover {
   background-color: #414141;
   color: rgb(255, 255, 255);
 }
@@ -202,6 +256,7 @@ html {
   font-size: 2rem;
   cursor: pointer;
   font-weight: bold;
+  z-index: 10;
 }
 
 /* Popup Animation */
@@ -253,13 +308,13 @@ html {
 }
 
 .link {
-  color: #1DB954;  /* Spotify green */
+  color: #1db954;
   text-decoration: none;
   font-weight: bold;
 }
 
 .link:hover {
-  color: #00ff59;  /* Hover effect for links */
+  color: #00ff59;
   text-decoration: none;
 }
 
@@ -314,126 +369,226 @@ html {
   outline: none;
 }
 
-/* Highlight currently playing song card */
 .song-card.playing {
-  border: 2px solid #00e1ff; /* Glowing border color */
-  box-shadow: 0 0 15px #00ffd5, 0 0 20px #0004ff; /* Glow effect */
+  border: 2px solid #00e1ff;
+  box-shadow: 0 0 15px #00ffd5, 0 0 20px #0004ff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
-
-
 /* Mobile Responsive Adjustments */
 
-/* For devices smaller than 1200px (large tablets and small desktops) */
+/* For devices smaller than 1200px (iPad Air, Asus Zenbook Fold, Surface Hub) */
 @media (max-width: 1200px) {
   .myWork h1 {
-    font-size: calc(7rem); /* Adjusted size for large screens */
+    font-size: 8rem;
   }
 
-  .music-corner h2{
-    font-size: 3rem;
+  .music-corner h2 {
+    font-size: 2.5rem;
     margin-bottom: 20px;
   }
 
   .work-card {
-    width: 280px; /* Slightly smaller card width */
+    width: 280px;
   }
-  
+
   .song-card {
-    width: 280px; /* Slightly smaller song card width */
+    width: 280px;
   }
 
   .music-corner h1 {
-    font-size: 2.2em; /* Slightly smaller heading */
+    font-size: 2.2em;
+  }
+
+  .popup-content {
+    max-width: 95%;
+    max-height: 85%;
+  }
+
+  .popup-scroll-container {
+    max-height: 75vh;
   }
 }
 
-/* For devices smaller than 768px */
+/* For devices smaller than 768px (iPad Mini) */
 @media (max-width: 768px) {
   .myWork h1 {
-    font-size: calc(7rem); /* Adjusted for smaller screens */
+    font-size: 6rem;
   }
 
-  .music-corner h2{
+  .music-corner h2 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
 
+  .popup-overlay {
+    padding: 10px;
+  }
+
   .popup-content {
+    max-width: 100%;
+    max-height: 95%;
+  }
+
+  .popup-scroll-container {
     flex-direction: column;
-    width: 90%;
-    height: auto;
+    max-height: 85vh;
   }
 
   .popup-image {
     width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .popup-details {
+    padding: 20px;
+    width: 100%;
+  }
+
+  .popup-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .popup-description {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .technologies-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .technology-tag {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .popup-buttons {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .popup-website-button,
+  .popup-github-button,
+  .popup-figma-button {
+    max-width: none;
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .popup-close {
+    font-size: 1.8rem;
+    top: 15px;
+    right: 15px;
+  }
+
+  .work-card {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .song-card {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/* For devices smaller than 480px (Samsung Galaxy S8, iPhone SE) */
+@media (max-width: 480px) {
+  .myWork h1 {
+    font-size: 4rem;
+  }
+
+  .music-corner h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .music-corner {
+    padding: 0 20px;
+  }
+
+  .popup-overlay {
+    padding: 5px;
+  }
+
+  .popup-content {
+    max-width: 100%;
+    max-height: 98%;
+    border-radius: 8px;
+  }
+
+  .popup-scroll-container {
+    max-height: 90vh;
+  }
+
+  .popup-image {
     height: 200px;
   }
 
   .popup-details {
     padding: 15px;
-    width: 100%;
   }
 
   .popup-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
   }
 
   .popup-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .technologies-title {
     font-size: 1rem;
+    margin-bottom: 6px;
   }
 
-  .popup-github-button {
-    padding: 8px 16px;
+  .technology-tag {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .popup-buttons {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .popup-website-button,
+  .popup-github-button,
+  .popup-figma-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 
   .popup-close {
     font-size: 1.5rem;
-  }
-}
-
-/* For devices smaller than 480px */
-@media (max-width: 480px) {
-  .myWork h1 {
-    font-size: calc(3.5rem); /* Make the font smaller on very small screens */
-  }
-
-  .music-corner h2{
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .popup-content {
-    width: 95%;
-  }
-
-  .popup-title {
-    font-size: 1.2rem;
-  }
-
-  .popup-description {
-    font-size: 0.9rem;
-  }
-
-  .popup-github-button {
-    font-size: 0.9rem;
-  }
-
-  .popup-close {
-    font-size: 1.2rem;
+    top: 10px;
+    right: 10px;
   }
 
   .work-card {
-    width: 90%; /* Make the work cards take up more space */
+    width: 95%;
+    max-width: 320px;
   }
 
   .song-card {
-    width: 90%; /* Adjust song cards to fit better */
+    width: 95%;
+    max-width: 320px;
   }
 
   .music-corner h1 {
-    font-size: 2em;
+    font-size: 1.8em;
+  }
+
+  .music-corner p {
+    font-size: 1em;
   }
 }

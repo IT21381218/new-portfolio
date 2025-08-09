@@ -24,7 +24,7 @@ h1{
   src: url(../public/CreatoDisplay-Regular.otf);
 }
 
-p,h2{
+p,h2,h3,span{
   font-family:sub;
   letter-spacing: 1px;
 }
